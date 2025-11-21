@@ -1,57 +1,100 @@
-/* ===== Configuración General ===== */
+/* ===================================
+   VARIABLES SPARKFI
+=================================== */
+:root {
+  --sf-green: #22d74f;
+  --sf-green-soft: #00d369;
+
+  --sf-blue: #006af8;
+  --sf-blue-strong: #0a3dfe;
+  --sf-yellow: #ffd838;
+
+  --sf-bg: #f7f9ff;
+  --sf-surface: #ffffff;
+  --sf-border: #e4e7f2;
+
+  --sf-text-main: #181f34;
+  --sf-text-muted: #3c4a5f;
+  --sf-text-soft: #5a626e;
+}
+
+/* ===================================
+   CONFIGURACIÓN GENERAL (WEB)
+=================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: "Inter", sans-serif;
-  background-color: #f9f9f9;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  margin: 0;
-  padding: 40px 0;
+  background-color: var(--sf-bg);
+  color: var(--sf-text-main);
 }
 
-/* ===== Contenedor Principal ===== */
+/* Contenedor principal tipo página web */
 .settings-container {
-  background-color: white;
-  width: 400px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  padding: 32px;
+  background-color: var(--sf-surface);
+  width: calc(100% - 80px); /* 40px de margen a cada lado */
+  max-width: 1200px;
+  margin: 40px auto;
+  border-radius: 24px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  padding: 32px 40px 40px;
+  border: 1px solid var(--sf-border);
 }
 
-/* ===== Header ===== */
+/* ===================================
+   HEADER
+=================================== */
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 10px;
 }
 
 .logo {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #111;
   display: flex;
   align-items: center;
-  gap: 4px; /* pequeño espacio entre el rayo y el texto */
+  gap: 8px;
 }
 
-/* Cambiar el color del rayo ⚡ */
-.icon {
-  color: #22c55e; /* verde brillante */
+.logo-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--sf-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--sf-text-main);
 }
 
 .profile-img {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-/* ===== Contenido Principal ===== */
+/* ===================================
+   CONTENIDO PRINCIPAL
+=================================== */
 .settings-content h2 {
-  font-size: 1.8rem;
+  font-size: 26px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .settings-content section {
@@ -59,39 +102,55 @@ body {
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 12px;
-  color: #111;
+  color: var(--sf-text-main);
 }
 
-/* ===== Inputs de Contraseña ===== */
+/* ===================================
+   INPUTS DE CONTRASEÑA
+=================================== */
 .password-section input {
   display: block;
   width: 100%;
-  padding: 12px;
+  padding: 12px 14px;
   margin-bottom: 10px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
+  border: 1px solid var(--sf-border);
+  border-radius: 10px;
   font-size: 0.95rem;
+  color: var(--sf-text-main);
+}
+
+.password-section input::placeholder {
+  color: var(--sf-text-soft);
 }
 
 .password-section input:focus {
   outline: none;
-  border-color: #4ade80; /* verde suave */
-  box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
+  border-color: var(--sf-green);
+  box-shadow: 0 0 0 2px rgba(34, 215, 79, 0.2);
 }
 
-/* ===== Notificaciones ===== */
+/* ===================================
+   NOTIFICACIONES
+=================================== */
+.notifications-section {
+  margin-top: 10px;
+}
+
 .notification-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 0;
   font-size: 0.95rem;
+  color: var(--sf-text-muted);
 }
 
-/* ===== Switch (botones verdes) ===== */
+/* ===================================
+   SWITCH
+=================================== */
 .switch {
   position: relative;
   display: inline-block;
@@ -108,43 +167,61 @@ h3 {
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
+  inset: 0;
+  background-color: #cccccc;
+  transition: 0.3s;
   border-radius: 24px;
 }
 
-.slider:before {
+.slider::before {
   position: absolute;
   content: "";
   height: 18px;
   width: 18px;
   left: 3px;
   bottom: 3px;
-  background-color: white;
-  transition: 0.4s;
+  background-color: #ffffff;
+  transition: 0.3s;
   border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #22c55e;
+  background-color: var(--sf-green);
 }
 
-input:checked + .slider:before {
+input:checked + .slider::before {
   transform: translateX(20px);
 }
 
-/* ===== Secciones Finales ===== */
+/* ===================================
+   SECCIONES FINALES
+=================================== */
 .privacy-section,
 .logout-section {
-  border-top: 1px solid #eee;
-  padding-top: 12px;
+  border-top: 1px solid var(--sf-border);
+  padding-top: 14px;
+}
+
+.privacy-section h3 {
+  color: var(--sf-text-muted);
 }
 
 .logout-section h3 {
-  color: #111;
+  color: var(--sf-blue);
   cursor: pointer;
+  font-weight: 600;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+  .settings-container {
+    margin: 20px;
+    padding: 24px 20px 28px;
+  }
+
+  .settings-content h2 {
+    font-size: 22px;
+  }
 }

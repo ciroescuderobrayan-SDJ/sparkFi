@@ -4,10 +4,9 @@
     <meta charset="UTF-8" />
     <title>Perfil SparkFi</title>
 
-    <!-- 👇 ESTE ES EL LINK QUE IMPORTA -->
-    <link rel="stylesheet" href="../css/07-profile.css" />
+    <link rel="stylesheet" href="/src/css/07-profile.css" />
 
-    <!-- Fuente Inter (opcional) -->
+    <!-- Fuente Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,95 +14,82 @@
       rel="stylesheet"
     />
   </head>
+
   <body>
-    <div class="app-container">
-      <!-- BARRA SUPERIOR -->
-      <header class="topbar">
-        <div class="logo">
-          <div class="logo-icon">⚡</div>
-          <span class="logo-text">SparkFi</span>
+    <header class="topbar">
+      <div class="logo">
+        <div class="logo-icon">⚡</div>
+        <span class="logo-text">SparkFi</span>
+      </div>
+
+      <nav class="nav">
+        <a href="#" class="nav-link active">Inicio</a>
+        <a href="#" class="nav-link">Cursos</a>
+        <a href="#" class="nav-link">Retos</a>
+        <a href="#" class="nav-link">Comunidad</a>
+      </nav>
+
+      <div class="profile-mini">
+        <img src="https://i.pravatar.cc/50" alt="perfil" />
+      </div>
+    </header>
+
+    <main class="profile-layout">
+      <!-- Tarjeta lateral -->
+      <aside class="profile-card">
+        <div class="avatar-circle">
+          <img
+            src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+            alt="Foto de perfil"
+          />
         </div>
 
-        <nav class="nav">
-          <a href="#" class="nav-link active">Inicio</a>
-          <a href="#" class="nav-link">Cursos</a>
-          <a href="#" class="nav-link">Retos</a>
-          <a href="#" class="nav-link">Comunidad</a>
-        </nav>
+        <h1 class="profile-name">Juan Pérez</h1>
+        <p class="profile-email">juan.perez@example.com</p>
 
-        <div class="side-text">Do</div>
-      </header>
+        <span class="level-pill">Nivel 3</span>
 
-      <!-- TARJETA DE PERFIL -->
-      <main class="profile-card">
-        <!-- Avatar, nombre, correo, nivel -->
-        <section class="profile-header">
-          <div class="avatar-circle">
-            <!-- Puedes cambiar la ruta de la imagen por la tuya -->
-            <img
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
-              alt="Foto de perfil"
-            />
-          </div>
-
-          <h1 class="profile-name">Juan Pérez</h1>
-          <p class="profile-email">juan.perez@example.com</p>
-
-          <span class="level-pill">Nivel 3</span>
-        </section>
-
-        <!-- Resumen: cursos, retos, ahorro -->
         <section class="summary">
           <div class="summary-item">
             <span class="summary-number">4</span>
-            <span class="summary-label">
-              Cursos<br />
-              completados
-            </span>
+            <span class="summary-label">Cursos<br />completados</span>
           </div>
 
           <div class="summary-item">
-            <span class="summary-number summary-number-icon"> ⦿ </span>
-            <span class="summary-label">
-              Retos<br />
-              ganados
-            </span>
+            <span class="summary-number summary-number-icon">⦿</span>
+            <span class="summary-label">Retos<br />ganados</span>
           </div>
 
           <div class="summary-item">
-            <span class="summary-number">$ 900,000</span>
-            <span class="summary-label">
-              Ahorro<br />
-              acumulado
-            </span>
+            <span class="summary-number">$900,000</span>
+            <span class="summary-label">Ahorro<br />acumulado</span>
           </div>
         </section>
 
-        <!-- Mis logros -->
-        <section class="achievements">
-          <h2 class="section-title">Mis logros</h2>
-
-          <div class="achievements-grid">
-            <article class="achievement-card">
-              <div class="achievement-icon blue">★</div>
-              <p class="achievement-text">Sobre la<br />marcha</p>
-            </article>
-
-            <article class="achievement-card">
-              <div class="achievement-icon green">✓</div>
-              <p class="achievement-text">Gran<br />ahorrador</p>
-            </article>
-
-            <article class="achievement-card">
-              <div class="achievement-icon yellow">🏆</div>
-              <p class="achievement-text">Primer lugar</p>
-            </article>
-          </div>
-        </section>
-
-        <!-- Cerrar sesión -->
         <button class="logout-btn">Cerrar sesión</button>
-      </main>
-    </div>
+      </aside>
+
+      <!-- Contenido principal -->
+      <section class="achievements-section">
+        <h2 class="section-title">Mis logros</h2>
+
+        <div class="achievements-grid">
+          <article class="achievement-card">
+            <div class="achievement-icon blue">★</div>
+            <p class="achievement-text">Sobre la marcha</p>
+          </article>
+
+          <article class="achievement-card">
+            <div class="achievement-icon green">✓</div>
+            <p class="achievement-text">Gran ahorrador</p>
+          </article>
+
+          <article class="achievement-card">
+            <div class="achievement-icon yellow">🏆</div>
+            <p class="achievement-text">Primer lugar</p>
+          </article>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

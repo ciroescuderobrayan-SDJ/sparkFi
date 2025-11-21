@@ -1,103 +1,129 @@
-/* ========== Configuración general ========== */
+/* =============================
+   VARIABLES SPARKFI
+============================= */
+:root {
+  --sf-green: #22d74f;
+  --sf-green-soft: #00d369;
+
+  --sf-blue: #006af8;
+  --sf-blue-strong: #0a3dfe;
+  --sf-yellow: #ffd838;
+
+  --sf-bg: #f7f9ff;
+  --sf-surface: #ffffff;
+  --sf-border: #e4e7f2;
+
+  --sf-text-main: #181f34;
+  --sf-text-muted: #3c4a5f;
+  --sf-text-soft: #5a626e;
+}
+
+/* =============================
+   GENERAL
+============================= */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #f5f5f7;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  padding: 40px 16px;
+  background: var(--sf-bg);
+  font-family: "Inter", sans-serif;
+  color: var(--sf-text-main);
+  padding-bottom: 60px;
 }
 
-/* Contenedor principal (tarjeta grande) */
-.app-container {
-  background-color: #ffffff;
-  width: 100%;
-  max-width: 480px;
-  border-radius: 24px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-  padding: 24px 24px 32px;
-}
-
-/* ========== Barra superior ========== */
+/* =============================
+   TOPBAR
+============================= */
 .topbar {
+  background: var(--sf-surface);
+  border-bottom: 1px solid var(--sf-border);
+  height: 70px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 32px;
+
+  padding: 0 40px;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .logo-icon {
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  background-color: #00c853;   /* verde brillante */
+  width: 32px;
+  height: 32px;
+  background: var(--sf-green);
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  color: #ffffff;
 }
 
 .logo-text {
+  font-size: 20px;
   font-weight: 700;
-  font-size: 18px;
-  color: #111827;
 }
 
 .nav {
   display: flex;
-  gap: 16px;
+  gap: 26px;
 }
 
 .nav-link {
-  font-size: 13px;
   text-decoration: none;
-  color: #6b7280;
+  font-weight: 500;
+  color: var(--sf-text-soft);
+  font-size: 15px;
 }
 
 .nav-link.active {
-  color: #111827;
-  font-weight: 600;
+  color: var(--sf-blue);
 }
 
-.side-text {
-  font-size: 13px;
-  letter-spacing: 0.15em;
-  writing-mode: vertical-rl;
+.profile-mini img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-/* ========== Cabecera del perfil ========== */
+/* =============================
+   LAYOUT (DESKTOP)
+============================= */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =============================
+   PROFILE CARD (SIDEBAR)
+============================= */
 .profile-card {
+  background: var(--sf-surface);
+  border: 1px solid var(--sf-border);
+  border-radius: 20px;
+  padding: 30px;
   text-align: center;
 }
 
-.profile-header {
-  margin-bottom: 28px;
-}
-
 .avatar-circle {
-  width: 140px;
-  height: 140px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
-  background-color: #e6f3ff;
-  margin: 0 auto 18px;
   overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin: auto;
 }
 
 .avatar-circle img {
@@ -107,150 +133,129 @@ body {
 }
 
 .profile-name {
-  font-size: 28px;
+  margin-top: 15px;
+  font-size: 26px;
   font-weight: 700;
-  color: #111827;
-  margin-bottom: 4px;
 }
 
 .profile-email {
+  color: var(--sf-text-muted);
   font-size: 14px;
-  color: #6b7280;
   margin-bottom: 10px;
 }
 
 .level-pill {
   display: inline-block;
-  padding: 4px 14px;
+  background: #eef2ff;
+  color: var(--sf-blue-strong);
+  padding: 6px 14px;
   border-radius: 999px;
-  background-color: #eef2ff;
-  font-size: 12px;
-  font-weight: 500;
-  color: #4f46e5;
+  font-weight: 600;
+  font-size: 13px;
+  margin-top: 5px;
 }
 
-/* ========== Resumen (cursos, retos, ahorro) ========== */
+/* =============================
+   SUMMARY BOX
+============================= */
 .summary {
   display: flex;
-  background-color: #fafafa;
-  border-radius: 20px;
-  border: 1px solid #e5e7eb;
-  padding: 18px 12px;
-  margin-bottom: 32px;
+  justify-content: space-between;
+  margin-top: 22px;
+  padding: 16px;
+  background: var(--sf-bg);
+  border: 1px solid var(--sf-border);
+  border-radius: 14px;
 }
 
 .summary-item {
-  flex: 1;
   text-align: center;
-  padding: 0 8px;
+  flex: 1;
 }
 
 .summary-item:not(:last-child) {
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid var(--sf-border);
 }
 
 .summary-number {
-  display: block;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
-  color: #111827;
-  margin-bottom: 4px;
-}
-
-/* solo para imitar el ícono de “retos” */
-.summary-number-icon {
-  font-size: 22px;
+  color: var(--sf-blue-strong);
 }
 
 .summary-label {
-  font-size: 13px;
-  color: #6b7280;
-  line-height: 1.3;
+  color: var(--sf-text-soft);
+  font-size: 12px;
 }
 
-/* ========== Mis logros ========== */
-.achievements {
-  text-align: left;
+/* =============================
+   LOGROS (MAIN PANEL)
+============================= */
+.achievements-section {
+  background: var(--sf-surface);
+  border-radius: 20px;
+  border: 1px solid var(--sf-border);
+  padding: 30px;
 }
 
 .section-title {
-  text-align: center;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 18px;
-  color: #111827;
+  margin-bottom: 20px;
 }
 
 .achievements-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+  gap: 22px;
 }
 
 .achievement-card {
-  background-color: #f9fafb;
+  background: var(--sf-bg);
+  border: 1px solid var(--sf-border);
   border-radius: 18px;
-  padding: 14px 6px 16px;
+  padding: 20px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
 }
 
 .achievement-icon {
-  width: 54px;
-  height: 54px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  color: #ffffff;
+  margin: auto;
+  color: white;
+  margin-bottom: 10px;
 }
 
-/* Colores de cada logro */
 .achievement-icon.blue {
-  background-color: #2563eb;
+  background: var(--sf-blue);
 }
 
 .achievement-icon.green {
-  background-color: #22c55e;
+  background: var(--sf-green);
 }
 
 .achievement-icon.yellow {
-  background-color: #eab308;
+  background: var(--sf-yellow);
 }
 
 .achievement-text {
-  font-size: 13px;
-  color: #111827;
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-/* ========== Botón cerrar sesión ========== */
-.logout-btn {
-  margin-top: 28px;
-  border: none;
-  background: none;
-  color: #2563eb;
+  font-weight: 600;
   font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
+  color: var(--sf-text-main);
 }
 
-/* ========== Responsive pequeño ========== */
-@media (max-width: 420px) {
-  .nav {
-    gap: 10px;
-  }
-
-  .nav-link {
-    font-size: 12px;
-  }
-
-  .section-title {
-    font-size: 20px;
-  }
+/* Botón cerrar sesión */
+.logout-btn {
+  margin-top: 30px;
+  color: var(--sf-blue);
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 600;
 }
