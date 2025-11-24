@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cursos - SparkFi</title>
+
+    <!-- Tipografía Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/04-courses.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- BARRA SUPERIOR -->
+      <header class="topbar">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">SparkFi</span>
+        </div>
+
+        <nav class="nav">
+          <a href="03-home.html" class="nav-link">Inicio</a>
+          <a href="#" class="nav-link active">Cursos</a>
+          <a href="#" class="nav-link">Retos</a>
+          <a href="#" class="nav-link">Comunidad</a>
+          <a href="#" class="nav-link">Perfil</a>
+        </nav>
+
+        <div class="avatar-mini">
+          <span class="avatar-circle">Juan</span>
+        </div>
+      </header>
+
+      <!-- LAYOUT PRINCIPAL -->
+      <main class="courses-layout">
+        <!-- SIDEBAR IZQUIERDA -->
+        <aside class="sidebar">
+          <h2 class="sidebar-title">Cursos</h2>
+
+          <button class="sidebar-item active">Ahorro</button>
+          <button class="sidebar-item">Inversión</button>
+          <button class="sidebar-item">Presupuesto</button>
+        </aside>
+
+        <!-- CONTENIDO DERECHA -->
+        <section class="courses-main">
+          <!-- Encabezado y breadcrumb -->
+          <header class="courses-header">
+            <h1 class="page-title">Vista de lección</h1>
+
+            <div class="breadcrumb-bar">
+              <span class="breadcrumb-text">
+                Cursos &gt; Introducción al ahorro &gt; Lección 1
+              </span>
+              <span class="breadcrumb-arrow">›</span>
+            </div>
+          </header>
+
+          <!-- LISTA DE CURSOS -->
+          <section class="course-list">
+            <!-- Curso 1 -->
+            <article class="course-card">
+              <div class="course-left">
+                <div class="course-icon course-icon-green">🐷</div>
+
+                <div class="course-info">
+                  <h2 class="course-title">Introducción al ahorro</h2>
+                  <p class="course-progress-text">
+                    <span class="highlight">65%</span> · En curso
+                  </p>
+
+                  <div class="progress-track">
+                    <div class="progress-fill progress-65"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-secondary">Continuar</button>
+            </article>
+
+            <!-- Curso 2 -->
+            <article class="course-card">
+              <div class="course-left">
+                <div class="course-icon course-icon-yellow">🧮</div>
+
+                <div class="course-info">
+                  <h2 class="course-title">Presupuesto básico</h2>
+                  <p class="course-progress-text">20%</p>
+
+                  <div class="progress-track">
+                    <div class="progress-fill progress-20"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-secondary">Continuar</button>
+            </article>
+
+            <!-- Curso 3 -->
+            <article class="course-card">
+              <div class="course-left">
+                <div class="course-icon course-icon-lightgreen">📈</div>
+
+                <div class="course-info">
+                  <h2 class="course-title">Fundamentos de inversión</h2>
+                  <p class="course-progress-text">0%</p>
+
+                  <div class="progress-track">
+                    <div class="progress-fill progress-0"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-secondary btn-secondary-outline">
+                Empezar
+              </button>
+            </article>
+
+            <!-- Curso 4 -->
+            <article class="course-card">
+              <div class="course-left">
+                <div class="course-icon course-icon-blue">🎯</div>
+
+                <div class="course-info">
+                  <h2 class="course-title">Metas SMART</h2>
+                  <p class="course-progress-text">0%</p>
+
+                  <div class="progress-track">
+                    <div class="progress-fill progress-0"></div>
+                  </div>
+                </div>
+              </div>
+
+              <button class="btn-secondary btn-secondary-outline">
+                Empezar
+              </button>
+            </article>
+          </section>
+
+          <!-- VISTA DE LECCIÓN -->
+          <section class="lesson-section">
+            <h2 class="section-title">Vista de lección</h2>
+
+            <!-- Barra azul arriba -->
+            <div class="lesson-progress-bar">
+              <div class="lesson-progress-fill"></div>
+            </div>
+
+            <div class="lesson-card">
+              <div class="lesson-text">
+                <p class="lesson-percentage">65% completado</p>
+                <ul class="lesson-list">
+                  <li>Reducir gastos en entretenimiento</li>
+                  <li>Guardar incremento salarial</li>
+                </ul>
+              </div>
+
+              <div class="lesson-video">
+                <span class="play-icon">▶</span>
+              </div>
+            </div>
+
+            <button class="btn-primary">Marcar como completado</button>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

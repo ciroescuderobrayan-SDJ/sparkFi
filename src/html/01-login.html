@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iniciar sesión - SparkFi</title>
+
+    <!-- Fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/01-login.css" />
+  </head>
+  <body>
+    <div class="auth-page">
+      <div class="auth-card">
+        <!-- Logo -->
+        <header class="auth-header">
+          <div class="brand">
+            <span class="brand-icon">⚡</span>
+            <span class="brand-text">SparkFi</span>
+          </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="auth-content">
+          <h1 class="auth-title">Iniciar sesión</h1>
+
+          <form class="auth-form">
+            <label class="field-label" for="email">Correo electrónico</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="juan@example.com"
+              class="field-input"
+            />
+
+            <label class="field-label" for="password">Contraseña</label>
+            <input
+              id="password"
+              type="password"
+              placeholder="•••••••"
+              class="field-input"
+            />
+
+            <button type="submit" class="btn-primary">Iniciar sesión</button>
+          </form>
+
+          <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+
+          <div class="divider"></div>
+
+          <p class="signup-text">
+            ¿No tienes cuenta?
+            <a href="#" class="link-signup">Crear cuenta</a>
+          </p>
+        </main>
+
+        <!-- Candado de seguridad (decorativo) -->
+        <div class="security-badge">
+          <div class="security-lock-top"></div>
+          <div class="security-lock-body">
+            <span class="security-icon">📈</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

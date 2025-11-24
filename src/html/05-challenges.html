@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retos financieros - SparkFi</title>
+
+    <!-- Tipografía Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/05-challenges.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- BARRA SUPERIOR -->
+      <header class="topbar">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">SparkFi</span>
+        </div>
+
+        <nav class="nav">
+          <a href="03-home.html" class="nav-link">Inicio</a>
+          <a href="04-cursos.html" class="nav-link">Cursos</a>
+          <a href="#" class="nav-link active">Retos</a>
+          <a href="#" class="nav-link">Comunidad</a>
+          <a href="#" class="nav-link">Perfil</a>
+        </nav>
+
+        <div class="avatar-mini">
+          <span class="avatar-circle">👤</span>
+        </div>
+      </header>
+
+      <!-- CONTENEDOR PRINCIPAL -->
+      <main class="card">
+        <header class="card-header">
+          <h1 class="title">Retos financieros</h1>
+          <p class="subtitle">Hola, Juan! 👋</p>
+        </header>
+
+        <!-- RETO PRINCIPAL -->
+        <section class="challenge">
+          <h2 class="challenge-title">Ahorra $50.000 esta semana</h2>
+
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 50%"></div>
+          </div>
+
+          <p class="progress-text">Progreso: $25.000 / $50.000</p>
+        </section>
+
+        <!-- PRESUPUESTO -->
+        <section class="budget">
+          <h2 class="budget-title">Haz tu primer presupuesto mensual</h2>
+
+          <div class="budget-status">
+            <div class="check-icon">
+              <!-- check SVG -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="11" fill="none" />
+                <path
+                  d="M7 12.5l3 3.5 7-8"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="2.4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <span class="budget-text">¡Presupuesto completado!</span>
+          </div>
+        </section>
+
+        <!-- LOGROS -->
+        <section class="achievements">
+          <h2 class="section-title">Mis logros</h2>
+
+          <div class="achievements-row">
+            <!-- Logro activo -->
+            <article class="achievement achievement-active">
+              <div class="achievement-icon">
+                <!-- Medalla SVG -->
+                <svg viewBox="0 0 80 80" aria-hidden="true">
+                  <!-- círculo exterior -->
+                  <circle
+                    cx="40"
+                    cy="40"
+                    r="32"
+                    fill="#f9fafb"
+                    stroke="#e5e7eb"
+                  />
+                  <!-- cinta verde -->
+                  <path d="M30 20h20l-4 18h-12z" fill="#16a34a" />
+                  <!-- medalla oro -->
+                  <circle cx="40" cy="45" r="14" fill="#facc15" />
+                  <circle cx="40" cy="45" r="9" fill="#f97316" />
+                </svg>
+              </div>
+              <p class="achievement-label">Ahorrísta semanal</p>
+            </article>
+
+            <!-- Logro inactivo 1 -->
+            <article class="achievement achievement-inactive">
+              <div class="achievement-icon">
+                <!-- Estrella SVG -->
+                <svg viewBox="0 0 80 80" aria-hidden="true">
+                  <circle
+                    cx="40"
+                    cy="40"
+                    r="32"
+                    fill="#ffffff"
+                    stroke="#e5e7eb"
+                  />
+                  <path
+                    d="M40 22l5.9 11.9 13.1 1.9-9.5 9.3 2.2 13-11.7-6.1-11.7 6.1 2.2-13-9.5-9.3 13.1-1.9z"
+                    fill="none"
+                    stroke="#d1d5db"
+                    stroke-width="2.5"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+              <p class="achievement-label achievement-label-muted">
+                Sin obtener
+              </p>
+            </article>
+
+            <!-- Logro inactivo 2 -->
+            <article class="achievement achievement-inactive">
+              <div class="achievement-icon">
+                <!-- Diana / Target SVG -->
+                <svg viewBox="0 0 80 80" aria-hidden="true">
+                  <circle
+                    cx="40"
+                    cy="40"
+                    r="32"
+                    fill="#ffffff"
+                    stroke="#e5e7eb"
+                  />
+                  <circle
+                    cx="40"
+                    cy="40"
+                    r="16"
+                    fill="none"
+                    stroke="#d1d5db"
+                    stroke-width="2.5"
+                  />
+                  <circle
+                    cx="40"
+                    cy="40"
+                    r="8"
+                    fill="none"
+                    stroke="#d1d5db"
+                    stroke-width="2.5"
+                  />
+                  <!-- flecha simple -->
+                  <path
+                    d="M40 32l10-10"
+                    fill="none"
+                    stroke="#d1d5db"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                  <path
+                    d="M50 20l0 6-6 0"
+                    fill="none"
+                    stroke="#d1d5db"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+              <p class="achievement-label achievement-label-muted">
+                Sin obtener
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

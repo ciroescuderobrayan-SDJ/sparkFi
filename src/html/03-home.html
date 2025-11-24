@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio - SparkFi</title>
+
+    <!-- Tipografía Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/03-home.css" />
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- BARRA SUPERIOR -->
+      <header class="topbar">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">SparkFi</span>
+        </div>
+
+        <nav class="nav">
+          <a href="#" class="nav-link active">Inicio</a>
+          <a href="#" class="nav-link">Cursos</a>
+          <a href="#" class="nav-link">Retos</a>
+          <a href="#" class="nav-link">Comunidad</a>
+          <a href="#" class="nav-link">Perfil</a>
+        </nav>
+
+        <div class="avatar-mini">
+          <span class="avatar-circle">👤</span>
+        </div>
+      </header>
+
+      <!-- CONTENIDO PRINCIPAL -->
+      <main class="dashboard">
+        <section class="hero">
+          <h1 class="hero-title">
+            Bienvenido, Juan <span class="wave">👋</span>
+          </h1>
+
+          <!-- TARJETA DEL GRÁFICO: SVG -->
+          <div class="chart-card">
+            <svg
+              class="chart-svg"
+              viewBox="0 0 600 260"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <!-- Fondo -->
+              <rect
+                x="0"
+                y="0"
+                width="600"
+                height="260"
+                rx="26"
+                fill="#eef3ff"
+              />
+
+              <!-- Líneas horizontales suaves -->
+              <line
+                x1="70"
+                y1="70"
+                x2="550"
+                y2="70"
+                stroke="#d4ddff"
+                stroke-width="1"
+              />
+              <line
+                x1="70"
+                y1="120"
+                x2="550"
+                y2="120"
+                stroke="#d4ddff"
+                stroke-width="1"
+              />
+              <line
+                x1="70"
+                y1="170"
+                x2="550"
+                y2="170"
+                stroke="#d4ddff"
+                stroke-width="1"
+              />
+
+              <!-- Etiquetas COP -->
+              <text
+                x="30"
+                y="175"
+                font-size="10"
+                fill="#5a626e"
+                font-family="Inter, system-ui"
+              >
+                COP 200
+              </text>
+              <text
+                x="30"
+                y="125"
+                font-size="10"
+                fill="#5a626e"
+                font-family="Inter, system-ui"
+              >
+                COP 250
+              </text>
+              <text
+                x="30"
+                y="75"
+                font-size="10"
+                fill="#5a626e"
+                font-family="Inter, system-ui"
+              >
+                COP 500
+              </text>
+
+              <!-- Área bajo la línea -->
+              <path
+                d="M 80 180
+                   L 180 140
+                   L 260 160
+                   L 340 150
+                   L 460 110
+                   L 540 70
+                   L 540 200
+                   L 80 200
+                   Z"
+                fill="rgba(0,106,248,0.10)"
+              />
+
+              <!-- Línea principal con flecha -->
+              <path
+                d="M 80 180
+                   L 180 140
+                   L 260 160
+                   L 340 150
+                   L 460 110
+                   L 540 70"
+                fill="none"
+                stroke="#0a3dfe"
+                stroke-width="4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+
+              <!-- Flecha en la punta -->
+              <path
+                d="M 540 70 L 530 76"
+                stroke="#0a3dfe"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+              <path
+                d="M 540 70 L 534 60"
+                stroke="#0a3dfe"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+
+              <!-- Puntos -->
+              <circle cx="180" cy="140" r="6" fill="#0a3dfe" />
+              <circle cx="260" cy="160" r="6" fill="#0a3dfe" />
+              <circle cx="460" cy="110" r="6" fill="#0a3dfe" />
+            </svg>
+          </div>
+        </section>
+
+        <!-- TARJETAS DE ACCESO RÁPIDO -->
+        <section class="quick-actions">
+          <article class="qa-card">
+            <div class="qa-icon">📘</div>
+            <h2 class="qa-title">Mis cursos activos</h2>
+            <p class="qa-subtitle">Haciendo</p>
+          </article>
+
+          <article class="qa-card">
+            <div class="qa-icon">🎯</div>
+            <h2 class="qa-title">Retos financieros</h2>
+            <p class="qa-subtitle">En progreso</p>
+          </article>
+
+          <article class="qa-card">
+            <div class="qa-icon">💰</div>
+            <h2 class="qa-title">Mi ahorro mensual</h2>
+            <p class="qa-subtitle">COP 350,000</p>
+          </article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

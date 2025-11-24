@@ -1,0 +1,176 @@
+/* ===================================
+   Paleta SparkFi
+=================================== */
+:root {
+  --sf-green: #22d74f;
+  --sf-green-soft: #00d369;
+
+  --sf-blue: #006af8;
+  --sf-blue-strong: #0a3dfe;
+  --sf-yellow: #ffd838;
+
+  --sf-bg: #f7f9ff;
+  --sf-surface: #ffffff;
+  --sf-border: #e4e7f2;
+
+  --sf-text-main: #181f34;
+  --sf-text-muted: #3c4a5f;
+  --sf-text-soft: #5a626e;
+}
+
+/* ===================================
+   Reset
+=================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--sf-bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+}
+
+/* ===================================
+   Contenedor principal
+=================================== */
+.register-container {
+  background: var(--sf-surface);
+  width: min(1200px, 92vw);
+  border-radius: 28px;
+  padding: 48px 56px;
+  border: 1px solid var(--sf-border);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+}
+
+/* ===================================
+   Header
+=================================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 46px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--sf-green);
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.btn-login {
+  background: var(--sf-blue);
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+/* ===================================
+   Título
+=================================== */
+.title {
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+/* ===================================
+   Formulario
+=================================== */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sf-text-main);
+}
+
+.input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--sf-border);
+  font-size: 15px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--sf-blue);
+  box-shadow: 0 0 0 2px rgba(0, 106, 248, 0.18);
+}
+
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--sf-text-main);
+}
+
+.terms input {
+  width: 18px;
+  height: 18px;
+}
+
+.link {
+  color: var(--sf-green);
+}
+
+.btn-submit {
+  margin-top: 10px;
+  padding: 16px;
+  background: var(--sf-green);
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-submit:hover {
+  background: var(--sf-green-soft);
+}
+
+/* ===================================
+   Responsive
+=================================== */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 32px 24px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+}

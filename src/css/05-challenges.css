@@ -1,0 +1,322 @@
+/* ===================================
+   PALETA SPARKFI
+=================================== */
+:root {
+  --sf-green: #22d74f;
+  --sf-green-soft: #00d369;
+
+  --sf-blue: #006af8;
+  --sf-blue-strong: #0a3dfe;
+  --sf-yellow: #ffd838;
+
+  --sf-bg: #f7f9ff;
+  --sf-surface: #ffffff;
+  --sf-border: #e4e7f2;
+
+  --sf-text-main: #181f34;
+  --sf-text-muted: #3c4a5f;
+  --sf-text-soft: #5a626e;
+}
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--sf-bg);
+  color: var(--sf-text-main);
+}
+
+/* CONTENEDOR GENERAL */
+.page {
+  min-height: 100vh;
+  padding: 32px;
+}
+
+/* ===================================
+   TOPBAR (igual estilo a otras páginas)
+=================================== */
+.topbar {
+  background: var(--sf-surface);
+  border-radius: 24px;
+  border: 1px solid var(--sf-border);
+  padding: 16px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  max-width: 1200px;
+  margin: 0 auto 32px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--sf-green);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.nav {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--sf-text-soft);
+}
+
+.nav-link.active {
+  color: var(--sf-blue-strong);
+  padding-bottom: 3px;
+  box-shadow: 0 2px 0 0 var(--sf-blue-strong);
+}
+
+.avatar-mini .avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  background: #111827;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===================================
+   TARJETA PRINCIPAL
+=================================== */
+.card {
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  background: var(--sf-surface);
+  border-radius: 32px;
+  border: 1px solid var(--sf-border);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  padding: 40px 40px 48px;
+}
+
+.card-header {
+  margin-bottom: 28px;
+}
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.subtitle {
+  font-size: 20px;
+  color: var(--sf-text-main);
+}
+
+/* ===================================
+   RETO PRINCIPAL
+=================================== */
+.challenge {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  padding: 24px 26px 22px;
+  border-radius: 22px;
+  border: 1px solid var(--sf-border);
+  background: #fbfdff;
+}
+
+.challenge-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--sf-blue-strong);
+  border-radius: 999px;
+}
+
+.progress-text {
+  font-size: 14px;
+  color: var(--sf-text-soft);
+}
+
+/* ===================================
+   PRESUPUESTO COMPLETADO
+=================================== */
+.budget {
+  margin-bottom: 32px;
+  padding: 24px 26px;
+  border-radius: 22px;
+  border: 1px solid var(--sf-border);
+  background: #fbfdff;
+}
+
+.budget-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.budget-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.check-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  background: var(--sf-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.budget-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: #16a34a;
+}
+
+/* ===================================
+   LOGROS
+=================================== */
+.achievements {
+  margin-top: 10px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.achievements-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.achievement {
+  width: 160px;
+  text-align: center;
+}
+
+.achievement-icon {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.achievement-icon svg {
+  width: 80px;
+  height: 80px;
+}
+
+/* activo */
+.achievement-active .achievement-icon {
+  border-color: #e5e7eb;
+}
+
+/* inactivos en gris */
+.achievement-inactive .achievement-icon {
+  opacity: 0.6;
+}
+
+.achievement-label {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.achievement-label-muted {
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+/* ===================================
+   RESPONSIVE
+=================================== */
+@media (max-width: 900px) {
+  .page {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 28px 20px 32px;
+  }
+
+  .title {
+    font-size: 32px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+  }
+
+  .achievements-row {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar {
+    padding-inline: 16px;
+    gap: 12px;
+  }
+
+  .nav {
+    display: none; /* para móvil podrías luego convertir esto en menú hamburguesa */
+  }
+
+  .card {
+    border-radius: 24px;
+  }
+
+  .achievements-row {
+    justify-content: center;
+  }
+}

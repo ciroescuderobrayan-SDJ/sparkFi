@@ -1,0 +1,214 @@
+/* ============================
+   PALETA SPARKFI
+============================ */
+:root {
+  --sf-green: #22d74f;
+  --sf-green-soft: #00d369;
+
+  --sf-blue: #006af8;
+  --sf-blue-strong: #0a3dfe;
+  --sf-yellow: #ffd838;
+
+  --sf-bg: #f7f9ff;
+  --sf-surface: #ffffff;
+  --sf-border: #e4e7f2;
+
+  --sf-text-main: #181f34;
+  --sf-text-muted: #3c4a5f;
+  --sf-text-soft: #5a626e;
+}
+
+/* ============================
+   RESETEO BÁSICO
+============================ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: radial-gradient(
+    circle at top left,
+    #ffffff 0,
+    #f7f9ff 60%,
+    #eef3ff 100%
+  );
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+   TARJETA FULL-SCREEN AMPLIA
+============================ */
+.auth-card {
+  position: relative;
+  background: var(--sf-surface);
+
+  /* ANCHO MUCHO MÁS GRANDE */
+  width: min(1200px, 100vh); /* 👈 se verá GIGANTE pero elegante */
+
+  padding: 56px 56px 72px;
+  border-radius: 32px;
+  box-shadow: 0 30px 80px rgba(15, 23, 42, 0.18);
+  border: 1px solid var(--sf-border);
+}
+
+/* ============================
+   LOGO
+============================ */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.brand-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--sf-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.brand-text {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+/* ============================
+   CONTENIDO
+============================ */
+.auth-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 16px;
+}
+
+.field-label {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--sf-text-muted);
+}
+
+.field-input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--sf-border);
+  font-size: 16px;
+  background: #fdfdff;
+}
+
+.btn-primary {
+  padding: 16px;
+  font-size: 18px;
+  border-radius: 999px;
+  background: var(--sf-green);
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--sf-green-soft);
+}
+
+/* ============================
+   LINKS
+============================ */
+.link-forgot {
+  display: block;
+  margin-top: 12px;
+  text-align: center;
+  color: var(--sf-blue);
+  font-weight: 500;
+}
+
+.divider {
+  margin: 24px 0;
+  height: 1px;
+  background: var(--sf-border);
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 16px;
+  color: var(--sf-text-soft);
+}
+
+.link-signup {
+  color: var(--sf-blue);
+  font-weight: 600;
+}
+
+/* ============================
+   CANDADO
+============================ */
+.security-badge {
+  position: absolute;
+  right: -35px;
+  bottom: -35px;
+  transform: scale(1.3); /* ← MÁS GRANDE */
+}
+
+.security-lock-top {
+  width: 60px;
+  height: 38px;
+  border-radius: 999px;
+  border: 6px solid #00c853;
+  border-bottom: none;
+}
+
+.security-lock-body {
+  margin-top: -6px;
+  width: 100px;
+  height: 80px;
+  background: linear-gradient(135deg, #006af8, #00d369);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.security-icon {
+  color: white;
+  font-size: 32px;
+}
+
+/* ============================
+   RESPONSIVE MOBILE
+============================ */
+@media (max-width: 480px) {
+  .auth-card {
+    max-width: 100%;
+    padding: 32px 22px 48px;
+  }
+
+  .auth-title {
+    font-size: 24px;
+  }
+
+  .security-badge {
+    transform: scale(0.9);
+    right: -20px;
+    bottom: -25px;
+  }
+}

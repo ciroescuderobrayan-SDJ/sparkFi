@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crear cuenta - SparkFi</title>
+
+    <!-- Tipografía Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/css/02-create-account.css" />
+  </head>
+
+  <body>
+    <div class="register-container">
+      <header class="header">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">SparkFi</span>
+        </div>
+
+        <a href="01-login.html" class="btn-login">Iniciar sesión</a>
+      </header>
+
+      <main class="content">
+        <h1 class="title">Crear una cuenta</h1>
+
+        <form class="register-form">
+          <label class="label">Nombre completo</label>
+          <input type="text" class="input" placeholder="Juan" />
+
+          <label class="label">Correo</label>
+          <input type="email" class="input" placeholder="juan@example.com" />
+
+          <label class="label">Contraseña</label>
+          <input type="password" class="input" placeholder="•••••••" />
+
+          <label class="label">Confirmar contraseña</label>
+          <input type="password" class="input" placeholder="•••••••" />
+
+          <label class="terms">
+            <input type="checkbox" />
+            <span>
+              Acepto los <a href="#" class="link">términos y condiciones</a>
+            </span>
+          </label>
+
+          <button class="btn-submit">Registrarme</button>
+        </form>
+      </main>
+    </div>
+  </body>
+</html>
