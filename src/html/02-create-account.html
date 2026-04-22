@@ -31,28 +31,33 @@
         <h1 class="title">Crear una cuenta</h1>
 
         <form class="register-form">
-          <label class="label">Nombre completo</label>
-          <input type="text" class="input" placeholder="Juan" />
+          <label class="label" for="nombre">Nombre completo</label>
+          <input id="nombre" type="text" class="input" placeholder="Juan Pérez" />
 
-          <label class="label">Correo</label>
-          <input type="email" class="input" placeholder="juan@example.com" />
+          <label class="label" for="email-registro">Correo</label>
+          <input id="email-registro" type="email" class="input" placeholder="juan@example.com" />
 
-          <label class="label">Contraseña</label>
-          <input type="password" class="input" placeholder="•••••••" />
+          <label class="label" for="password-registro">Contraseña</label>
+          <input id="password-registro" type="password" class="input" placeholder="•••••••" />
 
-          <label class="label">Confirmar contraseña</label>
-          <input type="password" class="input" placeholder="•••••••" />
+          <label class="label" for="confirmar-password">Confirmar contraseña</label>
+          <input id="confirmar-password" type="password" class="input" placeholder="•••••••" />
 
           <label class="terms">
-            <input type="checkbox" />
+            <input id="terminos" type="checkbox" />
             <span>
               Acepto los <a href="#" class="link">términos y condiciones</a>
             </span>
           </label>
 
-          <button class="btn-submit">Registrarme</button>
+          <!-- Área de resultados (errores o éxito del registro) -->
+          <div id="resultado-registro"></div>
+
+          <button id="btn-registro" type="button" class="btn-submit">Registrarme</button>
         </form>
       </main>
     </div>
+
+    <script src="/src/js/02-create-account.js"></script>
   </body>
 </html>

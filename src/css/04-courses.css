@@ -456,3 +456,11 @@ body {
     font-size: 22px;
   }
 }
+
+/* Avatar link */
+a.avatar-mini, a.user-pill {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+}

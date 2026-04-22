@@ -2,17 +2,17 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title>Perfil SparkFi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfil - SparkFi</title>
 
-    <link rel="stylesheet" href="/src/css/07-profile.css" />
-
-    <!-- Fuente Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
+    <link rel="stylesheet" href="/src/css/07-profile.css" />
   </head>
 
   <body>
@@ -23,19 +23,19 @@
       </div>
 
       <nav class="nav">
-        <a href="#" class="nav-link active">Inicio</a>
-        <a href="#" class="nav-link">Cursos</a>
-        <a href="#" class="nav-link">Retos</a>
-        <a href="#" class="nav-link">Comunidad</a>
+        <a href="03-home.html" class="nav-link">Inicio</a>
+        <a href="04-courses.html" class="nav-link">Cursos</a>
+        <a href="05-challenges.html" class="nav-link">Retos</a>
+        <a href="06-community.html" class="nav-link">Comunidad</a>
+        <a href="07-profile.html" class="nav-link active">Perfil</a>
       </nav>
 
-      <div class="profile-mini">
+      <a href="08-settings.html" class="profile-mini">
         <img src="https://i.pravatar.cc/50" alt="perfil" />
-      </div>
+      </a>
     </header>
 
     <main class="profile-layout">
-      <!-- Tarjeta lateral -->
       <aside class="profile-card">
         <div class="avatar-circle">
           <img
@@ -66,10 +66,9 @@
           </div>
         </section>
 
-        <button class="logout-btn">Cerrar sesión</button>
+        <a href="01-login.html" class="logout-btn">Cerrar sesión</a>
       </aside>
 
-      <!-- Contenido principal -->
       <section class="achievements-section">
         <h2 class="section-title">Mis logros</h2>
 
@@ -91,5 +90,7 @@
         </div>
       </section>
     </main>
+
+    <script src="/src/js/07-profile.js"></script>
   </body>
 </html>

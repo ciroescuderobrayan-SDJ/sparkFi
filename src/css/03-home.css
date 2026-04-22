@@ -206,3 +206,21 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Quick action cards como links */
+.qa-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.qa-card-link:hover .qa-card {
+  border-color: var(--sf-blue);
+  box-shadow: 0 8px 24px rgba(0, 106, 248, 0.12);
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+/* Avatar link en topbar */
+.avatar-mini {
+  text-decoration: none;
+}

@@ -259,3 +259,14 @@ body {
   cursor: pointer;
   font-weight: 600;
 }
+
+/* Profile mini como link a settings */
+a.profile-mini {
+  display: block;
+  text-decoration: none;
+}
+
+a.logout-btn {
+  display: inline-block;
+  text-decoration: none;
+}
