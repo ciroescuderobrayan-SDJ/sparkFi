@@ -17,38 +17,38 @@
   </head>
 
   <body>
-    <div class="page">
+    <div class="pagina-inicio">
       <!-- BARRA SUPERIOR -->
-      <header class="topbar">
-        <div class="logo">
-          <span class="logo-icon">⚡</span>
-          <span class="logo-text">SparkFi</span>
+      <header class="encabezado-principal">
+        <div class="marca">
+          <span class="marca-simbolo">⚡</span>
+          <span class="marca-nombre">SparkFi</span>
         </div>
 
-        <nav class="nav">
-          <a href="#" class="nav-link active">Inicio</a>
-          <a href="#" class="nav-link">Cursos</a>
-          <a href="#" class="nav-link">Retos</a>
-          <a href="#" class="nav-link">Comunidad</a>
-          <a href="#" class="nav-link">Perfil</a>
+        <nav class="navegacion-principal">
+          <a href="./03-home.html" class="enlace-navegacion activo">Inicio</a>
+          <a href="./04-courses.html" class="enlace-navegacion">Cursos</a>
+          <a href="./05-challenges.html" class="enlace-navegacion">Retos</a>
+          <a href="./06-community.html" class="enlace-navegacion">Comunidad</a>
+          <a href="./07-profile.html" class="enlace-navegacion">Perfil</a>
         </nav>
 
-        <div class="avatar-mini">
-          <span class="avatar-circle">👤</span>
+        <div class="avatar-usuario">
+          <span class="avatar-usuario-circulo">👤</span>
         </div>
       </header>
 
       <!-- CONTENIDO PRINCIPAL -->
-      <main class="dashboard">
-        <section class="hero">
-          <h1 class="hero-title">
-            Bienvenido, Juan <span class="wave">👋</span>
+      <main class="contenido-inicio">
+        <section class="seccion-bienvenida">
+          <h1 class="titulo-bienvenida">
+            Bienvenido, Juan <span class="saludo">👋</span>
           </h1>
 
           <!-- TARJETA DEL GRÁFICO: SVG -->
-          <div class="chart-card">
+          <div class="panel-grafica">
             <svg
-              class="chart-svg"
+              class="grafica-lineal"
               viewBox="0 0 600 260"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -169,24 +169,24 @@
         </section>
 
         <!-- TARJETAS DE ACCESO RÁPIDO -->
-        <section class="quick-actions">
-          <article class="qa-card">
-            <div class="qa-icon">📘</div>
-            <h2 class="qa-title">Mis cursos activos</h2>
-            <p class="qa-subtitle">Haciendo</p>
-          </article>
+        <section class="rejilla-accesos">
+          <a href="./04-courses.html" class="tarjeta-acceso">
+            <div class="icono-acceso">📘</div>
+            <h2 class="titulo-acceso">Mis cursos activos</h2>
+            <p class="subtitulo-acceso">Haciendo</p>
+          </a>
 
-          <article class="qa-card">
-            <div class="qa-icon">🎯</div>
-            <h2 class="qa-title">Retos financieros</h2>
-            <p class="qa-subtitle">En progreso</p>
-          </article>
+          <a href="./05-challenges.html" class="tarjeta-acceso">
+            <div class="icono-acceso">🎯</div>
+            <h2 class="titulo-acceso">Retos financieros</h2>
+            <p class="subtitulo-acceso">En progreso</p>
+          </a>
 
-          <article class="qa-card">
-            <div class="qa-icon">💰</div>
-            <h2 class="qa-title">Mi ahorro mensual</h2>
-            <p class="qa-subtitle">COP 350,000</p>
-          </article>
+          <a href="./07-profile.html" class="tarjeta-acceso">
+            <div class="icono-acceso">💰</div>
+            <h2 class="titulo-acceso">Mi ahorro mensual</h2>
+            <p class="subtitulo-acceso">COP 350,000</p>
+          </a>
         </section>
       </main>
     </div>

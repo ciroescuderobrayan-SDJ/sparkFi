@@ -33,15 +33,15 @@ body {
 }
 
 /* Contenedor general */
-.page {
+.pagina-inicio {
   min-height: 100vh;
   padding: 32px;
 }
 
 /* ===================================
-   Topbar
+  Encabezado principal
 =================================== */
-.topbar {
+.encabezado-principal {
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
@@ -56,13 +56,13 @@ body {
   margin: 0 auto 32px;
 }
 
-.logo {
+.marca {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.logo-icon {
+.marca-simbolo {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -73,28 +73,34 @@ body {
   justify-content: center;
 }
 
-.logo-text {
+.marca-nombre {
   font-weight: 700;
   font-size: 20px;
 }
 
-.nav {
+.navegacion-principal {
   display: flex;
   gap: 24px;
 }
 
-.nav-link {
+.enlace-navegacion {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: var(--sf-text-soft);
 }
 
-.nav-link.active {
-  color: var(--sf-text-main);
+.enlace-navegacion:hover {
+  color: var(--sf-blue-strong);
 }
 
-.avatar-mini .avatar-circle {
+.enlace-navegacion.activo {
+  color: var(--sf-blue-strong);
+  box-shadow: 0 2px 0 0 var(--sf-blue-strong);
+  padding-bottom: 2px;
+}
+
+.avatar-usuario-circulo {
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -105,10 +111,17 @@ body {
   justify-content: center;
 }
 
+.avatar-usuario:hover .avatar-usuario-circulo {
+  transform: translateY(-2px) scale(1.05);
+  background: #0f172a;
+  color: #ffffff;
+}
+
+
 /* ===================================
-   Dashboard
+  Contenido principal
 =================================== */
-.dashboard {
+.contenido-inicio {
   max-width: 1200px;
   margin: 0 auto;
   background: var(--sf-surface);
@@ -118,20 +131,20 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
 }
 
-.hero-title {
+.titulo-bienvenida {
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 28px;
 }
 
-.wave {
+.saludo {
   font-size: 34px;
 }
 
 /* ===================================
-   Tarjeta del gráfico (SVG)
+   Tarjeta de gráfica
 =================================== */
-.chart-card {
+.panel-grafica {
   border-radius: 26px;
   border: 1px solid var(--sf-border);
   overflow: hidden;
@@ -139,30 +152,40 @@ body {
   margin-bottom: 32px;
 }
 
-.chart-svg {
+.grafica-lineal {
   width: 100%;
   height: auto;
   display: block;
 }
 
 /* ===================================
-   Quick actions
+   Accesos rápidos
 =================================== */
-.quick-actions {
+.rejilla-accesos {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
-.qa-card {
+.tarjeta-acceso {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
   padding: 22px 18px;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.qa-icon {
+.tarjeta-acceso:hover {
+  transform: translateY(-2px);
+  border-color: #cdd6ef;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.icono-acceso {
   width: 48px;
   height: 48px;
   border-radius: 16px;
@@ -175,13 +198,13 @@ body {
   margin-bottom: 10px;
 }
 
-.qa-title {
+.titulo-acceso {
   font-size: 16px;
   font-weight: 600;
   color: var(--sf-text-main);
 }
 
-.qa-subtitle {
+.subtitulo-acceso {
   font-size: 13px;
   color: var(--sf-text-soft);
 }
@@ -190,19 +213,19 @@ body {
    Responsive
 =================================== */
 @media (max-width: 900px) {
-  .page {
+  .pagina-inicio {
     padding: 16px;
   }
 
-  .dashboard {
+  .contenido-inicio {
     padding: 24px 20px 32px;
   }
 
-  .hero-title {
+  .titulo-bienvenida {
     font-size: 32px;
   }
 
-  .quick-actions {
+  .rejilla-accesos {
     grid-template-columns: 1fr;
   }
 }

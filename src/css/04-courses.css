@@ -33,7 +33,7 @@ body {
 }
 
 /* Contenedor general */
-.page {
+.pagina-cursos {
   min-height: 100vh;
   padding: 32px;
 }
@@ -41,7 +41,7 @@ body {
 /* ===================================
    Topbar
 =================================== */
-.topbar {
+.encabezado-principal {
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
@@ -56,13 +56,13 @@ body {
   margin: 0 auto 32px;
 }
 
-.logo {
+.marca {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.logo-icon {
+.marca-simbolo {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -73,30 +73,34 @@ body {
   justify-content: center;
 }
 
-.logo-text {
+.marca-nombre {
   font-weight: 700;
   font-size: 20px;
 }
 
-.nav {
+.navegacion-principal {
   display: flex;
   gap: 24px;
 }
 
-.nav-link {
+.enlace-navegacion {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: var(--sf-text-soft);
 }
 
-.nav-link.active {
+.enlace-navegacion:hover {
+  color: var(--sf-blue-strong);
+}
+
+.enlace-navegacion.activo {
   color: var(--sf-blue-strong);
   box-shadow: 0 2px 0 0 var(--sf-blue-strong);
   padding-bottom: 2px;
 }
 
-.avatar-mini .avatar-circle {
+.avatar-usuario-circulo {
   width: 38px;
   height: 38px;
   border-radius: 999px;
@@ -106,12 +110,19 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 13px;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.avatar-usuario:hover .avatar-usuario-circulo {
+  transform: translateY(-2px) scale(1.05);
+  background: #0f172a;
+  color: #ffffff;
 }
 
 /* ===================================
    Layout principal
 =================================== */
-.courses-layout {
+.contenedor-cursos {
   max-width: 1200px;
   margin: 0 auto 40px;
   background: var(--sf-surface);
@@ -126,19 +137,42 @@ body {
 /* ===================================
    Sidebar izquierda
 =================================== */
-.sidebar {
+.barra-lateral-cursos {
   width: 220px;
   border-right: 1px solid var(--sf-border);
   padding: 32px 20px 40px 28px;
 }
 
-.sidebar-title {
+.titulo-barra-cursos {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.sidebar-item {
+.campo-busqueda-cursos {
+  width: 100%;
+  padding: 11px 14px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--sf-border);
+  background: #f8fbff;
+  color: var(--sf-text-main);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.campo-busqueda-cursos::placeholder {
+  color: #8b95a7;
+}
+
+.campo-busqueda-cursos:focus {
+  border-color: var(--sf-blue-strong);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(10, 61, 254, 0.12);
+}
+
+.boton-tema-curso {
   display: block;
   width: 100%;
   text-align: left;
@@ -151,9 +185,16 @@ body {
   font-weight: 500;
   color: var(--sf-text-soft);
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.sidebar-item.active {
+.boton-tema-curso:hover {
+  background: #eef4ff;
+  color: var(--sf-blue-strong);
+  transform: translateX(2px);
+}
+
+.boton-tema-curso.activo {
   background: var(--sf-blue-strong);
   color: #ffffff;
 }
@@ -161,22 +202,22 @@ body {
 /* ===================================
    Contenido derecho
 =================================== */
-.courses-main {
+.contenido-cursos {
   flex: 1;
   padding: 32px 32px 40px;
 }
 
-.courses-header {
+.encabezado-cursos {
   margin-bottom: 24px;
 }
 
-.page-title {
+.titulo-cursos {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 14px;
 }
 
-.breadcrumb-bar {
+.miga-cursos {
   background: #f5f7ff;
   border-radius: 999px;
   padding: 8px 16px;
@@ -187,7 +228,7 @@ body {
   color: var(--sf-text-soft);
 }
 
-.breadcrumb-arrow {
+.flecha-miga-cursos {
   font-size: 18px;
   color: var(--sf-text-soft);
 }
@@ -195,14 +236,14 @@ body {
 /* ===================================
    Lista de cursos
 =================================== */
-.course-list {
+.lista-cursos {
   display: flex;
   flex-direction: column;
   gap: 14px;
   margin-bottom: 32px;
 }
 
-.course-card {
+.tarjeta-curso {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -210,15 +251,22 @@ body {
   border-radius: 20px;
   border: 1px solid var(--sf-border);
   background: #fbfdff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-.course-left {
+.tarjeta-curso:hover {
+  transform: translateY(-2px);
+  border-color: #cdd6ef;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+.cuerpo-tarjeta-curso {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-.course-icon {
+.icono-curso {
   width: 48px;
   height: 48px;
   border-radius: 18px;
@@ -228,48 +276,48 @@ body {
   font-size: 24px;
 }
 
-.course-icon-green {
+.icono-ahorro {
   background: #ccfbe1;
   color: #16a34a;
 }
 
-.course-icon-yellow {
+.icono-presupuesto {
   background: #fef3c7;
   color: #eab308;
 }
 
-.course-icon-lightgreen {
+.icono-inversion {
   background: #dcfce7;
   color: #16a34a;
 }
 
-.course-icon-blue {
+.icono-metas {
   background: #e0e7ff;
   color: #2563eb;
 }
 
-.course-info {
+.info-curso {
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.course-title {
+.nombre-curso {
   font-size: 15px;
   font-weight: 600;
 }
 
-.course-progress-text {
+.texto-progreso-curso {
   font-size: 13px;
   color: var(--sf-text-soft);
 }
 
-.course-progress-text .highlight {
+.progreso-destacado {
   color: var(--sf-blue-strong);
   font-weight: 600;
 }
 
-.progress-track {
+.barra-progreso {
   width: 180px;
   height: 5px;
   border-radius: 999px;
@@ -277,26 +325,30 @@ body {
   overflow: hidden;
 }
 
-.progress-fill {
+.relleno-progreso {
   height: 100%;
   border-radius: 999px;
   background: var(--sf-blue-strong);
 }
 
-.progress-65 {
+.progreso-ahorro {
   width: 65%;
 }
 
-.progress-20 {
+.progreso-presupuesto {
   width: 20%;
 }
 
-.progress-0 {
+.progreso-inversion {
+  width: 0%;
+}
+
+.progreso-metas {
   width: 0%;
 }
 
 /* Botones de la lista */
-.btn-secondary {
+.boton-curso {
   padding: 10px 18px;
   border-radius: 999px;
   border: none;
@@ -305,9 +357,15 @@ body {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
-.btn-secondary-outline {
+.boton-curso:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 61, 254, 0.22);
+}
+
+.boton-curso-secundario {
   background: #ffffff;
   border: 1px solid var(--sf-blue-strong);
   color: var(--sf-blue-strong);
@@ -316,18 +374,18 @@ body {
 /* ===================================
    Vista de lección
 =================================== */
-.lesson-section {
+.seccion-leccion {
   margin-top: 8px;
 }
 
-.section-title {
+.titulo-leccion {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
 /* barra azul superior */
-.lesson-progress-bar {
+.barra-progreso-leccion {
   width: 100%;
   height: 4px;
   border-radius: 999px;
@@ -336,14 +394,14 @@ body {
   overflow: hidden;
 }
 
-.lesson-progress-fill {
+.relleno-progreso-leccion {
   width: 65%;
   height: 100%;
   background: var(--sf-blue-strong);
 }
 
 /* tarjeta de lección */
-.lesson-card {
+.tarjeta-leccion {
   border-radius: 20px;
   border: 1px solid var(--sf-border);
   background: #fbfdff;
@@ -355,23 +413,43 @@ body {
   margin-bottom: 18px;
 }
 
-.lesson-text {
+.texto-leccion {
   flex: 1;
 }
 
-.lesson-percentage {
+.porcentaje-leccion {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
-.lesson-list {
+.lista-leccion {
   font-size: 14px;
   color: var(--sf-text-soft);
-  padding-left: 18px;
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.lesson-video {
+.item-leccion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icono-item-leccion {
+  width: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+.texto-item-leccion {
+  line-height: 1.35;
+}
+
+.video-leccion {
   width: 180px;
   border-radius: 16px;
   background: #e5e7eb;
@@ -380,13 +458,13 @@ body {
   justify-content: center;
 }
 
-.play-icon {
+.icono-reproducir {
   font-size: 32px;
   color: #4b5563;
 }
 
 /* Botón principal */
-.btn-primary {
+.boton-completar-leccion {
   padding: 12px 20px;
   border-radius: 999px;
   border: none;
@@ -395,17 +473,23 @@ body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.boton-completar-leccion:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(34, 215, 79, 0.24);
 }
 
 /* ===================================
    Responsive
 =================================== */
 @media (max-width: 960px) {
-  .courses-layout {
+  .contenedor-cursos {
     flex-direction: column;
   }
 
-  .sidebar {
+  .barra-lateral-cursos {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid var(--sf-border);
@@ -414,45 +498,45 @@ body {
     gap: 12px;
   }
 
-  .sidebar-title {
+  .titulo-barra-cursos {
     margin-bottom: 0;
   }
 
-  .sidebar-item {
+  .boton-tema-curso {
     width: auto;
   }
 
-  .course-card {
+  .tarjeta-curso {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
-  .btn-secondary,
-  .btn-secondary-outline {
+  .boton-curso,
+  .boton-curso-secundario {
     align-self: flex-end;
   }
 
-  .lesson-card {
+  .tarjeta-leccion {
     flex-direction: column;
   }
 
-  .lesson-video {
+  .video-leccion {
     width: 100%;
     height: 120px;
   }
 }
 
 @media (max-width: 768px) {
-  .page {
+  .pagina-cursos {
     padding: 16px;
   }
 
-  .courses-main {
+  .contenido-cursos {
     padding: 20px 18px 28px;
   }
 
-  .page-title {
+  .titulo-cursos {
     font-size: 22px;
   }
 }
