@@ -50,24 +50,24 @@
 
             <!-- Campo de correo, el for="email" conecta el label con el input por accesibilidad -->
             <label class="field-label" for="email">Correo electrónico</label>
+            <!-- autocomplete="email" le dice al navegador que sugiera correos guardados -->
             <input
               id="email"
               type="email"
               placeholder="admin@sparkfi.com"
               class="field-input"
               autocomplete="email"
-              <!-- autocomplete="email" le dice al navegador que sugiera correos guardados -->
             />
 
             <!-- Campo de contraseña, type="password" oculta los caracteres automáticamente -->
             <label class="field-label" for="password">Contraseña</label>
+            <!-- current-password indica que es para iniciar sesión, no para crear una nueva -->
             <input
               id="password"
               type="password"
               placeholder="•••••••"
               class="field-input"
               autocomplete="current-password"
-              <!-- current-password indica que es para iniciar sesión, no para crear una nueva -->
             />
 
             <!-- Aquí el JS va a mostrar mensajes de error o éxito cuando valide el formulario -->
