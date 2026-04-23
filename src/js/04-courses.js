@@ -143,16 +143,23 @@ const cursos = [
   },
 ];
 
+// Clase de color del ícono según el tema del curso
+const colorIcono = {
+  Ahorro: "course-icon-green",
+  Presupuesto: "course-icon-yellow",
+  "Inversión": "course-icon-lightgreen",
+};
+
 // Selección de elementos de la interfaz y estado global
 
-const barraLateral = document.querySelector(".barra-lateral-cursos");
+const barraLateral = document.querySelector(".sidebar");
 const inputBusqueda = document.querySelector(".campo-busqueda-cursos");
-const contenedorLecciones = document.querySelector(".lista-cursos");
+const contenedorLecciones = document.querySelector(".course-list");
 const mensajeVacio = document.getElementById("mensaje-vacio-cursos");
 
-const porcentajeLeccion = document.querySelector(".porcentaje-leccion");
-const listaLeccion = document.querySelector(".lista-leccion");
-const barraLeccion = document.querySelector(".relleno-progreso-leccion");
+const porcentajeLeccion = document.querySelector(".lesson-percentage");
+const listaLeccion = document.querySelector(".lesson-list");
+const barraLeccion = document.querySelector(".lesson-progress-fill");
 
 let temaActivo = "Ahorro";
 let textoBusqueda = "";
@@ -180,14 +187,13 @@ if (inputBusqueda) {
     textoBusqueda = e.target.value.trim();
     renderizarCursos();
   });
-
 }
 
-  // para seleccionar el nuevo curso
+// para seleccionar el nuevo curso
 function activarBotonSeleccionado(botonSeleccionado) {
-  const botones = document.querySelectorAll(".boton-tema-curso");
-  botones.forEach((boton) => boton.classList.remove("activo"));
-  botonSeleccionado.classList.add("activo");
+  const botones = document.querySelectorAll(".sidebar-item");
+  botones.forEach((boton) => boton.classList.remove("active"));
+  botonSeleccionado.classList.add("active");
 }
 
 function renderizarCursos() {
@@ -196,29 +202,29 @@ function renderizarCursos() {
   }
 
   const cursosActivos = obtenerCursosFiltrados();
-  const botonesActuales = barraLateral.querySelectorAll(".boton-tema-curso");
+  const botonesActuales = barraLateral.querySelectorAll(".sidebar-item");
   botonesActuales.forEach((boton) => boton.remove());
 
   // si no hay cursos encontrados
-  mensajeVacio.hidden = cursosActivos.length > 0;
+  if (mensajeVacio) {
+    mensajeVacio.hidden = cursosActivos.length > 0;
+  }
   if (cursosActivos.length === 0) return;
 
-  
   // el curso visible según el input
   const cursoSigueVisible = cursosActivos.find(c => c.id === cursoActivoId);
   if (cursosActivos.length > 0 && !cursoSigueVisible) {
     cursoActivoId = cursosActivos[0].id;
   }
 
-
   // renderizado de los cursos buscados
   const fragmento = document.createDocumentFragment();
   cursosActivos.forEach((curso) => {
     const boton = document.createElement("button");
     boton.type = "button";
-    boton.className = "boton-tema-curso";
+    boton.className = "sidebar-item";
     if (curso.id === cursoActivoId) {
-      boton.classList.add("activo");
+      boton.classList.add("active");
     }
     boton.textContent = curso.titulo;
     fragmento.appendChild(boton);
@@ -247,19 +253,21 @@ function renderizarLeccionesCurso(curso) {
     return;
   }
 
+  const claseIcono = colorIcono[curso.tema] || "course-icon-blue";
+
   contenedorLecciones.innerHTML = curso.lecciones
     .map((leccion, index) => {
       const numero = index + 1;
       const textoBoton = numero === 1 ? "Estudiar" : "Ver lección";
-      const claseBoton = numero === 1 ? "boton-curso" : "boton-curso boton-curso-secundario";
+      const claseBoton = numero === 1 ? "btn-secondary" : "btn-secondary btn-secondary-outline";
 
       return `
-        <article class="tarjeta-curso">
-          <div class="cuerpo-tarjeta-curso">
-            <div class="icono-curso">${leccion.icono || "📘"}</div>
+        <article class="course-card">
+          <div class="course-left">
+            <div class="course-icon ${claseIcono}">${leccion.icono || "📘"}</div>
 
-            <div class="info-curso">
-              <h2 class="nombre-curso">${leccion.titulo || "Lección"}</h2>
+            <div class="course-info">
+              <h2 class="course-title">${leccion.titulo || "Lección"}</h2>
             </div>
           </div>
 
@@ -287,9 +295,9 @@ function renderizarDetalleCurso(curso) {
     const titulo = primeraLeccion?.titulo || "Lección";
 
     listaLeccion.innerHTML =
-      '<li class="item-leccion">' +
-      '<span class="icono-item-leccion" aria-hidden="true">' + icono + "</span>" +
-      '<span class="texto-item-leccion">' + titulo + "</span>" +
+      "<li>" +
+      "<span aria-hidden=\"true\">" + icono + "</span> " +
+      titulo +
       "</li>";
   }
 }

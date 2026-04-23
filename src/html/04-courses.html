@@ -1,9 +1,5 @@
-<<<<<<< main
-<!doctype html>
-=======
 <!DOCTYPE html>
 <!-- Siempre DOCTYPE primero, es la forma correcta de empezar un HTML5 -->
->>>>>>> main
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -28,85 +24,6 @@
   </head>
 
   <body>
-<<<<<<< main
-    <div class="pagina-cursos">
-      <!-- El nav -->
-      <header class="encabezado-principal">
-        <div class="marca">
-          <span class="marca-simbolo">⚡</span>
-          <span class="marca-nombre">SparkFi</span>
-        </div>
-
-        <nav class="navegacion-principal">
-          <a href="./03-home.html" class="enlace-navegacion">Inicio</a>
-          <a href="./04-courses.html" class="enlace-navegacion activo"
-            >Cursos</a
-          >
-          <a href="./05-challenges.html" class="enlace-navegacion">Retos</a>
-          <a href="./06-community.html" class="enlace-navegacion">Comunidad</a>
-          <a href="./07-profile.html" class="enlace-navegacion">Perfil</a>
-        </nav>
-
-        <div class="avatar-usuario">
-          <span class="avatar-usuario-circulo">👤</span>
-        </div>
-      </header>
-
-      <!-- contenido central -->
-      <main class="contenedor-cursos">
-        <!-- lista de cursos -->
-        <aside class="barra-lateral-cursos">
-          <h2 class="titulo-barra-cursos">Cursos</h2>
-
-
-          <input
-            type="text"
-            class="campo-busqueda-cursos"
-            placeholder="Buscar curso..."
-            aria-label="Buscar curso"
-          />
-
-          <p id="mensaje-vacio-cursos" class="texto-progreso-curso" hidden>No se encontraron cursos.</p>
-
-          <button class="boton-tema-curso activo">Introducción al ahorro</button>
-          <button class="boton-tema-curso">Introducción a la inversión</button>
-          <button class="boton-tema-curso">Introducción al presupuesto</button>
-          <button class="boton-tema-curso">Presupuesto básico</button>
-          <button class="boton-tema-curso">Fundamentos de inversión</button>
-          <button class="boton-tema-curso">Fondo de emergencia</button>
-          <button class="boton-tema-curso">Control de gastos hormiga</button>
-          <button class="boton-tema-curso">Ahorro por objetivos</button>
-          <button class="boton-tema-curso">Método 50/30/20</button>
-          <button class="boton-tema-curso">Presupuesto familiar</button>
-          <button class="boton-tema-curso">Inversión en fondos indexados</button>
-          <button class="boton-tema-curso">Perfil de riesgo e inversión</button>
-        </aside>
-
-        <!-- contenido de la derecha -->
-        <section class="contenido-cursos">
-
-          
-          <header class="encabezado-cursos">
-            <h1 class="titulo-cursos">Vista de lección</h1>
-          </header>
-
-          <!-- las lecciones -->
-          <section class="lista-cursos"></section>
-
-          
-          <section class="seccion-leccion">
-            <h2 class="titulo-leccion">Vista de lección</h2>
-
-            
-            <div class="barra-progreso-leccion">
-              <div class="relleno-progreso-leccion"></div>
-            </div>
-
-            <div class="tarjeta-leccion">
-              <div class="texto-leccion">
-                <p class="porcentaje-leccion">65% completado</p>
-                <ul class="lista-leccion">
-=======
     <!-- Contenedor principal con padding general -->
     <div class="page">
 
@@ -149,6 +66,8 @@
           <button class="sidebar-item active">Ahorro</button>
           <button class="sidebar-item">Inversión</button>
           <button class="sidebar-item">Presupuesto</button>
+
+          <p id="mensaje-vacio-cursos" class="course-progress-text" hidden>No se encontraron cursos.</p>
         </aside>
 
         <!-- Contenido derecho: lista de cursos + vista de lección -->
@@ -260,21 +179,10 @@
                 <p class="lesson-percentage">65% completado</p>
                 <!-- Lista de temas que cubre esta lección -->
                 <ul class="lesson-list">
->>>>>>> main
                   <li>Reducir gastos en entretenimiento</li>
                 </ul>
               </div>
 
-<<<<<<< main
-              <div class="video-leccion">
-                <span class="icono-reproducir">▶</span>
-              </div>
-            </div>
-
-            <button class="boton-completar-leccion">
-              Marcar como completado
-            </button>
-=======
               <!-- Lado derecho: reproductor de video de la lección -->
               <!-- Por ahora es solo el diseño, el video real iría cuando tengamos backend -->
               <div class="lesson-video">
@@ -285,18 +193,13 @@
             </div>
 
             <!-- Botón para marcar la lección como terminada -->
-            <button class="btn-primary">Marcar como completado</button>
->>>>>>> main
+            <button class="btn-primary boton-completar-leccion">Marcar como completado</button>
           </section>
         </section>
       </main>
     </div>
 
-<<<<<<< main
-    <script type="module" src="../js/04-courses.js"></script>
-=======
     <!-- JS de esta pantalla, al final del body como buena práctica -->
     <script src="/src/js/04-courses.js"></script>
->>>>>>> main
   </body>
 </html>
