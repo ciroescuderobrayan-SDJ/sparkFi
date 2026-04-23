@@ -1,25 +1,29 @@
 /* ===================================
-   VARIABLES SPARKFI
+   VARIABLES DE COLOR SPARKFI
+   Siempre las mismas en todas las páginas para tener consistencia visual
+   Si algún día cambia un color, solo lo cambio aquí y se actualiza en todo el CSS
 =================================== */
 :root {
-  --sf-green: #22d74f;
-  --sf-green-soft: #00d369;
+  --sf-green: #22d74f;       /* Verde principal — botones de guardar */
+  --sf-green-soft: #00d369;  /* Verde hover */
 
-  --sf-blue: #006af8;
-  --sf-blue-strong: #0a3dfe;
-  --sf-yellow: #ffd838;
+  --sf-blue: #006af8;        /* Azul de links y botones secundarios */
+  --sf-blue-strong: #0a3dfe; /* Azul fuerte para énfasis */
+  --sf-yellow: #ffd838;      /* Amarillo — no se usa aquí pero lo dejo por consistencia */
 
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
+  --sf-bg: #f7f9ff;          /* Fondo general de la app */
+  --sf-surface: #ffffff;     /* Blanco de tarjetas */
+  --sf-border: #e4e7f2;      /* Borde gris suave */
 
-  --sf-text-main: #181f34;
-  --sf-text-muted: #3c4a5f;
-  --sf-text-soft: #5a626e;
+  --sf-text-main: #181f34;   /* Texto oscuro principal */
+  --sf-text-muted: #3c4a5f;  /* Texto secundario */
+  --sf-text-soft: #5a626e;   /* Texto de pistas y etiquetas */
 }
 
 /* ===================================
-   CONFIGURACIÓN GENERAL (WEB)
+   RESET BÁSICO
+   Sin esto los navegadores ponen márgenes y paddings distintos
+   y la app se ve diferente en Chrome, Firefox, Edge, etc.
 =================================== */
 * {
   box-sizing: border-box;
@@ -33,10 +37,92 @@ body {
   color: var(--sf-text-main);
 }
 
-/* Contenedor principal tipo página web */
+/* ===================================
+   TOPBAR DE NAVEGACIÓN
+   La barra superior de esta página usa borde abajo en vez de sombra flotante
+   igual que en la página de perfil, para un look más formal en las páginas internas
+=================================== */
+.topbar {
+  background: var(--sf-surface);
+  border-bottom: 1px solid var(--sf-border);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+/* Links de navegación en fila */
+.nav {
+  display: flex;
+  gap: 26px;
+}
+
+/* Estilo base de los links — sin subrayado, color gris suave */
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--sf-text-soft);
+  font-size: 15px;
+}
+
+/* El link de la página actual se resalta en azul */
+.nav-link.active {
+  color: var(--sf-blue);
+}
+
+/* La foto de perfil miniatura en el topbar, envuelta en un enlace */
+.profile-mini {
+  display: block;
+  text-decoration: none; /* Quito el subrayado del enlace */
+}
+
+.profile-mini img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover; /* La foto no se deforma aunque sea rectangular */
+}
+
+/* ===================================
+   BOTÓN TUERQUITA DE CONFIGURACIÓN
+   En esta página tiene la clase --active porque ESTAMOS en configuración
+   Así el usuario sabe visualmente dónde se encuentra
+=================================== */
+.nav-settings-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f4ff;           /* Fondo azul suave por defecto */
+  border: 1px solid var(--sf-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-settings-btn:hover {
+  background: #dde7ff;
+  border-color: var(--sf-blue-strong);
+}
+
+/* Estado activo: fondo azul sólido para indicar que estamos aquí */
+.nav-settings-btn--active {
+  background: var(--sf-blue-strong);
+  border-color: var(--sf-blue-strong);
+}
+
+/* ===================================
+   CONTENEDOR PRINCIPAL DE CONFIGURACIÓN
+   La caja blanca grande que envuelve todo el contenido de la página
+   Uso calc() para que tenga 40px de margen a cada lado en pantallas grandes
+=================================== */
 .settings-container {
   background-color: var(--sf-surface);
-  width: calc(100% - 80px); /* 40px de margen a cada lado */
+  width: calc(100% - 80px); /* 80px = 40px de margen en cada lado */
   max-width: 1200px;
   margin: 40px auto;
   border-radius: 24px;
@@ -46,50 +132,7 @@ body {
 }
 
 /* ===================================
-   HEADER
-=================================== */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-right: 10px;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.logo-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--sf-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #ffffff;
-  font-size: 18px;
-}
-
-.logo-text {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--sf-text-main);
-}
-
-.profile-img {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-/* ===================================
-   CONTENIDO PRINCIPAL
+   TÍTULO PRINCIPAL DE CONFIGURACIÓN
 =================================== */
 .settings-content h2 {
   font-size: 26px;
@@ -97,10 +140,12 @@ body {
   margin-bottom: 24px;
 }
 
+/* Espacio entre cada sección de configuración */
 .settings-content section {
   margin-bottom: 28px;
 }
 
+/* Subtítulos de cada sección (Editar perfil, Cambiar contraseña, etc.) */
 h3 {
   font-size: 15px;
   font-weight: 600;
@@ -109,7 +154,86 @@ h3 {
 }
 
 /* ===================================
-   INPUTS DE CONTRASEÑA
+   SECCIÓN: EDITAR PERFIL
+   Permite cambiar foto, nombre y correo del usuario
+   Tiene una línea inferior para separarla de la sección de contraseña
+=================================== */
+.edit-profile-section {
+  border-bottom: 1px solid var(--sf-border); /* Línea separadora abajo */
+  padding-bottom: 24px;
+  margin-bottom: 28px;
+}
+
+/* Fila con la foto de perfil actual y el botón para cambiarla */
+.edit-avatar-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+/* La foto de perfil actual — borde suave para que no se vea pegada */
+.edit-avatar-img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--sf-border);
+}
+
+/* Botón outline para cambiar la foto — sin relleno para que sea secundario */
+.btn-change-photo {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--sf-border);
+  background: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sf-text-muted);
+  cursor: pointer;
+}
+
+.btn-change-photo:hover {
+  border-color: var(--sf-blue);
+  color: var(--sf-blue);
+}
+
+/* ===================================
+   ETIQUETAS E INPUTS DE CONFIGURACIÓN
+   Los labels y campos de texto que uso en Editar perfil
+   Son diferentes a los de login y registro — aquí no son redondeados tipo píldora
+   sino más cuadrados para un look más de "formulario de configuración"
+=================================== */
+.settings-label {
+  display: block; /* Block para que el label quede arriba del input */
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--sf-text-muted);
+  margin-bottom: 6px;
+}
+
+.settings-input {
+  display: block;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+  border: 1px solid var(--sf-border);
+  border-radius: 10px; /* Redondeado pero no tanto como las píldoras del login */
+  font-size: 0.95rem;
+  color: var(--sf-text-main);
+}
+
+/* Al seleccionar el campo, borde verde con un resplandor suave */
+.settings-input:focus {
+  outline: none; /* Quito el outline feo del navegador */
+  border-color: var(--sf-green);
+  box-shadow: 0 0 0 2px rgba(34, 215, 79, 0.2); /* Resplandor verde suave */
+}
+
+/* ===================================
+   SECCIÓN: CAMBIAR CONTRASEÑA
+   Los inputs de contraseña usan el mismo estilo que los de Editar perfil
+   pero los defino por separado porque el HTML no les pone clase directamente
 =================================== */
 .password-section input {
   display: block;
@@ -122,10 +246,12 @@ h3 {
   color: var(--sf-text-main);
 }
 
+/* El placeholder de los campos de contraseña en gris suave */
 .password-section input::placeholder {
   color: var(--sf-text-soft);
 }
 
+/* Focus con borde verde igual que los campos de texto del perfil */
 .password-section input:focus {
   outline: none;
   border-color: var(--sf-green);
@@ -133,15 +259,65 @@ h3 {
 }
 
 /* ===================================
-   NOTIFICACIONES
+   MENSAJES DE ÉXITO Y ERROR DEL FORMULARIO
+   El JS mete mensajes en #resultado-settings cuando el usuario intenta
+   cambiar la contraseña — el CSS los oculta cuando están vacíos
+=================================== */
+#resultado-settings {
+  margin-top: 12px;
+}
+
+/* Truco con :empty — si el div no tiene contenido, lo oculto completamente
+   para que no genere espacio en blanco raro entre el formulario y el botón */
+#resultado-settings:empty {
+  display: none;
+}
+
+/* Caja verde de mensaje exitoso */
+.mensaje--exito {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #d4f7e0; /* Verde muy suave */
+  border: 1px solid #22d74f;
+  color: #14532d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Lista de errores de validación — fondo rojo suave */
+.lista-errores {
+  margin: 0;
+  list-style: disc;
+  padding: 12px 12px 12px 28px; /* El padding izquierdo extra es para las viñetas */
+  font-size: 14px;
+  color: #7f1d1d;
+  background-color: #fee2e2;
+  border: 1px solid #f87171;
+  border-radius: 12px;
+}
+
+.lista-errores li {
+  margin-bottom: 4px;
+}
+
+/* El último error no necesita margen abajo */
+.lista-errores li:last-child {
+  margin-bottom: 0;
+}
+
+/* ===================================
+   SECCIÓN: NOTIFICACIONES
+   Cada opción de notificación es una fila con el texto a la izquierda
+   y el toggle switch a la derecha
 =================================== */
 .notifications-section {
   margin-top: 10px;
 }
 
+/* Fila de cada opción de notificación */
 .notification-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Texto a la izquierda, switch a la derecha */
   align-items: center;
   padding: 8px 0;
   font-size: 0.95rem;
@@ -149,30 +325,37 @@ h3 {
 }
 
 /* ===================================
-   SWITCH
+   SWITCH (TOGGLE) DE ACTIVAR/DESACTIVAR
+   Esto fue lo más difícil de hacer en CSS puro — un toggle switch sin JavaScript
+   El truco es: un checkbox invisible encima de un div estilizado
+   Cuando el checkbox se marca, el CSS cambia el color del div con el selector +
 =================================== */
 .switch {
-  position: relative;
+  position: relative; /* Necesario para posicionar el slider dentro */
   display: inline-block;
   width: 44px;
   height: 24px;
 }
 
+/* El checkbox real está invisible pero sigue siendo clickeable
+   Lo oculto con opacity: 0 en vez de display: none para mantener la funcionalidad */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
+/* El fondo gris del switch — cubre todo el área del label */
 .slider {
   position: absolute;
   cursor: pointer;
-  inset: 0;
+  inset: 0; /* Equivale a top:0, right:0, bottom:0, left:0 — más corto */
   background-color: #cccccc;
-  transition: 0.3s;
-  border-radius: 24px;
+  transition: 0.3s; /* Animación suave al activar/desactivar */
+  border-radius: 24px; /* Completamente redondeado en forma de píldora */
 }
 
+/* El círculo blanco que se desplaza dentro del switch */
 .slider::before {
   position: absolute;
   content: "";
@@ -182,30 +365,35 @@ h3 {
   bottom: 3px;
   background-color: #ffffff;
   transition: 0.3s;
-  border-radius: 50%;
+  border-radius: 50%; /* Círculo perfecto */
 }
 
+/* Cuando el checkbox está marcado, el fondo del slider se pone verde */
 input:checked + .slider {
   background-color: var(--sf-green);
 }
 
+/* Y el círculo blanco se desplaza hacia la derecha con translateX */
 input:checked + .slider::before {
   transform: translateX(20px);
 }
 
 /* ===================================
-   SECCIONES FINALES
+   SECCIONES: PRIVACIDAD Y CERRAR SESIÓN
+   Las separo del contenido de arriba con una línea horizontal
 =================================== */
 .privacy-section,
 .logout-section {
-  border-top: 1px solid var(--sf-border);
+  border-top: 1px solid var(--sf-border); /* Línea separadora arriba */
   padding-top: 14px;
 }
 
+/* El título de privacidad en gris para que sea más discreto */
 .privacy-section h3 {
   color: var(--sf-text-muted);
 }
 
+/* El h3 de cerrar sesión (si existiera) en azul tipo link */
 .logout-section h3 {
   color: var(--sf-blue);
   cursor: pointer;
@@ -213,63 +401,10 @@ input:checked + .slider::before {
 }
 
 /* ===================================
-   RESPONSIVE
-=================================== */
-@media (max-width: 768px) {
-  .settings-container {
-    margin: 20px;
-    padding: 24px 20px 28px;
-  }
-
-  .settings-content h2 {
-    font-size: 22px;
-  }
-}
-
-/* ===================================
-   TOPBAR (navegación principal)
-=================================== */
-.topbar {
-  background: var(--sf-surface);
-  border-bottom: 1px solid var(--sf-border);
-  height: 70px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px;
-}
-
-.nav {
-  display: flex;
-  gap: 26px;
-}
-
-.nav-link {
-  text-decoration: none;
-  font-weight: 500;
-  color: var(--sf-text-soft);
-  font-size: 15px;
-}
-
-.nav-link.active {
-  color: var(--sf-blue);
-}
-
-.profile-mini {
-  display: block;
-  text-decoration: none;
-}
-
-.profile-mini img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* ===================================
    BOTONES DE ACCIÓN
+   El botón verde de guardar y el botón outline de cerrar sesión
 =================================== */
+/* Botón verde para guardar cambios — el mismo estilo en todas las secciones */
 .btn-guardar {
   display: inline-block;
   margin-top: 12px;
@@ -277,16 +412,17 @@ input:checked + .slider::before {
   background: var(--sf-green);
   color: #ffffff;
   border: none;
-  border-radius: 999px;
+  border-radius: 999px; /* Redondeado tipo píldora */
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
 }
 
 .btn-guardar:hover {
-  background: var(--sf-green-soft);
+  background: var(--sf-green-soft); /* Verde un poco más oscuro en hover */
 }
 
+/* Botón de cerrar sesión — outline, más discreto que el de guardar */
 .btn-logout {
   padding: 10px 22px;
   background: none;
@@ -299,46 +435,27 @@ input:checked + .slider::before {
 }
 
 .btn-logout:hover {
-  background: #f0f4ff;
+  background: #f0f4ff; /* Fondo azul muy suave en hover */
 }
 
-/* ===================================
-   MENSAJES DE VALIDACIÓN
-=================================== */
-#resultado-settings {
-  margin-top: 12px;
-}
-
-.mensaje--exito {
-  padding: 12px 16px;
-  border-radius: 12px;
-  background-color: #d4f7e0;
-  border: 1px solid #22d74f;
-  color: #14532d;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.lista-errores {
-  margin: 0;
-  list-style: disc;
-  padding: 12px 12px 12px 28px;
-  font-size: 14px;
-  color: #7f1d1d;
-  background-color: #fee2e2;
-  border: 1px solid #f87171;
-  border-radius: 12px;
-}
-
-.lista-errores li {
-  margin-bottom: 4px;
-}
-
-.lista-errores li:last-child {
-  margin-bottom: 0;
-}
-
+/* Como el btn-logout puede ser un enlace <a> en vez de <button>,
+   necesito quitarle el subrayado también en ese caso */
 a.btn-logout {
   display: inline-block;
   text-decoration: none;
+}
+
+/* ===================================
+   RESPONSIVE
+   En pantallas pequeñas el contenedor tiene menos margen y padding
+=================================== */
+@media (max-width: 768px) {
+  .settings-container {
+    margin: 20px;   /* Menos margen en los lados */
+    padding: 24px 20px 28px;
+  }
+
+  .settings-content h2 {
+    font-size: 22px; /* El título se achica en móvil */
+  }
 }

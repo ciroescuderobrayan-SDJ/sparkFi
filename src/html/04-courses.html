@@ -1,10 +1,18 @@
+<<<<<<< main
 <!doctype html>
+=======
+<!DOCTYPE html>
+<!-- Siempre DOCTYPE primero, es la forma correcta de empezar un HTML5 -->
+>>>>>>> main
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Para que las tildes y la ñ no aparezcan como símbolos raros -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Esto hace que se adapte a pantallas de celular, súper importante -->
     <title>Cursos - SparkFi</title>
 
+    <!-- Fuente Inter para que se vea consistente con el resto de la app -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,10 +20,15 @@
       rel="stylesheet"
     />
 
+    <!-- Ícono del rayo en la pestaña del navegador -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+    <!-- CSS de esta pantalla de cursos -->
     <link rel="stylesheet" href="/src/css/04-courses.css" />
   </head>
 
   <body>
+<<<<<<< main
     <div class="pagina-cursos">
       <!-- El nav -->
       <header class="encabezado-principal">
@@ -93,10 +106,166 @@
               <div class="texto-leccion">
                 <p class="porcentaje-leccion">65% completado</p>
                 <ul class="lista-leccion">
+=======
+    <!-- Contenedor principal con padding general -->
+    <div class="page">
+
+      <!-- Topbar de navegación, igual al de todas las otras páginas -->
+      <header class="topbar">
+        <div class="logo">
+          <span class="logo-icon">⚡</span>
+          <span class="logo-text">SparkFi</span>
+        </div>
+
+        <!-- El link "Cursos" tiene la clase active para que se vea resaltado -->
+        <nav class="nav">
+          <a href="03-home.html" class="nav-link">Inicio</a>
+          <a href="04-courses.html" class="nav-link active">Cursos</a>
+          <a href="05-challenges.html" class="nav-link">Retos</a>
+          <a href="06-community.html" class="nav-link">Comunidad</a>
+          <a href="07-profile.html" class="nav-link">Perfil</a>
+        </nav>
+
+        <!-- Botón de configuración, igual en todas las páginas -->
+        <a href="08-settings.html" class="nav-settings-btn" title="Configuración">⚙️</a>
+
+        <!-- Foto/ícono del usuario que lleva al perfil -->
+        <a href="07-profile.html" class="avatar-mini">
+          <span class="avatar-circle">👤</span>
+        </a>
+      </header>
+
+      <!-- Layout principal: barra lateral izquierda + contenido derecho -->
+      <!-- Usé flexbox en el CSS para que queden uno al lado del otro -->
+      <main class="courses-layout">
+
+        <!-- Barra lateral izquierda con las categorías de cursos -->
+        <aside class="sidebar">
+          <h2 class="sidebar-title">Cursos</h2>
+
+          <!-- Botones de filtro por categoría -->
+          <!-- El active está en "Ahorro" porque esa es la categoría seleccionada ahora -->
+          <!-- Cuando implementemos JS, estos botones filtrarán la lista de cursos -->
+          <button class="sidebar-item active">Ahorro</button>
+          <button class="sidebar-item">Inversión</button>
+          <button class="sidebar-item">Presupuesto</button>
+        </aside>
+
+        <!-- Contenido derecho: lista de cursos + vista de lección -->
+        <section class="courses-main">
+
+          <!-- Encabezado con título y ruta de navegación (breadcrumb) -->
+          <header class="courses-header">
+            <h1 class="page-title">Mis cursos</h1>
+
+            <!-- Breadcrumb: muestra en qué parte del contenido estás -->
+            <!-- Ayuda al usuario a saber dónde está dentro de la app -->
+            <div class="breadcrumb-bar">
+              <span class="breadcrumb-text">
+                Cursos &gt; Introducción al ahorro &gt; Lección 1
+              </span>
+              <span class="breadcrumb-arrow">›</span>
+            </div>
+          </header>
+
+          <!-- Lista de tarjetas de cursos -->
+          <section class="course-list">
+
+            <!-- Curso activo de la categoría "Ahorro" - el único completamente visible -->
+            <article class="course-card">
+              <div class="course-left">
+                <!-- Ícono de color verde para identificar visualmente la categoría -->
+                <div class="course-icon course-icon-green">🐷</div>
+                <div class="course-info">
+                  <h2 class="course-title">Introducción al ahorro</h2>
+                  <!-- La clase highlight pone el porcentaje en azul para que resalte -->
+                  <p class="course-progress-text">
+                    <span class="highlight">65%</span> · En curso
+                  </p>
+                  <!-- Barra de progreso: el div interno tiene ancho definido por clase CSS -->
+                  <div class="progress-track">
+                    <div class="progress-fill progress-65"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-secondary">Continuar</button>
+            </article>
+
+            <!-- Los siguientes 3 cursos tienen clase "course-dimmed" porque no son de la categoría -->
+            <!-- "Ahorro" activa ahora mismo. Están atenuados (opacity baja) en el CSS. -->
+            <!-- Cuando JS esté listo, estos se ocultarán o mostrarán según el filtro seleccionado -->
+            <article class="course-card course-dimmed">
+              <div class="course-left">
+                <div class="course-icon course-icon-yellow">🧮</div>
+                <div class="course-info">
+                  <h2 class="course-title">Presupuesto básico</h2>
+                  <p class="course-progress-text">20%</p>
+                  <div class="progress-track">
+                    <div class="progress-fill progress-20"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-secondary">Continuar</button>
+            </article>
+
+            <!-- Curso sin empezar: el botón dice "Empezar" y usa el estilo outline (sin relleno) -->
+            <article class="course-card course-dimmed">
+              <div class="course-left">
+                <div class="course-icon course-icon-lightgreen">📈</div>
+                <div class="course-info">
+                  <h2 class="course-title">Fundamentos de inversión</h2>
+                  <p class="course-progress-text">0%</p>
+                  <div class="progress-track">
+                    <div class="progress-fill progress-0"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-secondary btn-secondary-outline">Empezar</button>
+            </article>
+
+            <!-- Otro curso sin empezar -->
+            <article class="course-card course-dimmed">
+              <div class="course-left">
+                <div class="course-icon course-icon-blue">🎯</div>
+                <div class="course-info">
+                  <h2 class="course-title">Metas SMART</h2>
+                  <p class="course-progress-text">0%</p>
+                  <div class="progress-track">
+                    <div class="progress-fill progress-0"></div>
+                  </div>
+                </div>
+              </div>
+              <button class="btn-secondary btn-secondary-outline">Empezar</button>
+            </article>
+          </section>
+
+          <!-- Sección de vista previa de la lección activa -->
+          <section class="lesson-section">
+
+            <!-- Enlace para volver a la lista de cursos, lo puse arriba para que sea fácil encontrarlo -->
+            <a href="04-courses.html" class="lesson-back-link">← Volver a cursos</a>
+
+            <h2 class="section-title">Vista de lección</h2>
+
+            <!-- Barra de progreso de la lección actual (65% completado) -->
+            <div class="lesson-progress-bar">
+              <div class="lesson-progress-fill"></div>
+            </div>
+
+            <!-- Tarjeta con el contenido de la lección y el video -->
+            <div class="lesson-card">
+
+              <!-- Lado izquierdo: porcentaje completado y temas de la lección -->
+              <div class="lesson-text">
+                <p class="lesson-percentage">65% completado</p>
+                <!-- Lista de temas que cubre esta lección -->
+                <ul class="lesson-list">
+>>>>>>> main
                   <li>Reducir gastos en entretenimiento</li>
                 </ul>
               </div>
 
+<<<<<<< main
               <div class="video-leccion">
                 <span class="icono-reproducir">▶</span>
               </div>
@@ -105,11 +274,29 @@
             <button class="boton-completar-leccion">
               Marcar como completado
             </button>
+=======
+              <!-- Lado derecho: reproductor de video de la lección -->
+              <!-- Por ahora es solo el diseño, el video real iría cuando tengamos backend -->
+              <div class="lesson-video">
+                <span class="play-icon">▶</span>
+                <!-- Título del video para que el usuario sepa qué va a ver -->
+                <p class="video-label">¿Qué es el ahorro?</p>
+              </div>
+            </div>
+
+            <!-- Botón para marcar la lección como terminada -->
+            <button class="btn-primary">Marcar como completado</button>
+>>>>>>> main
           </section>
         </section>
       </main>
     </div>
 
+<<<<<<< main
     <script type="module" src="../js/04-courses.js"></script>
+=======
+    <!-- JS de esta pantalla, al final del body como buena práctica -->
+    <script src="/src/js/04-courses.js"></script>
+>>>>>>> main
   </body>
 </html>

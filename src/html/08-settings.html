@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+<!-- Declaración de HTML5 -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- Codificación para español con tildes y ñ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Que se adapte a pantallas pequeñas -->
     <title>Configuración - SparkFi</title>
 
+    <!-- Fuente Inter, la misma en todas las páginas para consistencia visual -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,57 +16,123 @@
       rel="stylesheet"
     />
 
+    <!-- Favicon del rayo ⚡ en la pestaña del navegador -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+    <!-- CSS de esta página de configuración -->
     <link rel="stylesheet" href="/src/css/08-settings.css" />
   </head>
 
   <body>
+    <!-- Barra de navegación superior -->
     <header class="topbar">
       <div class="logo">
         <span class="logo-icon">⚡</span>
         <span class="logo-text">SparkFi</span>
       </div>
 
+      <!-- "Perfil" sigue activo porque Configuración es una subsección del perfil -->
       <nav class="nav">
         <a href="03-home.html" class="nav-link">Inicio</a>
         <a href="04-courses.html" class="nav-link">Cursos</a>
         <a href="05-challenges.html" class="nav-link">Retos</a>
         <a href="06-community.html" class="nav-link">Comunidad</a>
-        <a href="07-profile.html" class="nav-link">Perfil</a>
+        <a href="07-profile.html" class="nav-link active">Perfil</a>
       </nav>
 
+      <!-- La tuerquita tiene la clase --active aquí porque estamos EN configuración -->
+      <!-- Esto la pone con fondo azul para indicar la página actual -->
+      <a href="08-settings.html" class="nav-settings-btn nav-settings-btn--active" title="Configuración">⚙️</a>
+
+      <!-- Foto de perfil que lleva de vuelta al perfil -->
       <a href="07-profile.html" class="profile-mini">
         <img src="https://i.pravatar.cc/60" alt="Usuario" />
       </a>
     </header>
 
+    <!-- Contenedor de toda la página de configuración -->
     <div class="settings-container">
       <main class="settings-content">
         <h2>Configuración</h2>
 
+        <!-- ============================
+             SECCIÓN: Editar perfil
+             Permite cambiar foto, nombre y correo
+        ============================= -->
+        <section class="edit-profile-section">
+          <h3>Editar perfil</h3>
+
+          <!-- Fila con la foto actual y el botón para cambiarla -->
+          <div class="edit-avatar-row">
+            <!-- Foto de perfil actual, usé pravatar.cc como placeholder -->
+            <img src="https://i.pravatar.cc/80" alt="Foto de perfil" class="edit-avatar-img" />
+            <!-- Botón para cambiar la foto, la funcionalidad real irá en JS -->
+            <button type="button" class="btn-change-photo">Cambiar foto</button>
+          </div>
+
+          <!-- Campo para editar el nombre, con autocomplete para que el navegador ayude -->
+          <label class="settings-label" for="edit-nombre">Nombre completo</label>
+          <input id="edit-nombre" type="text" class="settings-input" placeholder="Juan Pérez" value="Juan Pérez" autocomplete="name" />
+
+          <!-- Campo para editar el correo electrónico -->
+          <label class="settings-label" for="edit-email">Correo electrónico</label>
+          <input id="edit-email" type="email" class="settings-input" placeholder="juan@example.com" value="juan.perez@example.com" autocomplete="email" />
+
+          <!-- Botón para guardar los cambios del perfil -->
+          <button type="button" class="btn-guardar">Guardar perfil</button>
+        </section>
+
+        <!-- ============================
+             SECCIÓN: Cambiar contraseña
+             El formulario tiene id para que el JS lo maneje
+        ============================= -->
         <section class="password-section">
           <h3>Cambiar contraseña</h3>
           <form id="form-password">
-            <input id="password-actual" type="password" placeholder="Contraseña actual" />
-            <input id="password-nueva" type="password" placeholder="Nueva contraseña" />
-            <input id="password-confirmar" type="password" placeholder="Confirmar nueva contraseña" />
+
+            <!-- Primero pide la contraseña actual para verificar que es el dueño de la cuenta -->
+            <!-- autocomplete="current-password" ayuda a los gestores de contraseñas -->
+            <label class="settings-label" for="password-actual">Contraseña actual</label>
+            <input id="password-actual" type="password" placeholder="••••••••" autocomplete="current-password" />
+
+            <!-- Nueva contraseña con new-password para que el navegador ofrezca generar una -->
+            <label class="settings-label" for="password-nueva">Nueva contraseña</label>
+            <input id="password-nueva" type="password" placeholder="••••••••" autocomplete="new-password" />
+
+            <!-- Confirmación para asegurarse de que no se equivocó al escribirla -->
+            <label class="settings-label" for="password-confirmar">Confirmar nueva contraseña</label>
+            <input id="password-confirmar" type="password" placeholder="••••••••" autocomplete="new-password" />
+
+            <!-- Aquí el JS mostrará mensajes de éxito o error -->
+            <!-- El CSS lo oculta automáticamente cuando está vacío con :empty -->
+            <div id="resultado-settings"></div>
+
+            <!-- El botón está dentro del form para que funcione bien el submit -->
+            <button id="btn-guardar-password" type="button" class="btn-guardar">Guardar cambios</button>
           </form>
-
-          <div id="resultado-settings"></div>
-
-          <button id="btn-guardar-password" class="btn-guardar">Guardar cambios</button>
         </section>
 
+        <!-- ============================
+             SECCIÓN: Notificaciones
+             Switches para activar/desactivar avisos
+        ============================= -->
         <section class="notifications-section">
           <h3>Notificaciones</h3>
+
+          <!-- Cada opción de notificación tiene un toggle switch estilizado con CSS puro -->
+          <!-- El switch es: label que envuelve input[checkbox] + span.slider para el efecto visual -->
           <div class="notification-item">
             <span>Correo electrónico</span>
+            <!-- Switch activado por defecto (checked) -->
             <label class="switch">
               <input type="checkbox" checked />
               <span class="slider"></span>
             </label>
           </div>
+
           <div class="notification-item">
             <span>Push</span>
+            <!-- Notificaciones push también activas por defecto -->
             <label class="switch">
               <input type="checkbox" checked />
               <span class="slider"></span>
@@ -70,17 +140,25 @@
           </div>
         </section>
 
+        <!-- ============================
+             SECCIÓN: Privacidad y seguridad
+             Switches para controlar visibilidad del perfil
+        ============================= -->
         <section class="privacy-section">
           <h3>Privacidad y seguridad</h3>
+
           <div class="notification-item">
             <span>Perfil público</span>
+            <!-- Perfil privado por defecto (sin checked) -->
             <label class="switch">
               <input type="checkbox" />
               <span class="slider"></span>
             </label>
           </div>
+
           <div class="notification-item">
             <span>Mostrar actividad reciente</span>
+            <!-- La actividad reciente sí se muestra por defecto -->
             <label class="switch">
               <input type="checkbox" checked />
               <span class="slider"></span>
@@ -88,13 +166,19 @@
           </div>
         </section>
 
+        <!-- ============================
+             SECCIÓN: Cerrar sesión
+             Botón que lleva de vuelta al login
+        ============================= -->
         <section class="logout-section">
-          <h3>Cerrar sesión</h3>
+          <!-- Usé un enlace estilizado como botón para no necesitar JS para esta acción -->
           <a href="01-login.html" class="btn-logout">Cerrar sesión</a>
         </section>
+
       </main>
     </div>
 
+    <!-- Script de configuración al final del body -->
     <script src="/src/js/08-settings.js"></script>
   </body>
 </html>

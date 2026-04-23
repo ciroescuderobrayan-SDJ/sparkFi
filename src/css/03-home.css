@@ -1,25 +1,27 @@
 /* ===================================
-   Paleta SparkFi
+   PALETA DE COLORES
+   Las mismas variables de siempre para mantener todo consistente en la app
 =================================== */
 :root {
-  --sf-green: #22d74f;
-  --sf-green-soft: #00d369;
+  --sf-green: #22d74f;       /* Verde principal */
+  --sf-green-soft: #00d369;  /* Verde hover */
 
-  --sf-blue: #006af8;
-  --sf-blue-strong: #0a3dfe;
-  --sf-yellow: #ffd838;
+  --sf-blue: #006af8;        /* Azul de links */
+  --sf-blue-strong: #0a3dfe; /* Azul fuerte de énfasis */
+  --sf-yellow: #ffd838;      /* Amarillo para logros */
 
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
+  --sf-bg: #f7f9ff;          /* Fondo gris-azulado */
+  --sf-surface: #ffffff;     /* Blanco de tarjetas */
+  --sf-border: #e4e7f2;      /* Borde gris suave */
 
-  --sf-text-main: #181f34;
-  --sf-text-muted: #3c4a5f;
-  --sf-text-soft: #5a626e;
+  --sf-text-main: #181f34;   /* Texto principal */
+  --sf-text-muted: #3c4a5f;  /* Texto secundario */
+  --sf-text-soft: #5a626e;   /* Texto de ayuda */
 }
 
 /* ===================================
-   Reset
+   RESET
+   Sin esto los navegadores aplican estilos diferentes y todo se ve raro
 =================================== */
 * {
   margin: 0;
@@ -29,40 +31,61 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--sf-bg);
+  background: var(--sf-bg); /* Fondo azulado suave para toda la página */
 }
 
+<<<<<<< main
 /* Contenedor general */
 .pagina-inicio {
   min-height: 100vh;
+=======
+/* Contenedor general que da el espacio alrededor de todo el contenido */
+.page {
+  min-height: 100vh; /* Que siempre ocupe al menos toda la altura de la pantalla */
+>>>>>>> main
   padding: 32px;
 }
 
 /* ===================================
+<<<<<<< main
   Encabezado principal
+=======
+   TOPBAR DE NAVEGACIÓN
+   Barra flotante con sombra que contiene el logo, los links y el avatar
+>>>>>>> main
 =================================== */
 .encabezado-principal {
   background: var(--sf-surface);
-  border-radius: 24px;
+  border-radius: 24px; /* Bordes redondeados para que parezca flotante */
   border: 1px solid var(--sf-border);
   padding: 16px 28px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Logo a la izquierda, avatar a la derecha */
 
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); /* Sombra suave para el efecto flotante */
   max-width: 1200px;
-  margin: 0 auto 32px;
+  margin: 0 auto 32px; /* Centrado horizontal + espacio abajo antes del contenido */
 }
 
+<<<<<<< main
 .marca {
+=======
+/* Logo: rayo + nombre de la app */
+.logo {
+>>>>>>> main
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+<<<<<<< main
 .marca-simbolo {
+=======
+/* Círculo verde del rayo */
+.logo-icon {
+>>>>>>> main
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -78,18 +101,29 @@ body {
   font-size: 20px;
 }
 
+<<<<<<< main
 .navegacion-principal {
+=======
+/* Links de navegación en fila */
+.nav {
+>>>>>>> main
   display: flex;
-  gap: 24px;
+  gap: 24px; /* Espacio horizontal entre cada link */
 }
 
+<<<<<<< main
 .enlace-navegacion {
+=======
+/* Estilo base de los links: sin subrayado, gris suave */
+.nav-link {
+>>>>>>> main
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: var(--sf-text-soft);
 }
 
+<<<<<<< main
 .enlace-navegacion:hover {
   color: var(--sf-blue-strong);
 }
@@ -101,6 +135,15 @@ body {
 }
 
 .avatar-usuario-circulo {
+=======
+/* El link de la página actual se ve más oscuro */
+.nav-link.active {
+  color: var(--sf-text-main);
+}
+
+/* Círculo negro con el ícono del usuario para el avatar del topbar */
+.avatar-mini .avatar-circle {
+>>>>>>> main
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -119,11 +162,16 @@ body {
 
 
 /* ===================================
+<<<<<<< main
   Contenido principal
+=======
+   DASHBOARD PRINCIPAL
+   La tarjeta blanca grande que contiene el gráfico y los accesos rápidos
+>>>>>>> main
 =================================== */
 .contenido-inicio {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrado */
   background: var(--sf-surface);
   border-radius: 32px;
   border: 1px solid var(--sf-border);
@@ -131,46 +179,76 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
 }
 
+<<<<<<< main
 .titulo-bienvenida {
+=======
+/* Título de bienvenida grande */
+.hero-title {
+>>>>>>> main
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 28px;
 }
 
+<<<<<<< main
 .saludo {
+=======
+/* El emoji de saludo necesita un tamaño un poco diferente al texto */
+.wave {
+>>>>>>> main
   font-size: 34px;
 }
 
 /* ===================================
+<<<<<<< main
    Tarjeta de gráfica
+=======
+   TARJETA DEL GRÁFICO SVG
+   Envuelve el SVG del gráfico de ahorro
+>>>>>>> main
 =================================== */
 .panel-grafica {
   border-radius: 26px;
   border: 1px solid var(--sf-border);
-  overflow: hidden;
+  overflow: hidden; /* Para que el SVG no se salga de los bordes redondeados */
   background: #ffffff;
   margin-bottom: 32px;
 }
 
+<<<<<<< main
 .grafica-lineal {
+=======
+/* El SVG ocupa todo el ancho de la tarjeta y se escala automáticamente */
+.chart-svg {
+>>>>>>> main
   width: 100%;
   height: auto;
-  display: block;
+  display: block; /* Sin esto queda un espacio raro abajo del SVG */
 }
 
 /* ===================================
+<<<<<<< main
    Accesos rápidos
+=======
+   ACCESOS RÁPIDOS (3 tarjetas)
+   Grid de 3 columnas iguales para las tarjetas de Cursos, Retos y Ahorro
+>>>>>>> main
 =================================== */
 .rejilla-accesos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
   gap: 18px;
 }
 
+<<<<<<< main
 .tarjeta-acceso {
   display: block;
   text-decoration: none;
   color: inherit;
+=======
+/* Tarjeta individual de acceso rápido */
+.qa-card {
+>>>>>>> main
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
@@ -185,7 +263,12 @@ body {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
+<<<<<<< main
 .icono-acceso {
+=======
+/* Cuadrado azul claro con el emoji/ícono de la tarjeta */
+.qa-icon {
+>>>>>>> main
   width: 48px;
   height: 48px;
   border-radius: 16px;
@@ -210,40 +293,87 @@ body {
 }
 
 /* ===================================
-   Responsive
+   DISEÑO RESPONSIVE
+   En pantallas más pequeñas el grid pasa a una sola columna
 =================================== */
 @media (max-width: 900px) {
+<<<<<<< main
   .pagina-inicio {
     padding: 16px;
+=======
+  .page {
+    padding: 16px; /* Menos margen en móvil para aprovechar el espacio */
+>>>>>>> main
   }
 
   .contenido-inicio {
     padding: 24px 20px 32px;
   }
 
+<<<<<<< main
   .titulo-bienvenida {
     font-size: 32px;
   }
 
   .rejilla-accesos {
+=======
+  .hero-title {
+    font-size: 32px; /* Título más pequeño en pantallas chicas */
+  }
+
+  /* Las 3 tarjetas pasan a estar una encima de la otra en móvil */
+  .quick-actions {
+>>>>>>> main
     grid-template-columns: 1fr;
   }
 }
 
-/* Quick action cards como links */
+/* Las tarjetas de acceso rápido están dentro de un enlace, esto evita el subrayado */
 .qa-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
+/* Al pasar el mouse por una tarjeta, cambia el borde y la sombra */
 .qa-card-link:hover .qa-card {
   border-color: var(--sf-blue);
   box-shadow: 0 8px 24px rgba(0, 106, 248, 0.12);
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-/* Avatar link en topbar */
+/* El enlace del avatar no debe tener subrayado */
 .avatar-mini {
   text-decoration: none;
+}
+
+/* ===================================
+   BOTÓN DE CONFIGURACIÓN (TUERQUITA)
+   Aparece en el topbar de todas las páginas internas
+=================================== */
+.nav-settings-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f4ff;           /* Fondo azul muy suave */
+  border: 1px solid var(--sf-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  text-decoration: none;
+  flex-shrink: 0;                /* Que no se encoja si el topbar tiene poco espacio */
+  transition: background 0.2s, border-color 0.2s;
+}
+
+/* Hover: fondo más azul y borde azul fuerte */
+.nav-settings-btn:hover {
+  background: #dde7ff;
+  border-color: var(--sf-blue-strong);
+}
+
+/* Cuando estamos en la página de configuración, el botón se ve sólido azul */
+.nav-settings-btn--active {
+  background: var(--sf-blue-strong);
+  border-color: var(--sf-blue-strong);
 }

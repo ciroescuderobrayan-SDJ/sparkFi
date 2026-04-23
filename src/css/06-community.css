@@ -1,18 +1,26 @@
-/* PALETA SPARKFI */
+/* ===================================
+   PALETA DE COLORES SPARKFI
+   Solo pongo las variables que realmente uso en esta página
+   para no tener código muerto que confunda a quien lo lea
+=================================== */
 :root {
-  --sf-green: #22d74f;
-  --sf-blue: #006af8;
-  --sf-blue-strong: #0a3dfe;
+  --sf-green: #22d74f;       /* Verde del logo y elementos de acción */
+  --sf-blue: #006af8;        /* Azul de links y hover */
+  --sf-blue-strong: #0a3dfe; /* Azul fuerte para énfasis y el link activo */
 
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
+  --sf-bg: #f7f9ff;          /* Fondo general de la app */
+  --sf-surface: #ffffff;     /* Blanco para tarjetas y paneles */
+  --sf-border: #e4e7f2;      /* Borde gris suave */
 
-  --sf-text-main: #181f34;
-  --sf-text-soft: #5a626e;
+  --sf-text-main: #181f34;   /* Texto oscuro principal */
+  --sf-text-soft: #5a626e;   /* Texto secundario más suave */
 }
 
-/* RESET */
+/* ===================================
+   RESET BÁSICO
+   Sin esto cada navegador aplica sus propios estilos por defecto
+   y la app se vería diferente en cada uno
+=================================== */
 * {
   margin: 0;
   padding: 0;
@@ -25,15 +33,20 @@ body {
   color: var(--sf-text-main);
 }
 
+/* Wrapper que da el espacio alrededor de todo el contenido */
 .page {
   min-height: 100vh;
   padding: 32px;
 }
 
-/* TOPBAR */
+/* ===================================
+   TOPBAR DE NAVEGACIÓN
+   Barra flotante que aparece en todas las páginas de la app
+   siempre con la misma apariencia para que el usuario se ubique
+=================================== */
 .topbar {
   max-width: 1200px;
-  margin: 0 auto 32px;
+  margin: 0 auto 32px; /* Centrado horizontalmente + espacio debajo */
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
@@ -44,12 +57,14 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
+/* Logo: rayo ⚡ en círculo verde + nombre de la app */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* El círculo verde del rayo */
 .logo-icon {
   width: 30px;
   height: 30px;
@@ -66,11 +81,13 @@ body {
   font-size: 20px;
 }
 
+/* Links de nav en fila horizontal */
 .nav {
   display: flex;
   gap: 24px;
 }
 
+/* Links sin subrayado, color gris suave por defecto */
 .nav-link {
   text-decoration: none;
   font-size: 15px;
@@ -78,12 +95,18 @@ body {
   color: var(--sf-text-soft);
 }
 
+/* El link de la página actual se resalta con azul y una línea abajo */
 .nav-link.active {
   color: var(--sf-blue-strong);
   padding-bottom: 3px;
-  box-shadow: 0 2px 0 0 var(--sf-blue-strong);
+  box-shadow: 0 2px 0 0 var(--sf-blue-strong); /* Línea azul que actúa como underline */
 }
 
+/* ===================================
+   PÍLDORA DE USUARIO EN LA TOPBAR
+   En la página de comunidad uso una píldora azul en lugar del círculo oscuro
+   para darle un toque más "social" a esta sección
+=================================== */
 .user-pill {
   display: flex;
   align-items: center;
@@ -91,9 +114,10 @@ body {
   background: var(--sf-blue-strong);
   color: #ffffff;
   padding: 6px 16px;
-  border-radius: 999px;
+  border-radius: 999px; /* Píldora redondeada */
 }
 
+/* Círculo blanco con el ícono del usuario adentro */
 .user-pill-icon {
   width: 28px;
   height: 28px;
@@ -111,7 +135,10 @@ body {
   font-weight: 600;
 }
 
-/* TARJETA PRINCIPAL COMUNIDAD */
+/* ===================================
+   TARJETA PRINCIPAL DE COMUNIDAD
+   La caja blanca grande que contiene todos los posts del foro
+=================================== */
 .community-card {
   max-width: 1200px;
   margin: 0 auto 40px;
@@ -122,43 +149,84 @@ body {
   padding: 40px 40px 48px;
 }
 
+/* ===================================
+   CABECERA DE COMUNIDAD
+   El título grande y el botón de nueva publicación lado a lado
+   Uso flex con justify-content: space-between para que queden en extremos opuestos
+=================================== */
+.community-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  flex-wrap: wrap; /* Si la pantalla es pequeña, el botón pasa abajo */
+  gap: 12px;
+}
+
+/* El título grande de la sección */
 .community-title {
   font-size: 40px;
   font-weight: 800;
-  margin-bottom: 24px;
+  margin-bottom: 0; /* Lo quito porque el flex ya maneja el espacio */
 }
 
-/* LISTA DE POSTS */
+/* Botón azul para crear una nueva publicación */
+.btn-new-post {
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: none;
+  background: var(--sf-blue-strong);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-new-post:hover {
+  background: var(--sf-blue); /* Azul un poco más suave en hover */
+}
+
+/* ===================================
+   LISTA DE PUBLICACIONES
+   Flex column para que los posts queden uno debajo del otro
+=================================== */
 .post-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 16px; /* Espacio entre publicaciones */
 }
 
+/* Tarjeta individual de publicación */
 .post-card {
   border-radius: 22px;
   border: 1px solid var(--sf-border);
   padding: 18px 22px;
-  background: #fbfdff;
+  background: #fbfdff; /* Blanco muy ligeramente azulado */
 }
 
+/* Parte superior del post: contenido a la izquierda, link a la derecha */
 .post-top {
   display: flex;
   justify-content: space-between;
   gap: 16px;
 }
 
+/* El avatar y el contenido del post lado a lado */
 .post-main {
   display: flex;
   gap: 16px;
 }
 
-/* AVATARES */
+/* ===================================
+   AVATARES DE USUARIOS
+   Los círculos que representan a cada usuario que hizo un post
+   Uso SVGs inline para no depender de imágenes externas
+=================================== */
 .avatar {
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: #e5e7eb;
+  background: #e5e7eb; /* Fondo gris para cuando el SVG tarda en cargar */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -169,23 +237,29 @@ body {
   height: 56px;
 }
 
-/* CONTENIDO POST */
+/* ===================================
+   CONTENIDO DEL POST
+   El texto con el título, cuerpo y metadata del post
+=================================== */
 .post-content {
-  max-width: 720px;
+  max-width: 720px; /* Evito que el texto se extienda demasiado para facilitar la lectura */
 }
 
+/* Título de la publicación en negrita */
 .post-title {
   font-size: 16px;
   font-weight: 700;
   margin-bottom: 6px;
 }
 
+/* El texto del post en gris suave para que el título resalte más */
 .post-body {
   font-size: 14px;
   color: var(--sf-text-soft);
   margin-bottom: 10px;
 }
 
+/* Línea de metadata: nombre del autor + separador + fecha */
 .post-meta {
   font-size: 13px;
   color: var(--sf-text-soft);
@@ -195,23 +269,55 @@ body {
 }
 
 .post-author {
-  font-weight: 500;
+  font-weight: 500; /* El nombre del autor un poco más destacado */
 }
 
+/* Link para ver respuestas — lo alinea a la derecha en desktop
+   y aparece a la izquierda en móvil cuando .post-top se apila */
 .post-link {
   font-size: 13px;
   color: var(--sf-blue-strong);
   text-decoration: none;
-  white-space: nowrap;
+  white-space: nowrap; /* Que no se parta en dos líneas */
 }
 
-/* PARTE INFERIOR DEL POST */
+/* ===================================
+   ACCIONES DEL POST (PARTE INFERIOR)
+   El área con el botón de like y el contador de comentarios
+   Los alinea a la derecha con justify-content: flex-end
+=================================== */
 .post-bottom {
   margin-top: 12px;
   display: flex;
+  align-items: center;
   justify-content: flex-end;
+  gap: 10px;
 }
 
+/* Botón de reacción (👍) — diseñado como píldora outline
+   Está en transparente para que se vea sutil y no compita con el contenido */
+.react-btn {
+  border: 1px solid var(--sf-border);
+  background: transparent;
+  color: var(--sf-text-soft);
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* Al pasar el mouse, el botón se pone azulado para invitar al click */
+.react-btn:hover {
+  background: #f0f4ff;
+  border-color: var(--sf-blue);
+  color: var(--sf-blue);
+}
+
+/* Botón/texto para ver la cantidad de comentarios — sin borde, más discreto */
 .comment-btn {
   border: none;
   background: transparent;
@@ -224,15 +330,20 @@ body {
   cursor: pointer;
 }
 
+/* El emoji de burbuja de comentario */
 .comment-icon {
   font-size: 15px;
 }
 
+/* El número de comentarios en gris */
 .comment-count {
   color: #6b7280;
 }
 
-/* RESPONSIVE */
+/* ===================================
+   RESPONSIVE
+   En pantallas pequeñas algunos elementos se apilan verticalmente
+=================================== */
 @media (max-width: 900px) {
   .page {
     padding: 16px;
@@ -243,22 +354,26 @@ body {
   }
 
   .community-title {
-    font-size: 32px;
+    font-size: 32px; /* Título más pequeño para que quepa en móvil */
   }
 
+  /* En tablet el link y el contenido ya no van lado a lado */
   .post-top {
     flex-direction: column;
     align-items: flex-start;
   }
 
+  /* Las acciones se alinean a la izquierda cuando el post se apila */
   .post-bottom {
     justify-content: flex-start;
   }
 }
 
 @media (max-width: 700px) {
+  /* El menú desaparece en móvil para ahorrar espacio
+     En una versión futura se reemplazaría por un menú hamburguesa */
   .nav {
-    display: none; /* luego podrías cambiarlo por un menú hamburguesa */
+    display: none;
   }
 
   .topbar {
@@ -266,10 +381,47 @@ body {
   }
 }
 
-/* Avatar link */
+/* ===================================
+   LINKS DEL AVATAR Y LA PÍLDORA DE USUARIO
+   Quito el subrayado y el color azul que el navegador les pone
+   a los enlaces para que se vean como parte del diseño
+=================================== */
 a.avatar-mini, a.user-pill {
   text-decoration: none;
-  color: inherit;
+  color: inherit; /* Hereda el color del padre en vez de volverse azul */
   display: flex;
   align-items: center;
+}
+
+/* ===================================
+   BOTÓN TUERQUITA DE CONFIGURACIÓN
+   El mismo en todas las páginas — un círculo azul suave con el ícono ⚙️
+   que lleva a la página de configuración
+=================================== */
+.nav-settings-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f4ff;           /* Azul muy suave */
+  border: 1px solid var(--sf-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  text-decoration: none;
+  flex-shrink: 0;                /* No se encoge aunque el topbar esté apretado */
+  transition: background 0.2s, border-color 0.2s;
+}
+
+/* Hover más azul para que el usuario sepa que puede hacer click */
+.nav-settings-btn:hover {
+  background: #dde7ff;
+  border-color: var(--sf-blue-strong);
+}
+
+/* Cuando estamos en la página de configuración, el botón se rellena de azul
+   para señalar que esa es la página actual */
+.nav-settings-btn--active {
+  background: var(--sf-blue-strong);
+  border-color: var(--sf-blue-strong);
 }
