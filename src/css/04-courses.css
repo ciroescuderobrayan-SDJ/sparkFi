@@ -33,8 +33,13 @@ body {
   background: var(--sf-bg);
 }
 
+<<<<<<< main
+/* Contenedor general */
+.pagina-cursos {
+=======
 /* Wrapper general de la página */
 .page {
+>>>>>>> main
   min-height: 100vh;
   padding: 32px;
 }
@@ -42,7 +47,7 @@ body {
 /* ===================================
    TOPBAR (igual al de todas las páginas)
 =================================== */
-.topbar {
+.encabezado-principal {
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
@@ -57,13 +62,13 @@ body {
   margin: 0 auto 32px;
 }
 
-.logo {
+.marca {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.logo-icon {
+.marca-simbolo {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -74,32 +79,44 @@ body {
   justify-content: center;
 }
 
-.logo-text {
+.marca-nombre {
   font-weight: 700;
   font-size: 20px;
 }
 
-.nav {
+.navegacion-principal {
   display: flex;
   gap: 24px;
 }
 
-.nav-link {
+.enlace-navegacion {
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: var(--sf-text-soft);
 }
 
+<<<<<<< main
+.enlace-navegacion:hover {
+  color: var(--sf-blue-strong);
+}
+
+.enlace-navegacion.activo {
+=======
 /* El link activo tiene subrayado y color azul fuerte */
 .nav-link.active {
+>>>>>>> main
   color: var(--sf-blue-strong);
   box-shadow: 0 2px 0 0 var(--sf-blue-strong); /* Línea azul debajo del link */
   padding-bottom: 2px;
 }
 
+<<<<<<< main
+.avatar-usuario-circulo {
+=======
 /* Círculo negro del avatar en el topbar */
 .avatar-mini .avatar-circle {
+>>>>>>> main
   width: 38px;
   height: 38px;
   border-radius: 999px;
@@ -109,13 +126,20 @@ body {
   align-items: center;
   justify-content: center;
   font-size: 13px;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.avatar-usuario:hover .avatar-usuario-circulo {
+  transform: translateY(-2px) scale(1.05);
+  background: #0f172a;
+  color: #ffffff;
 }
 
 /* ===================================
    LAYOUT PRINCIPAL: SIDEBAR + CONTENIDO
    Flexbox para que la barra lateral y el contenido queden lado a lado
 =================================== */
-.courses-layout {
+.contenedor-cursos {
   max-width: 1200px;
   margin: 0 auto 40px;
   background: var(--sf-surface);
@@ -130,20 +154,52 @@ body {
 /* ===================================
    SIDEBAR IZQUIERDA (categorías de cursos)
 =================================== */
+<<<<<<< main
+.barra-lateral-cursos {
+  width: 220px;
+=======
 .sidebar {
   width: 220px; /* Ancho fijo para la barra lateral */
+>>>>>>> main
   border-right: 1px solid var(--sf-border);
   padding: 32px 20px 40px 28px;
 }
 
-.sidebar-title {
+.titulo-barra-cursos {
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
+<<<<<<< main
+.campo-busqueda-cursos {
+  width: 100%;
+  padding: 11px 14px;
+  margin-bottom: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--sf-border);
+  background: #f8fbff;
+  color: var(--sf-text-main);
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.campo-busqueda-cursos::placeholder {
+  color: #8b95a7;
+}
+
+.campo-busqueda-cursos:focus {
+  border-color: var(--sf-blue-strong);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(10, 61, 254, 0.12);
+}
+
+.boton-tema-curso {
+=======
 /* Botones de categoría en la sidebar */
 .sidebar-item {
+>>>>>>> main
   display: block;
   width: 100%;
   text-align: left;
@@ -156,10 +212,21 @@ body {
   font-weight: 500;
   color: var(--sf-text-soft);
   cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
+.boton-tema-curso:hover {
+  background: #eef4ff;
+  color: var(--sf-blue-strong);
+  transform: translateX(2px);
+}
+
+<<<<<<< main
+.boton-tema-curso.activo {
+=======
 /* La categoría seleccionada se rellena de azul fuerte */
 .sidebar-item.active {
+>>>>>>> main
   background: var(--sf-blue-strong);
   color: #ffffff;
 }
@@ -167,21 +234,28 @@ body {
 /* ===================================
    CONTENIDO DERECHO (lista de cursos + lección)
 =================================== */
+<<<<<<< main
+.contenido-cursos {
+  flex: 1;
+=======
 .courses-main {
   flex: 1; /* Ocupa todo el espacio restante después de la sidebar */
+>>>>>>> main
   padding: 32px 32px 40px;
 }
 
-.courses-header {
+.encabezado-cursos {
   margin-bottom: 24px;
 }
 
-.page-title {
+.titulo-cursos {
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 14px;
 }
 
+<<<<<<< main
+=======
 /* Barra de ruta de navegación (breadcrumb) en forma de píldora */
 .breadcrumb-bar {
   background: #f5f7ff;
@@ -199,18 +273,23 @@ body {
   color: var(--sf-text-soft);
 }
 
+>>>>>>> main
 /* ===================================
    LISTA DE TARJETAS DE CURSOS
 =================================== */
-.course-list {
+.lista-cursos {
   display: flex;
   flex-direction: column;
   gap: 14px; /* Espacio entre cada tarjeta de curso */
   margin-bottom: 32px;
 }
 
+<<<<<<< main
+.tarjeta-curso {
+=======
 /* Tarjeta de cada curso: contenido a la izquierda, botón a la derecha */
 .course-card {
+>>>>>>> main
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -218,17 +297,32 @@ body {
   border-radius: 20px;
   border: 1px solid var(--sf-border);
   background: #fbfdff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+.tarjeta-curso:hover {
+  transform: translateY(-2px);
+  border-color: #cdd6ef;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+<<<<<<< main
+.cuerpo-tarjeta-curso {
+=======
 /* Lado izquierdo de la tarjeta: ícono + info del curso */
 .course-left {
+>>>>>>> main
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
+<<<<<<< main
+.icono-curso {
+=======
 /* Cuadrado redondeado con el emoji del curso */
 .course-icon {
+>>>>>>> main
   width: 48px;
   height: 48px;
   border-radius: 18px;
@@ -238,6 +332,29 @@ body {
   font-size: 24px;
 }
 
+<<<<<<< main
+.icono-ahorro {
+  background: #ccfbe1;
+  color: #16a34a;
+}
+
+.icono-presupuesto {
+  background: #fef3c7;
+  color: #eab308;
+}
+
+.icono-inversion {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.icono-metas {
+  background: #e0e7ff;
+  color: #2563eb;
+}
+
+.info-curso {
+=======
 /* Colores de fondo diferentes para cada tipo de curso */
 .course-icon-green     { background: #ccfbe1; color: #16a34a; } /* Ahorro */
 .course-icon-yellow    { background: #fef3c7; color: #eab308; } /* Presupuesto */
@@ -246,29 +363,38 @@ body {
 
 /* Columna con título, progreso y barra */
 .course-info {
+>>>>>>> main
   display: flex;
   flex-direction: column;
   gap: 4px;
 }
 
-.course-title {
+.nombre-curso {
   font-size: 15px;
   font-weight: 600;
 }
 
-.course-progress-text {
+.texto-progreso-curso {
   font-size: 13px;
   color: var(--sf-text-soft);
 }
 
+<<<<<<< main
+.progreso-destacado {
+=======
 /* El porcentaje en azul para que resalte del resto del texto */
 .course-progress-text .highlight {
+>>>>>>> main
   color: var(--sf-blue-strong);
   font-weight: 600;
 }
 
+<<<<<<< main
+.barra-progreso {
+=======
 /* Barra de progreso gris de fondo */
 .progress-track {
+>>>>>>> main
   width: 180px;
   height: 5px;
   border-radius: 999px;
@@ -276,13 +402,37 @@ body {
   overflow: hidden; /* Para que el relleno no se salga de los bordes redondeados */
 }
 
+<<<<<<< main
+.relleno-progreso {
+=======
 /* Relleno azul de la barra de progreso */
 .progress-fill {
+>>>>>>> main
   height: 100%;
   border-radius: 999px;
   background: var(--sf-blue-strong);
 }
 
+<<<<<<< main
+.progreso-ahorro {
+  width: 65%;
+}
+
+.progreso-presupuesto {
+  width: 20%;
+}
+
+.progreso-inversion {
+  width: 0%;
+}
+
+.progreso-metas {
+  width: 0%;
+}
+
+/* Botones de la lista */
+.boton-curso {
+=======
 /* Clases para diferentes porcentajes de progreso */
 .progress-65 { width: 65%; }
 .progress-20 { width: 20%; }
@@ -313,6 +463,7 @@ body {
 =================================== */
 /* Botón azul relleno para "Continuar" */
 .btn-secondary {
+>>>>>>> main
   padding: 10px 18px;
   border-radius: 999px;
   border: none;
@@ -321,10 +472,20 @@ body {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
 }
 
+<<<<<<< main
+.boton-curso:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(10, 61, 254, 0.22);
+}
+
+.boton-curso-secundario {
+=======
 /* Variante outline (sin relleno) para cursos que no se han empezado */
 .btn-secondary-outline {
+>>>>>>> main
   background: #ffffff;
   border: 1px solid var(--sf-blue-strong);
   color: var(--sf-blue-strong);
@@ -334,18 +495,23 @@ body {
    SECCIÓN VISTA DE LECCIÓN
    Se muestra debajo de la lista de cursos
 =================================== */
-.lesson-section {
+.seccion-leccion {
   margin-top: 8px;
 }
 
-.section-title {
+.titulo-leccion {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 10px;
 }
 
+<<<<<<< main
+/* barra azul superior */
+.barra-progreso-leccion {
+=======
 /* Barra delgada de progreso de la lección actual (en azul) */
 .lesson-progress-bar {
+>>>>>>> main
   width: 100%;
   height: 4px;
   border-radius: 999px;
@@ -354,15 +520,24 @@ body {
   overflow: hidden;
 }
 
+<<<<<<< main
+.relleno-progreso-leccion {
+=======
 /* El relleno del 65% corresponde al progreso actual de la lección */
 .lesson-progress-fill {
+>>>>>>> main
   width: 65%;
   height: 100%;
   background: var(--sf-blue-strong);
 }
 
+<<<<<<< main
+/* tarjeta de lección */
+.tarjeta-leccion {
+=======
 /* Tarjeta que contiene el texto de la lección y el video */
 .lesson-card {
+>>>>>>> main
   border-radius: 20px;
   border: 1px solid var(--sf-border);
   background: #fbfdff;
@@ -374,17 +549,50 @@ body {
   margin-bottom: 18px;
 }
 
+<<<<<<< main
+.texto-leccion {
+=======
 /* El texto ocupa el espacio disponible */
 .lesson-text {
+>>>>>>> main
   flex: 1;
 }
 
-.lesson-percentage {
+.porcentaje-leccion {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 10px;
 }
 
+<<<<<<< main
+.lista-leccion {
+  font-size: 14px;
+  color: var(--sf-text-soft);
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.item-leccion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icono-item-leccion {
+  width: 20px;
+  text-align: center;
+  line-height: 1;
+}
+
+.texto-item-leccion {
+  line-height: 1.35;
+}
+
+.video-leccion {
+=======
 /* Lista de temas de la lección */
 .lesson-list {
   font-size: 14px;
@@ -394,6 +602,7 @@ body {
 
 /* Contenedor del video: gris con flex column para el ícono y el título */
 .lesson-video {
+>>>>>>> main
   width: 180px;
   border-radius: 16px;
   background: #e5e7eb;
@@ -405,12 +614,20 @@ body {
   gap: 6px;
 }
 
+<<<<<<< main
+.icono-reproducir {
+=======
 /* El triángulo de reproducción */
 .play-icon {
+>>>>>>> main
   font-size: 32px;
   color: #4b5563;
 }
 
+<<<<<<< main
+/* Botón principal */
+.boton-completar-leccion {
+=======
 /* Nombre del video debajo del botón de reproducción */
 .video-label {
   font-size: 12px;
@@ -422,6 +639,7 @@ body {
 
 /* Botón verde para marcar la lección como completada */
 .btn-primary {
+>>>>>>> main
   padding: 12px 20px;
   border-radius: 999px;
   border: none;
@@ -430,6 +648,12 @@ body {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.boton-completar-leccion:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(34, 215, 79, 0.24);
 }
 
 /* Link para regresar a la lista de cursos */
@@ -451,6 +675,13 @@ body {
    En tablet el sidebar se pone arriba, en móvil todo se apila
 =================================== */
 @media (max-width: 960px) {
+<<<<<<< main
+  .contenedor-cursos {
+    flex-direction: column;
+  }
+
+  .barra-lateral-cursos {
+=======
   /* En tablet el layout pasa de horizontal a vertical */
   .courses-layout {
     flex-direction: column;
@@ -458,6 +689,7 @@ body {
 
   /* La sidebar pasa a ser una fila horizontal arriba */
   .sidebar {
+>>>>>>> main
     width: 100%;
     border-right: none;
     border-bottom: 1px solid var(--sf-border);
@@ -466,10 +698,17 @@ body {
     gap: 12px;
   }
 
-  .sidebar-title {
+  .titulo-barra-cursos {
     margin-bottom: 0;
   }
 
+<<<<<<< main
+  .boton-tema-curso {
+    width: auto;
+  }
+
+  .tarjeta-curso {
+=======
   /* Los botones de categoría ya no ocupan todo el ancho */
   .sidebar-item {
     width: auto;
@@ -477,11 +716,24 @@ body {
 
   /* Las tarjetas de cursos se apilan verticalmente en móvil */
   .course-card {
+>>>>>>> main
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
   }
 
+<<<<<<< main
+  .boton-curso,
+  .boton-curso-secundario {
+    align-self: flex-end;
+  }
+
+  .tarjeta-leccion {
+    flex-direction: column;
+  }
+
+  .video-leccion {
+=======
   /* Los botones se alinean a la derecha aunque la tarjeta sea vertical */
   .btn-secondary,
   .btn-secondary-outline {
@@ -495,21 +747,22 @@ body {
 
   /* El video ocupa todo el ancho en móvil */
   .lesson-video {
+>>>>>>> main
     width: 100%;
     height: 120px;
   }
 }
 
 @media (max-width: 768px) {
-  .page {
+  .pagina-cursos {
     padding: 16px;
   }
 
-  .courses-main {
+  .contenido-cursos {
     padding: 20px 18px 28px;
   }
 
-  .page-title {
+  .titulo-cursos {
     font-size: 22px;
   }
 }

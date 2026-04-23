@@ -34,17 +34,27 @@ body {
   background: var(--sf-bg); /* Fondo azulado suave para toda la página */
 }
 
+<<<<<<< main
+/* Contenedor general */
+.pagina-inicio {
+  min-height: 100vh;
+=======
 /* Contenedor general que da el espacio alrededor de todo el contenido */
 .page {
   min-height: 100vh; /* Que siempre ocupe al menos toda la altura de la pantalla */
+>>>>>>> main
   padding: 32px;
 }
 
 /* ===================================
+<<<<<<< main
+  Encabezado principal
+=======
    TOPBAR DE NAVEGACIÓN
    Barra flotante con sombra que contiene el logo, los links y el avatar
+>>>>>>> main
 =================================== */
-.topbar {
+.encabezado-principal {
   background: var(--sf-surface);
   border-radius: 24px; /* Bordes redondeados para que parezca flotante */
   border: 1px solid var(--sf-border);
@@ -59,15 +69,23 @@ body {
   margin: 0 auto 32px; /* Centrado horizontal + espacio abajo antes del contenido */
 }
 
+<<<<<<< main
+.marca {
+=======
 /* Logo: rayo + nombre de la app */
 .logo {
+>>>>>>> main
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+<<<<<<< main
+.marca-simbolo {
+=======
 /* Círculo verde del rayo */
 .logo-icon {
+>>>>>>> main
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -78,25 +96,46 @@ body {
   justify-content: center;
 }
 
-.logo-text {
+.marca-nombre {
   font-weight: 700;
   font-size: 20px;
 }
 
+<<<<<<< main
+.navegacion-principal {
+=======
 /* Links de navegación en fila */
 .nav {
+>>>>>>> main
   display: flex;
   gap: 24px; /* Espacio horizontal entre cada link */
 }
 
+<<<<<<< main
+.enlace-navegacion {
+=======
 /* Estilo base de los links: sin subrayado, gris suave */
 .nav-link {
+>>>>>>> main
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
   color: var(--sf-text-soft);
 }
 
+<<<<<<< main
+.enlace-navegacion:hover {
+  color: var(--sf-blue-strong);
+}
+
+.enlace-navegacion.activo {
+  color: var(--sf-blue-strong);
+  box-shadow: 0 2px 0 0 var(--sf-blue-strong);
+  padding-bottom: 2px;
+}
+
+.avatar-usuario-circulo {
+=======
 /* El link de la página actual se ve más oscuro */
 .nav-link.active {
   color: var(--sf-text-main);
@@ -104,6 +143,7 @@ body {
 
 /* Círculo negro con el ícono del usuario para el avatar del topbar */
 .avatar-mini .avatar-circle {
+>>>>>>> main
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -114,11 +154,22 @@ body {
   justify-content: center;
 }
 
+.avatar-usuario:hover .avatar-usuario-circulo {
+  transform: translateY(-2px) scale(1.05);
+  background: #0f172a;
+  color: #ffffff;
+}
+
+
 /* ===================================
+<<<<<<< main
+  Contenido principal
+=======
    DASHBOARD PRINCIPAL
    La tarjeta blanca grande que contiene el gráfico y los accesos rápidos
+>>>>>>> main
 =================================== */
-.dashboard {
+.contenido-inicio {
   max-width: 1200px;
   margin: 0 auto; /* Centrado */
   background: var(--sf-surface);
@@ -128,23 +179,35 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
 }
 
+<<<<<<< main
+.titulo-bienvenida {
+=======
 /* Título de bienvenida grande */
 .hero-title {
+>>>>>>> main
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 28px;
 }
 
+<<<<<<< main
+.saludo {
+=======
 /* El emoji de saludo necesita un tamaño un poco diferente al texto */
 .wave {
+>>>>>>> main
   font-size: 34px;
 }
 
 /* ===================================
+<<<<<<< main
+   Tarjeta de gráfica
+=======
    TARJETA DEL GRÁFICO SVG
    Envuelve el SVG del gráfico de ahorro
+>>>>>>> main
 =================================== */
-.chart-card {
+.panel-grafica {
   border-radius: 26px;
   border: 1px solid var(--sf-border);
   overflow: hidden; /* Para que el SVG no se salga de los bordes redondeados */
@@ -152,34 +215,60 @@ body {
   margin-bottom: 32px;
 }
 
+<<<<<<< main
+.grafica-lineal {
+=======
 /* El SVG ocupa todo el ancho de la tarjeta y se escala automáticamente */
 .chart-svg {
+>>>>>>> main
   width: 100%;
   height: auto;
   display: block; /* Sin esto queda un espacio raro abajo del SVG */
 }
 
 /* ===================================
+<<<<<<< main
+   Accesos rápidos
+=======
    ACCESOS RÁPIDOS (3 tarjetas)
    Grid de 3 columnas iguales para las tarjetas de Cursos, Retos y Ahorro
+>>>>>>> main
 =================================== */
-.quick-actions {
+.rejilla-accesos {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
   gap: 18px;
 }
 
+<<<<<<< main
+.tarjeta-acceso {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+=======
 /* Tarjeta individual de acceso rápido */
 .qa-card {
+>>>>>>> main
   background: var(--sf-surface);
   border-radius: 24px;
   border: 1px solid var(--sf-border);
   padding: 22px 18px;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
+.tarjeta-acceso:hover {
+  transform: translateY(-2px);
+  border-color: #cdd6ef;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+}
+
+<<<<<<< main
+.icono-acceso {
+=======
 /* Cuadrado azul claro con el emoji/ícono de la tarjeta */
 .qa-icon {
+>>>>>>> main
   width: 48px;
   height: 48px;
   border-radius: 16px;
@@ -192,13 +281,13 @@ body {
   margin-bottom: 10px;
 }
 
-.qa-title {
+.titulo-acceso {
   font-size: 16px;
   font-weight: 600;
   color: var(--sf-text-main);
 }
 
-.qa-subtitle {
+.subtitulo-acceso {
   font-size: 13px;
   color: var(--sf-text-soft);
 }
@@ -208,20 +297,33 @@ body {
    En pantallas más pequeñas el grid pasa a una sola columna
 =================================== */
 @media (max-width: 900px) {
+<<<<<<< main
+  .pagina-inicio {
+    padding: 16px;
+=======
   .page {
     padding: 16px; /* Menos margen en móvil para aprovechar el espacio */
+>>>>>>> main
   }
 
-  .dashboard {
+  .contenido-inicio {
     padding: 24px 20px 32px;
   }
 
+<<<<<<< main
+  .titulo-bienvenida {
+    font-size: 32px;
+  }
+
+  .rejilla-accesos {
+=======
   .hero-title {
     font-size: 32px; /* Título más pequeño en pantallas chicas */
   }
 
   /* Las 3 tarjetas pasan a estar una encima de la otra en móvil */
   .quick-actions {
+>>>>>>> main
     grid-template-columns: 1fr;
   }
 }
