@@ -225,3 +225,120 @@ input:checked + .slider::before {
     font-size: 22px;
   }
 }
+
+/* ===================================
+   TOPBAR (navegación principal)
+=================================== */
+.topbar {
+  background: var(--sf-surface);
+  border-bottom: 1px solid var(--sf-border);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 26px;
+}
+
+.nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  color: var(--sf-text-soft);
+  font-size: 15px;
+}
+
+.nav-link.active {
+  color: var(--sf-blue);
+}
+
+.profile-mini {
+  display: block;
+  text-decoration: none;
+}
+
+.profile-mini img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ===================================
+   BOTONES DE ACCIÓN
+=================================== */
+.btn-guardar {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 22px;
+  background: var(--sf-green);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-guardar:hover {
+  background: var(--sf-green-soft);
+}
+
+.btn-logout {
+  padding: 10px 22px;
+  background: none;
+  border: 1px solid var(--sf-border);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--sf-blue);
+  cursor: pointer;
+}
+
+.btn-logout:hover {
+  background: #f0f4ff;
+}
+
+/* ===================================
+   MENSAJES DE VALIDACIÓN
+=================================== */
+#resultado-settings {
+  margin-top: 12px;
+}
+
+.mensaje--exito {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #d4f7e0;
+  border: 1px solid #22d74f;
+  color: #14532d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.lista-errores {
+  margin: 0;
+  list-style: disc;
+  padding: 12px 12px 12px 28px;
+  font-size: 14px;
+  color: #7f1d1d;
+  background-color: #fee2e2;
+  border: 1px solid #f87171;
+  border-radius: 12px;
+}
+
+.lista-errores li {
+  margin-bottom: 4px;
+}
+
+.lista-errores li:last-child {
+  margin-bottom: 0;
+}
+
+a.btn-logout {
+  display: inline-block;
+  text-decoration: none;
+}

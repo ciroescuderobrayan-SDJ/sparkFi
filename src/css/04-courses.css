@@ -217,22 +217,6 @@ body {
   margin-bottom: 14px;
 }
 
-.miga-cursos {
-  background: #f5f7ff;
-  border-radius: 999px;
-  padding: 8px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 13px;
-  color: var(--sf-text-soft);
-}
-
-.flecha-miga-cursos {
-  font-size: 18px;
-  color: var(--sf-text-soft);
-}
-
 /* ===================================
    Lista de cursos
 =================================== */
@@ -539,4 +523,12 @@ body {
   .titulo-cursos {
     font-size: 22px;
   }
+}
+
+/* Avatar link */
+a.avatar-mini, a.user-pill {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
 }

@@ -143,13 +143,13 @@ const cursos = [
   },
 ];
 
-// Filtro de la izquierda
+// Selección de elementos de la interfaz y estado global
 
 const barraLateral = document.querySelector(".barra-lateral-cursos");
 const inputBusqueda = document.querySelector(".campo-busqueda-cursos");
 const contenedorLecciones = document.querySelector(".lista-cursos");
+const mensajeVacio = document.getElementById("mensaje-vacio-cursos");
 
-const textoMiga = document.querySelector(".texto-miga-cursos");
 const porcentajeLeccion = document.querySelector(".porcentaje-leccion");
 const listaLeccion = document.querySelector(".lista-leccion");
 const barraLeccion = document.querySelector(".relleno-progreso-leccion");
@@ -158,6 +158,8 @@ let temaActivo = "Ahorro";
 let textoBusqueda = "";
 let cursoActivoId = null;
 
+
+// Filtro de los cursos
 function obtenerCursosActivos() {
   return cursos.filter((curso) => curso.tema === temaActivo);
 }
@@ -172,21 +174,16 @@ function obtenerCursosFiltrados() {
   });
 }
 
+// Escucha lo que el usuario escribe para filtrar la lista
 if (inputBusqueda) {
   inputBusqueda.addEventListener("input", (e) => {
     textoBusqueda = e.target.value.trim();
     renderizarCursos();
   });
 
-  inputBusqueda.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      textoBusqueda = e.target.value.trim();
-      renderizarCursos();
-    }
-  });
 }
 
+  // para seleccionar el nuevo curso
 function activarBotonSeleccionado(botonSeleccionado) {
   const botones = document.querySelectorAll(".boton-tema-curso");
   botones.forEach((boton) => boton.classList.remove("activo"));
@@ -202,29 +199,19 @@ function renderizarCursos() {
   const botonesActuales = barraLateral.querySelectorAll(".boton-tema-curso");
   botonesActuales.forEach((boton) => boton.remove());
 
-  if (!cursosActivos.length) {
-    const vacio = document.createElement("p");
-    vacio.className = "texto-progreso-curso";
-    vacio.textContent = "No se encontraron cursos.";
-    barraLateral.appendChild(vacio);
-    return;
-  }
+  // si no hay cursos encontrados
+  mensajeVacio.hidden = cursosActivos.length > 0;
+  if (cursosActivos.length === 0) return;
 
-  const mensajeVacioAnterior = barraLateral.querySelector(
-    ".texto-progreso-curso",
-  );
-  if (mensajeVacioAnterior) {
-    mensajeVacioAnterior.remove();
-  }
-
-  if (cursosActivos.length && !cursoActivoId) {
+  
+  // el curso visible según el input
+  const cursoSigueVisible = cursosActivos.find(c => c.id === cursoActivoId);
+  if (cursosActivos.length > 0 && !cursoSigueVisible) {
     cursoActivoId = cursosActivos[0].id;
   }
 
-  if (cursosActivos.length && !cursosActivos.some((curso) => curso.id === cursoActivoId)) {
-    cursoActivoId = cursosActivos[0].id;
-  }
 
+  // renderizado de los cursos buscados
   const fragmento = document.createDocumentFragment();
   cursosActivos.forEach((curso) => {
     const boton = document.createElement("button");
@@ -253,14 +240,13 @@ function renderizarCursos() {
 
 renderizarCursos();
 
-//Edición de la información del curso seleccionado
+// se pinta el contenido
 
 function renderizarLeccionesCurso(curso) {
   if (!contenedorLecciones || !curso) {
     return;
   }
 
-  const totalLecciones = curso.lecciones.length;
   contenedorLecciones.innerHTML = curso.lecciones
     .map((leccion, index) => {
       const numero = index + 1;
@@ -274,11 +260,6 @@ function renderizarLeccionesCurso(curso) {
 
             <div class="info-curso">
               <h2 class="nombre-curso">${leccion.titulo || "Lección"}</h2>
-              <p class="texto-progreso-curso">Lección ${numero} de ${totalLecciones}</p>
-
-              <div class="barra-progreso">
-                <div class="relleno-progreso" style="width:${Math.round((numero / totalLecciones) * 100)}%;"></div>
-              </div>
             </div>
           </div>
 
@@ -291,10 +272,6 @@ function renderizarLeccionesCurso(curso) {
 
 function renderizarDetalleCurso(curso) {
   if (!curso) return;
-
-  if (textoMiga) {
-    textoMiga.textContent = "Cursos > " + curso.titulo + " > Lección 1";
-  }
 
   if (porcentajeLeccion) {
     porcentajeLeccion.textContent = curso.progreso + "% completado";
@@ -315,4 +292,20 @@ function renderizarDetalleCurso(curso) {
       '<span class="texto-item-leccion">' + titulo + "</span>" +
       "</li>";
   }
+}
+
+function completarCursoActivo() {
+  const cursoActivo = cursos.find((curso) => curso.id === cursoActivoId);
+  if (!cursoActivo) {
+    return;
+  }
+
+  cursoActivo.progreso = 100;
+  cursoActivo.estado = "Completado";
+  renderizarDetalleCurso(cursoActivo);
+}
+
+const botonCompletarLeccion = document.querySelector(".boton-completar-leccion");
+if (botonCompletarLeccion) {
+  botonCompletarLeccion.addEventListener("click", completarCursoActivo);
 }

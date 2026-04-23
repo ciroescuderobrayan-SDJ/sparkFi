@@ -35,7 +35,7 @@
             <input
               id="email"
               type="email"
-              placeholder="juan@example.com"
+              placeholder="admin@sparkfi.com"
               class="field-input"
             />
 
@@ -47,7 +47,10 @@
               class="field-input"
             />
 
-            <button type="submit" class="btn-primary">Iniciar sesión</button>
+            <!-- Área de resultados (mensajes de éxito, error o bloqueo) -->
+            <div id="resultado-login"></div>
+
+            <button id="btn-login" type="button" class="btn-primary">Iniciar sesión</button>
           </form>
 
           <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
@@ -56,7 +59,7 @@
 
           <p class="signup-text">
             ¿No tienes cuenta?
-            <a href="#" class="link-signup">Crear cuenta</a>
+            <a href="02-create-account.html" class="link-signup">Crear cuenta</a>
           </p>
         </main>
 
@@ -69,5 +72,7 @@
         </div>
       </div>
     </div>
+
+    <script src="/src/js/01-login.js"></script>
   </body>
 </html>

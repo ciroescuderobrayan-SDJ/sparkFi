@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio - SparkFi</title>
 
-    <!-- Tipografía Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +17,7 @@
 
   <body>
     <div class="pagina-inicio">
-      <!-- BARRA SUPERIOR -->
+      <!-- El nav -->
       <header class="encabezado-principal">
         <div class="marca">
           <span class="marca-simbolo">⚡</span>
@@ -38,107 +37,37 @@
         </div>
       </header>
 
-      <!-- CONTENIDO PRINCIPAL -->
+      <!-- contenido principal -->
       <main class="contenido-inicio">
         <section class="seccion-bienvenida">
           <h1 class="titulo-bienvenida">
             Bienvenido, Juan <span class="saludo">👋</span>
           </h1>
 
-          <!-- TARJETA DEL GRÁFICO: SVG -->
+          <!-- La gráfica -->
           <div class="panel-grafica">
             <svg
               class="grafica-lineal"
               viewBox="0 0 600 260"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <!-- Fondo -->
-              <rect
-                x="0"
-                y="0"
-                width="600"
-                height="260"
-                rx="26"
-                fill="#eef3ff"
-              />
+              <rect x="0" y="0" width="600" height="260" rx="26" fill="#eef3ff" />
 
-              <!-- Líneas horizontales suaves -->
-              <line
-                x1="70"
-                y1="70"
-                x2="550"
-                y2="70"
-                stroke="#d4ddff"
-                stroke-width="1"
-              />
-              <line
-                x1="70"
-                y1="120"
-                x2="550"
-                y2="120"
-                stroke="#d4ddff"
-                stroke-width="1"
-              />
-              <line
-                x1="70"
-                y1="170"
-                x2="550"
-                y2="170"
-                stroke="#d4ddff"
-                stroke-width="1"
-              />
+              <line x1="70" y1="70" x2="550" y2="70" stroke="#d4ddff" stroke-width="1" />
+              <line x1="70" y1="120" x2="550" y2="120" stroke="#d4ddff" stroke-width="1" />
+              <line x1="70" y1="170" x2="550" y2="170" stroke="#d4ddff" stroke-width="1" />
 
-              <!-- Etiquetas COP -->
-              <text
-                x="30"
-                y="175"
-                font-size="10"
-                fill="#5a626e"
-                font-family="Inter, system-ui"
-              >
-                COP 200
-              </text>
-              <text
-                x="30"
-                y="125"
-                font-size="10"
-                fill="#5a626e"
-                font-family="Inter, system-ui"
-              >
-                COP 250
-              </text>
-              <text
-                x="30"
-                y="75"
-                font-size="10"
-                fill="#5a626e"
-                font-family="Inter, system-ui"
-              >
-                COP 500
-              </text>
+              <text x="30" y="175" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 200</text>
+              <text x="30" y="125" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 250</text>
+              <text x="30" y="75" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 500</text>
 
-              <!-- Área bajo la línea -->
               <path
-                d="M 80 180
-                   L 180 140
-                   L 260 160
-                   L 340 150
-                   L 460 110
-                   L 540 70
-                   L 540 200
-                   L 80 200
-                   Z"
+                d="M 80 180 L 180 140 L 260 160 L 340 150 L 460 110 L 540 70 L 540 200 L 80 200 Z"
                 fill="rgba(0,106,248,0.10)"
               />
 
-              <!-- Línea principal con flecha -->
               <path
-                d="M 80 180
-                   L 180 140
-                   L 260 160
-                   L 340 150
-                   L 460 110
-                   L 540 70"
+                d="M 80 180 L 180 140 L 260 160 L 340 150 L 460 110 L 540 70"
                 fill="none"
                 stroke="#0a3dfe"
                 stroke-width="4"
@@ -146,21 +75,9 @@
                 stroke-linejoin="round"
               />
 
-              <!-- Flecha en la punta -->
-              <path
-                d="M 540 70 L 530 76"
-                stroke="#0a3dfe"
-                stroke-width="4"
-                stroke-linecap="round"
-              />
-              <path
-                d="M 540 70 L 534 60"
-                stroke="#0a3dfe"
-                stroke-width="4"
-                stroke-linecap="round"
-              />
+              <path d="M 540 70 L 530 76" stroke="#0a3dfe" stroke-width="4" stroke-linecap="round" />
+              <path d="M 540 70 L 534 60" stroke="#0a3dfe" stroke-width="4" stroke-linecap="round" />
 
-              <!-- Puntos -->
               <circle cx="180" cy="140" r="6" fill="#0a3dfe" />
               <circle cx="260" cy="160" r="6" fill="#0a3dfe" />
               <circle cx="460" cy="110" r="6" fill="#0a3dfe" />
@@ -168,7 +85,7 @@
           </div>
         </section>
 
-        <!-- TARJETAS DE ACCESO RÁPIDO -->
+        <!-- las targetas de acceso inferiores -->
         <section class="rejilla-accesos">
           <a href="./04-courses.html" class="tarjeta-acceso">
             <div class="icono-acceso">📘</div>
@@ -190,5 +107,7 @@
         </section>
       </main>
     </div>
+
+    <script src="/src/js/03-home.js"></script>
   </body>
 </html>
