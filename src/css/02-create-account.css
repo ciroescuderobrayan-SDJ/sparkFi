@@ -1,69 +1,77 @@
 /* ===================================
-   Paleta SparkFi
+   PALETA DE COLORES SPARKFI
+   Las mismas variables que en toda la app para mantener consistencia
 =================================== */
 :root {
-  --sf-green: #22d74f;
-  --sf-green-soft: #00d369;
+  --sf-green: #22d74f;       /* Verde de botones principales */
+  --sf-green-soft: #00d369;  /* Verde para hover */
 
-  --sf-blue: #006af8;
-  --sf-blue-strong: #0a3dfe;
-  --sf-yellow: #ffd838;
+  --sf-blue: #006af8;        /* Azul de links y acentos */
+  --sf-blue-strong: #0a3dfe; /* Azul fuerte para énfasis */
+  --sf-yellow: #ffd838;      /* Amarillo (no se usa aquí pero lo dejo para consistencia) */
 
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
+  --sf-bg: #f7f9ff;          /* Fondo gris-azulado de la página */
+  --sf-surface: #ffffff;     /* Blanco para las tarjetas */
+  --sf-border: #e4e7f2;      /* Gris suave para los bordes */
 
-  --sf-text-main: #181f34;
-  --sf-text-muted: #3c4a5f;
-  --sf-text-soft: #5a626e;
+  --sf-text-main: #181f34;   /* Texto oscuro principal */
+  --sf-text-muted: #3c4a5f;  /* Texto secundario */
+  --sf-text-soft: #5a626e;   /* Texto de pistas y ayudas */
 }
 
 /* ===================================
-   Reset
+   RESET BÁSICO
+   Elimino los estilos por defecto del navegador para partir desde cero
 =================================== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Que el padding no agrande el elemento */
 }
 
+/* El body centra la tarjeta horizontalmente con padding arriba y abajo */
 body {
   font-family: "Inter", sans-serif;
   background: var(--sf-bg);
   min-height: 100vh;
-  display: flex;
+  display: flex;           /* Flexbox para centrar la tarjeta */
   justify-content: center;
-  padding: 40px;
+  padding: 40px;           /* Espacio alrededor en pantallas grandes */
 }
 
 /* ===================================
-   Contenedor principal
+   CONTENEDOR PRINCIPAL
+   La tarjeta blanca grande que contiene todo el formulario
 =================================== */
 .register-container {
   background: var(--sf-surface);
+  /* min() toma el valor más pequeño: 1200px en escritorio o 92% del viewport en móvil */
   width: min(1200px, 92vw);
   border-radius: 28px;
   padding: 48px 56px;
   border: 1px solid var(--sf-border);
-  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08); /* Sombra suave y difuminada */
 }
 
 /* ===================================
-   Header
+   HEADER DE LA PÁGINA
+   Logo a la izquierda, botón "Iniciar sesión" a la derecha
 =================================== */
 .header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Los elementos en los extremos opuestos */
   align-items: center;
   margin-bottom: 46px;
 }
 
+/* Logo: rayo + nombre lado a lado */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Círculo verde con el ícono del rayo */
 .logo-icon {
   width: 30px;
   height: 30px;
@@ -80,18 +88,19 @@ body {
   font-weight: 700;
 }
 
+/* Botón azul para ir al login, estilizado como enlace */
 .btn-login {
   background: var(--sf-blue);
   padding: 10px 20px;
   border-radius: 10px;
   color: white;
   font-weight: 500;
-  text-decoration: none;
+  text-decoration: none; /* Quito el subrayado de los links */
   font-size: 15px;
 }
 
 /* ===================================
-   Título
+   TÍTULO DE LA PÁGINA
 =================================== */
 .title {
   font-size: 40px;
@@ -100,34 +109,47 @@ body {
 }
 
 /* ===================================
-   Formulario
+   FORMULARIO DE REGISTRO
+   Flex column para que cada campo quede uno debajo del otro
 =================================== */
 .register-form {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 22px; /* Espacio vertical entre los campos del formulario */
 }
 
+/* Texto de la etiqueta de cada campo */
 .label {
   font-size: 15px;
   font-weight: 500;
   color: var(--sf-text-main);
 }
 
+/* Estilo de los campos de texto */
 .input {
   width: 100%;
   padding: 14px 18px;
-  border-radius: 12px;
+  border-radius: 12px; /* Bordes redondeados pero no tanto como los del login */
   border: 1px solid var(--sf-border);
   font-size: 15px;
-  outline: none;
+  outline: none; /* Quito el outline azul feo que pone el navegador por defecto */
 }
 
+/* Cuando el campo está seleccionado, cambia el borde a azul con un resplandor */
 .input:focus {
   border-color: var(--sf-blue);
   box-shadow: 0 0 0 2px rgba(0, 106, 248, 0.18);
 }
 
+/* Texto de ayuda pequeño debajo del campo de confirmar contraseña */
+.input-hint {
+  display: block;
+  font-size: 12px;
+  color: var(--sf-text-soft);
+  margin-top: -14px; /* Lo subo un poco para que no quede tan separado del input */
+}
+
+/* Fila del checkbox de términos y condiciones */
 .terms {
   display: flex;
   align-items: center;
@@ -136,15 +158,18 @@ body {
   color: var(--sf-text-main);
 }
 
+/* Agrando el checkbox para que sea más fácil de hacer click */
 .terms input {
   width: 18px;
   height: 18px;
 }
 
+/* Link verde para los términos y condiciones */
 .link {
   color: var(--sf-green);
 }
 
+/* Botón grande verde para registrarse */
 .btn-submit {
   margin-top: 10px;
   padding: 16px;
@@ -155,7 +180,7 @@ body {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.2s; /* Animación suave en el hover */
 }
 
 .btn-submit:hover {
@@ -163,25 +188,32 @@ body {
 }
 
 /* ===================================
-   Responsive
+   RESPONSIVE PARA PANTALLAS PEQUEÑAS
 =================================== */
 @media (max-width: 768px) {
   .register-container {
-    padding: 32px 24px;
+    padding: 32px 24px; /* Menos padding en móvil para aprovechar el espacio */
   }
 
   .title {
-    font-size: 32px;
+    font-size: 32px; /* Título más pequeño en móvil */
   }
 }
 
-/* ============================
-   ÁREA DE RESULTADOS (JS)
-============================ */
+/* ===================================
+   ÁREA DE RESULTADOS DEL JS
+   El JS escribe mensajes de error o éxito aquí
+=================================== */
 #resultado-registro {
   margin-bottom: 4px;
 }
 
+/* Si el div está vacío, lo oculto para no generar espacio en blanco */
+#resultado-registro:empty {
+  display: none;
+}
+
+/* Título de la sección de errores */
 .resultado-titulo--error {
   font-size: 14px;
   font-weight: 600;
@@ -189,13 +221,14 @@ body {
   margin: 0 0 6px 0;
 }
 
+/* Lista de errores de validación del formulario */
 .lista-errores {
   margin: 0;
   list-style: disc;
-  padding: 12px 12px 12px 28px;
+  padding: 12px 12px 12px 28px; /* El padding izquierdo extra es para las viñetas */
   font-size: 14px;
   color: #7f1d1d;
-  background-color: #fee2e2;
+  background-color: #fee2e2; /* Fondo rojo suave */
   border: 1px solid #f87171;
   border-radius: 12px;
 }
@@ -204,10 +237,12 @@ body {
   margin-bottom: 4px;
 }
 
+/* El último elemento no necesita margen abajo */
 .lista-errores li:last-child {
   margin-bottom: 0;
 }
 
+/* Título de mensaje exitoso */
 .resultado-titulo--exito {
   font-size: 14px;
   font-weight: 600;
@@ -215,6 +250,7 @@ body {
   margin: 0 0 8px 0;
 }
 
+/* Caja verde de éxito */
 .mensaje--exito {
   padding: 12px 16px;
   border-radius: 12px;
@@ -222,6 +258,7 @@ body {
   border: 1px solid #22d74f;
 }
 
+/* Lista de datos del usuario registrado exitosamente */
 .info-usuario {
   margin: 0;
   padding: 0;

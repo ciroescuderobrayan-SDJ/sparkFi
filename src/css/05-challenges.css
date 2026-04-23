@@ -1,44 +1,52 @@
 /* ===================================
-   PALETA SPARKFI
+   PALETA DE COLORES SPARKFI
+   Las mismas variables de siempre para que todos los archivos CSS
+   de la app usen exactamente los mismos colores sin repetir los hex
 =================================== */
 :root {
-  --sf-green: #22d74f;
-  --sf-green-soft: #00d369;
+  --sf-green: #22d74f;       /* Verde de botones primarios y logros */
+  --sf-green-soft: #00d369;  /* Verde más suave para el hover */
 
-  --sf-blue: #006af8;
-  --sf-blue-strong: #0a3dfe;
-  --sf-yellow: #ffd838;
+  --sf-blue: #006af8;        /* Azul de links */
+  --sf-blue-strong: #0a3dfe; /* Azul más intenso para énfasis */
+  --sf-yellow: #ffd838;      /* Amarillo para medallas y logros */
 
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
+  --sf-bg: #f7f9ff;          /* Fondo general de la app */
+  --sf-surface: #ffffff;     /* Blanco para tarjetas y paneles */
+  --sf-border: #e4e7f2;      /* Borde gris suave */
 
-  --sf-text-main: #181f34;
-  --sf-text-muted: #3c4a5f;
-  --sf-text-soft: #5a626e;
+  --sf-text-main: #181f34;   /* Texto oscuro principal */
+  --sf-text-muted: #3c4a5f;  /* Texto secundario */
+  --sf-text-soft: #5a626e;   /* Texto de ayuda y detalles */
 }
 
-/* RESET */
+/* ===================================
+   RESET BÁSICO
+   Quito los márgenes y paddings que el navegador pone por defecto
+   porque si no, todo se ve diferente en Chrome, Firefox, etc.
+=================================== */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box; /* Que el padding no agrande los elementos */
 }
 
 body {
   font-family: "Inter", sans-serif;
   background: var(--sf-bg);
-  color: var(--sf-text-main);
+  color: var(--sf-text-main); /* Color de texto por defecto para todo el body */
 }
 
-/* CONTENEDOR GENERAL */
+/* Wrapper general — siempre ocupa al menos toda la pantalla */
 .page {
   min-height: 100vh;
   padding: 32px;
 }
 
 /* ===================================
-   TOPBAR (igual estilo a otras páginas)
+   TOPBAR DE NAVEGACIÓN
+   La misma barra flotante con sombra que uso en todas las páginas
+   para mantener la consistencia visual de SparkFi
 =================================== */
 .topbar {
   background: var(--sf-surface);
@@ -48,19 +56,21 @@ body {
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Logo a la izquierda, avatar a la derecha */
 
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); /* Sombra para efecto flotante */
   max-width: 1200px;
-  margin: 0 auto 32px;
+  margin: 0 auto 32px; /* Centrado + espacio abajo antes del contenido */
 }
 
+/* Logo: circulo verde + nombre de la app */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Círculo verde con el rayo adentro */
 .logo-icon {
   width: 30px;
   height: 30px;
@@ -77,11 +87,13 @@ body {
   font-size: 20px;
 }
 
+/* Links de navegación en fila horizontal */
 .nav {
   display: flex;
   gap: 24px;
 }
 
+/* Estilo base de los links: sin subrayado, color gris suave */
 .nav-link {
   text-decoration: none;
   font-size: 15px;
@@ -89,16 +101,19 @@ body {
   color: var(--sf-text-soft);
 }
 
+/* El link activo se resalta con azul y una línea debajo */
+/* Me costó darme cuenta de que box-shadow con desplazamiento Y funciona como underline */
 .nav-link.active {
   color: var(--sf-blue-strong);
   padding-bottom: 3px;
-  box-shadow: 0 2px 0 0 var(--sf-blue-strong);
+  box-shadow: 0 2px 0 0 var(--sf-blue-strong); /* Línea azul debajo del link activo */
 }
 
+/* Círculo oscuro del avatar en la topbar */
 .avatar-mini .avatar-circle {
   width: 36px;
   height: 36px;
-  border-radius: 999px;
+  border-radius: 999px; /* Siempre redondo, sin importar el tamaño */
   background: #111827;
   color: #ffffff;
   display: flex;
@@ -108,6 +123,7 @@ body {
 
 /* ===================================
    TARJETA PRINCIPAL
+   La caja blanca grande que envuelve todo el contenido de la página
 =================================== */
 .card {
   max-width: 1200px;
@@ -115,7 +131,7 @@ body {
   background: var(--sf-surface);
   border-radius: 32px;
   border: 1px solid var(--sf-border);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05); /* Sombra muy suave */
   padding: 40px 40px 48px;
 }
 
@@ -123,6 +139,7 @@ body {
   margin-bottom: 28px;
 }
 
+/* Título grande de la página de Retos */
 .title {
   font-size: 40px;
   font-weight: 800;
@@ -135,7 +152,8 @@ body {
 }
 
 /* ===================================
-   RETO PRINCIPAL
+   SECCIÓN DEL RETO EN CURSO
+   La tarjeta que muestra el reto activo con su barra de progreso
 =================================== */
 .challenge {
   margin-top: 16px;
@@ -143,7 +161,7 @@ body {
   padding: 24px 26px 22px;
   border-radius: 22px;
   border: 1px solid var(--sf-border);
-  background: #fbfdff;
+  background: #fbfdff; /* Blanco muy ligeramente azulado para distinguirlo del fondo */
 }
 
 .challenge-title {
@@ -152,28 +170,44 @@ body {
   margin-bottom: 14px;
 }
 
+/* Barra de fondo gris del progreso */
 .progress-bar {
   width: 100%;
   height: 10px;
   border-radius: 999px;
   background: #e5e7eb;
-  overflow: hidden;
+  overflow: hidden; /* Para que el relleno no se salga en los bordes redondeados */
   margin-bottom: 10px;
 }
 
+/* El relleno azul de la barra — su ancho se define inline en el HTML */
 .progress-fill {
   height: 100%;
   background: var(--sf-blue-strong);
   border-radius: 999px;
 }
 
+/* Texto que describe cuánto falta para completar el reto */
 .progress-text {
   font-size: 14px;
   color: var(--sf-text-soft);
 }
 
 /* ===================================
-   PRESUPUESTO COMPLETADO
+   FECHA LÍMITE DEL RETO
+   El texto naranja pequeño que aparece debajo del reto activo
+   Lo puse en naranja para que transmita urgencia sin ser rojo alarma
+=================================== */
+.challenge-deadline {
+  font-size: 13px;
+  color: #f97316; /* Naranja — más urgente que el gris pero sin asustar */
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+/* ===================================
+   SECCIÓN DEL PRESUPUESTO COMPLETADO
+   Tarjeta separada para mostrar el reto de presupuesto que ya terminó
 =================================== */
 .budget {
   margin-bottom: 32px;
@@ -189,12 +223,14 @@ body {
   margin-bottom: 14px;
 }
 
+/* Fila que muestra el ícono de check y el texto de completado */
 .budget-status {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Círculo verde con el ícono de palomita */
 .check-icon {
   width: 32px;
   height: 32px;
@@ -210,14 +246,16 @@ body {
   height: 22px;
 }
 
+/* Texto de confirmación en verde para que se vea como éxito */
 .budget-text {
   font-size: 15px;
   font-weight: 600;
-  color: #16a34a;
+  color: #16a34a; /* Verde más oscuro para texto, para que sea legible */
 }
 
 /* ===================================
-   LOGROS
+   SECCIÓN DE LOGROS
+   Las medallas/insignias que el usuario ha ganado o puede ganar
 =================================== */
 .achievements {
   margin-top: 10px;
@@ -229,17 +267,20 @@ body {
   margin-bottom: 18px;
 }
 
+/* Fila de logros con wrap para que se acomoden en pantallas pequeñas */
 .achievements-row {
   display: flex;
   gap: 32px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; /* Si no caben todos en una fila, pasan a la siguiente */
 }
 
+/* Cada logro individual — centrado para que el ícono y el nombre queden alineados */
 .achievement {
   width: 160px;
   text-align: center;
 }
 
+/* Círculo grande que contiene el SVG del logro */
 .achievement-icon {
   width: 128px;
   height: 128px;
@@ -249,7 +290,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 10px;
+  margin: 0 auto 10px; /* Centrado horizontalmente con auto */
 }
 
 .achievement-icon svg {
@@ -257,32 +298,119 @@ body {
   height: 80px;
 }
 
-/* activo */
+/* El logro activo (desbloqueado) tiene borde normal */
 .achievement-active .achievement-icon {
   border-color: #e5e7eb;
 }
 
-/* inactivos en gris */
+/* Los logros que aún no se han ganado se ven en gris y transparentes */
+/* Esto le ayuda al usuario a entender que todavía no los tiene */
 .achievement-inactive .achievement-icon {
-  opacity: 0.6;
+  opacity: 0.6; /* Atenuado para indicar que está bloqueado */
 }
 
+/* Nombre del logro debajo del círculo */
 .achievement-label {
   font-size: 15px;
   font-weight: 600;
 }
 
+/* Nombre atenuado para los logros bloqueados */
 .achievement-label-muted {
-  color: #9ca3af;
+  color: #9ca3af; /* Gris claro para indicar que no está disponible aún */
   font-weight: 500;
 }
 
 /* ===================================
-   RESPONSIVE
+   PISTA DE LOGRO BLOQUEADO
+   Texto pequeñito que le dice al usuario qué tiene que hacer para desbloquear
+=================================== */
+.achievement-hint {
+  font-size: 11px;
+  color: #9ca3af; /* Del mismo gris que el nombre para que combine */
+  margin-top: 4px;
+}
+
+/* ===================================
+   SECCIÓN DE RETOS DISPONIBLES
+   Lista de retos a los que el usuario puede unirse
+   La separo con una línea horizontal del contenido de arriba
+=================================== */
+.available-challenges {
+  margin-top: 32px;
+  border-top: 1px solid var(--sf-border); /* Línea separadora */
+  padding-top: 28px;
+}
+
+/* Lista en columna para que cada reto quede uno debajo del otro */
+.available-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Tarjeta de cada reto disponible */
+.available-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Info a la izquierda, botón a la derecha */
+  padding: 16px 20px;
+  border-radius: 18px;
+  border: 1px solid var(--sf-border);
+  background: #fbfdff;
+}
+
+/* Lado izquierdo: emoji del reto + título y descripción */
+.available-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* El emoji del tipo de reto */
+.available-icon {
+  font-size: 28px;
+}
+
+/* Nombre del reto en negrita */
+.available-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Descripción pequeña del reto */
+.available-meta {
+  font-size: 12px;
+  color: var(--sf-text-soft);
+}
+
+/* Botón para unirse al reto — outline azul, sin relleno */
+.btn-join {
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--sf-blue-strong);
+  background: #ffffff;
+  color: var(--sf-blue-strong);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap; /* Que el texto no se corte en dos líneas */
+}
+
+/* Al pasar el mouse, se rellena de azul para indicar que se puede hacer click */
+.btn-join:hover {
+  background: var(--sf-blue-strong);
+  color: #ffffff;
+}
+
+/* ===================================
+   DISEÑO RESPONSIVE
+   En pantallas pequeñas ajusto tamaños y espacios
 =================================== */
 @media (max-width: 900px) {
   .page {
-    padding: 16px;
+    padding: 16px; /* Menos espacio en los lados en móvil */
   }
 
   .card {
@@ -290,7 +418,7 @@ body {
   }
 
   .title {
-    font-size: 32px;
+    font-size: 32px; /* El título grande se achica en móvil */
   }
 
   .subtitle {
@@ -308,23 +436,63 @@ body {
     gap: 12px;
   }
 
+  /* En móvil escondo el menú de navegación porque no cabe
+     En el futuro se podría cambiar por un menú hamburguesa */
   .nav {
-    display: none; /* para móvil podrías luego convertir esto en menú hamburguesa */
+    display: none;
   }
 
   .card {
     border-radius: 24px;
   }
 
+  /* Los logros se centran en pantallas muy pequeñas */
   .achievements-row {
     justify-content: center;
   }
 }
 
-/* Avatar link */
+/* ===================================
+   LINKS DEL AVATAR
+   Quito el subrayado y el color azul que los navegadores le ponen
+   a los links por defecto, para que se vean como parte del diseño
+=================================== */
 a.avatar-mini, a.user-pill {
   text-decoration: none;
-  color: inherit;
+  color: inherit; /* Hereda el color del padre en vez de volverse azul */
   display: flex;
   align-items: center;
+}
+
+/* ===================================
+   BOTÓN TUERQUITA DE CONFIGURACIÓN
+   Un círculo pequeño con el ícono ⚙️ que lleva a la página de settings
+   Lo puse con fondo azul suave para que se distinga del nav sin ser muy llamativo
+=================================== */
+.nav-settings-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f4ff;           /* Azul muy suave de base */
+  border: 1px solid var(--sf-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  text-decoration: none;
+  flex-shrink: 0;                /* Que no se comprima si el topbar tiene poco espacio */
+  transition: background 0.2s, border-color 0.2s;
+}
+
+/* Al pasar el mouse cambia a un azul más notorio */
+.nav-settings-btn:hover {
+  background: #dde7ff;
+  border-color: var(--sf-blue-strong);
+}
+
+/* Cuando estamos en la página de configuración, el botón se ve sólido azul
+   para indicar que esa es la página actual */
+.nav-settings-btn--active {
+  background: var(--sf-blue-strong);
+  border-color: var(--sf-blue-strong);
 }

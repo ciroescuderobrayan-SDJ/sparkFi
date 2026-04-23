@@ -1,11 +1,15 @@
 <!DOCTYPE html>
+<!-- Siempre hay que poner DOCTYPE para que el navegador sepa que es HTML5 -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <!-- UTF-8 permite que se vean bien las tildes y la ñ en español -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Esto es clave para que la página se vea bien en celulares, sin esto se ve muy pequeño -->
     <title>Iniciar sesión - SparkFi</title>
 
-    <!-- Fuente Inter -->
+    <!-- Conecto la fuente Inter desde Google Fonts, se ve mucho más profesional que Arial -->
+    <!-- El preconnect le dice al navegador que prepare la conexión antes de que la necesite -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,66 +17,95 @@
       rel="stylesheet"
     />
 
+    <!-- Ícono que aparece en la pestaña del navegador, uso el rayo ⚡ que es el logo de SparkFi -->
+    <!-- Lo hice con SVG inline para no tener que crear un archivo .ico por separado -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+
+    <!-- Mi archivo de estilos para esta pantalla -->
     <link rel="stylesheet" href="/src/css/01-login.css" />
   </head>
   <body>
+
+    <!-- Contenedor principal que centra todo en la pantalla usando flexbox en el CSS -->
     <div class="auth-page">
+
+      <!-- Tarjeta blanca central donde va todo el formulario -->
       <div class="auth-card">
-        <!-- Logo -->
+
+        <!-- Cabecera de la tarjeta con el logo de la app -->
         <header class="auth-header">
           <div class="brand">
+            <!-- El rayo es el ícono de la marca, lo puse en un círculo verde -->
             <span class="brand-icon">⚡</span>
             <span class="brand-text">SparkFi</span>
           </div>
         </header>
 
-        <!-- Contenido principal -->
+        <!-- Zona principal del formulario -->
         <main class="auth-content">
           <h1 class="auth-title">Iniciar sesión</h1>
 
+          <!-- El formulario de login, el type="button" en el botón es para que el JS lo controle manualmente -->
           <form class="auth-form">
+
+            <!-- Campo de correo, el for="email" conecta el label con el input por accesibilidad -->
             <label class="field-label" for="email">Correo electrónico</label>
             <input
               id="email"
               type="email"
               placeholder="admin@sparkfi.com"
               class="field-input"
+              autocomplete="email"
+              <!-- autocomplete="email" le dice al navegador que sugiera correos guardados -->
             />
 
+            <!-- Campo de contraseña, type="password" oculta los caracteres automáticamente -->
             <label class="field-label" for="password">Contraseña</label>
             <input
               id="password"
               type="password"
               placeholder="•••••••"
               class="field-input"
+              autocomplete="current-password"
+              <!-- current-password indica que es para iniciar sesión, no para crear una nueva -->
             />
 
-            <!-- Área de resultados (mensajes de éxito, error o bloqueo) -->
+            <!-- Aquí el JS va a mostrar mensajes de error o éxito cuando valide el formulario -->
+            <!-- Lo dejé vacío a propósito, el CSS lo oculta cuando no tiene contenido -->
             <div id="resultado-login"></div>
 
+            <!-- Botón principal para enviar, el JS escucha el click en este botón -->
             <button id="btn-login" type="button" class="btn-primary">Iniciar sesión</button>
           </form>
 
-          <a href="#" class="link-forgot">¿Olvidaste tu contraseña?</a>
+          <!-- Opción para recuperar contraseña, por ahora no tiene funcionalidad -->
+          <!-- La puse como span en lugar de enlace para que no confunda al usuario -->
+          <span class="link-forgot link-forgot--disabled" title="Próximamente disponible">¿Olvidaste tu contraseña?</span>
 
+          <!-- Línea separadora entre el formulario y el enlace de registro -->
           <div class="divider"></div>
 
+          <!-- Si el usuario no tiene cuenta lo mando a la pantalla de registro -->
           <p class="signup-text">
             ¿No tienes cuenta?
             <a href="02-create-account.html" class="link-signup">Crear cuenta</a>
           </p>
         </main>
 
-        <!-- Candado de seguridad (decorativo) -->
+        <!-- Elemento decorativo de un candado, solo es visual para darle más diseño a la tarjeta -->
+        <!-- Lo hice con divs puros en CSS, sin imágenes -->
         <div class="security-badge">
           <div class="security-lock-top"></div>
+          <!-- Cuerpo del candado con el ícono de seguridad adentro -->
           <div class="security-lock-body">
-            <span class="security-icon">📈</span>
+            <span class="security-icon">🔒</span>
           </div>
         </div>
+
       </div>
     </div>
 
+    <!-- Archivo JS que maneja la lógica del login, va al final del body para que cargue después del HTML -->
     <script src="/src/js/01-login.js"></script>
   </body>
 </html>

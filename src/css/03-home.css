@@ -1,25 +1,27 @@
 /* ===================================
-   Paleta SparkFi
+   PALETA DE COLORES
+   Las mismas variables de siempre para mantener todo consistente en la app
 =================================== */
 :root {
-  --sf-green: #22d74f;
-  --sf-green-soft: #00d369;
+  --sf-green: #22d74f;       /* Verde principal */
+  --sf-green-soft: #00d369;  /* Verde hover */
 
-  --sf-blue: #006af8;
-  --sf-blue-strong: #0a3dfe;
-  --sf-yellow: #ffd838;
+  --sf-blue: #006af8;        /* Azul de links */
+  --sf-blue-strong: #0a3dfe; /* Azul fuerte de énfasis */
+  --sf-yellow: #ffd838;      /* Amarillo para logros */
 
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
+  --sf-bg: #f7f9ff;          /* Fondo gris-azulado */
+  --sf-surface: #ffffff;     /* Blanco de tarjetas */
+  --sf-border: #e4e7f2;      /* Borde gris suave */
 
-  --sf-text-main: #181f34;
-  --sf-text-muted: #3c4a5f;
-  --sf-text-soft: #5a626e;
+  --sf-text-main: #181f34;   /* Texto principal */
+  --sf-text-muted: #3c4a5f;  /* Texto secundario */
+  --sf-text-soft: #5a626e;   /* Texto de ayuda */
 }
 
 /* ===================================
-   Reset
+   RESET
+   Sin esto los navegadores aplican estilos diferentes y todo se ve raro
 =================================== */
 * {
   margin: 0;
@@ -29,39 +31,42 @@
 
 body {
   font-family: "Inter", sans-serif;
-  background: var(--sf-bg);
+  background: var(--sf-bg); /* Fondo azulado suave para toda la página */
 }
 
-/* Contenedor general */
+/* Contenedor general que da el espacio alrededor de todo el contenido */
 .page {
-  min-height: 100vh;
+  min-height: 100vh; /* Que siempre ocupe al menos toda la altura de la pantalla */
   padding: 32px;
 }
 
 /* ===================================
-   Topbar
+   TOPBAR DE NAVEGACIÓN
+   Barra flotante con sombra que contiene el logo, los links y el avatar
 =================================== */
 .topbar {
   background: var(--sf-surface);
-  border-radius: 24px;
+  border-radius: 24px; /* Bordes redondeados para que parezca flotante */
   border: 1px solid var(--sf-border);
   padding: 16px 28px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; /* Logo a la izquierda, avatar a la derecha */
 
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08); /* Sombra suave para el efecto flotante */
   max-width: 1200px;
-  margin: 0 auto 32px;
+  margin: 0 auto 32px; /* Centrado horizontal + espacio abajo antes del contenido */
 }
 
+/* Logo: rayo + nombre de la app */
 .logo {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Círculo verde del rayo */
 .logo-icon {
   width: 30px;
   height: 30px;
@@ -78,11 +83,13 @@ body {
   font-size: 20px;
 }
 
+/* Links de navegación en fila */
 .nav {
   display: flex;
-  gap: 24px;
+  gap: 24px; /* Espacio horizontal entre cada link */
 }
 
+/* Estilo base de los links: sin subrayado, gris suave */
 .nav-link {
   text-decoration: none;
   font-size: 15px;
@@ -90,10 +97,12 @@ body {
   color: var(--sf-text-soft);
 }
 
+/* El link de la página actual se ve más oscuro */
 .nav-link.active {
   color: var(--sf-text-main);
 }
 
+/* Círculo negro con el ícono del usuario para el avatar del topbar */
 .avatar-mini .avatar-circle {
   width: 36px;
   height: 36px;
@@ -106,11 +115,12 @@ body {
 }
 
 /* ===================================
-   Dashboard
+   DASHBOARD PRINCIPAL
+   La tarjeta blanca grande que contiene el gráfico y los accesos rápidos
 =================================== */
 .dashboard {
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto; /* Centrado */
   background: var(--sf-surface);
   border-radius: 32px;
   border: 1px solid var(--sf-border);
@@ -118,42 +128,48 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
 }
 
+/* Título de bienvenida grande */
 .hero-title {
   font-size: 40px;
   font-weight: 700;
   margin-bottom: 28px;
 }
 
+/* El emoji de saludo necesita un tamaño un poco diferente al texto */
 .wave {
   font-size: 34px;
 }
 
 /* ===================================
-   Tarjeta del gráfico (SVG)
+   TARJETA DEL GRÁFICO SVG
+   Envuelve el SVG del gráfico de ahorro
 =================================== */
 .chart-card {
   border-radius: 26px;
   border: 1px solid var(--sf-border);
-  overflow: hidden;
+  overflow: hidden; /* Para que el SVG no se salga de los bordes redondeados */
   background: #ffffff;
   margin-bottom: 32px;
 }
 
+/* El SVG ocupa todo el ancho de la tarjeta y se escala automáticamente */
 .chart-svg {
   width: 100%;
   height: auto;
-  display: block;
+  display: block; /* Sin esto queda un espacio raro abajo del SVG */
 }
 
 /* ===================================
-   Quick actions
+   ACCESOS RÁPIDOS (3 tarjetas)
+   Grid de 3 columnas iguales para las tarjetas de Cursos, Retos y Ahorro
 =================================== */
 .quick-actions {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
   gap: 18px;
 }
 
+/* Tarjeta individual de acceso rápido */
 .qa-card {
   background: var(--sf-surface);
   border-radius: 24px;
@@ -162,6 +178,7 @@ body {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.04);
 }
 
+/* Cuadrado azul claro con el emoji/ícono de la tarjeta */
 .qa-icon {
   width: 48px;
   height: 48px;
@@ -187,11 +204,12 @@ body {
 }
 
 /* ===================================
-   Responsive
+   DISEÑO RESPONSIVE
+   En pantallas más pequeñas el grid pasa a una sola columna
 =================================== */
 @media (max-width: 900px) {
   .page {
-    padding: 16px;
+    padding: 16px; /* Menos margen en móvil para aprovechar el espacio */
   }
 
   .dashboard {
@@ -199,28 +217,61 @@ body {
   }
 
   .hero-title {
-    font-size: 32px;
+    font-size: 32px; /* Título más pequeño en pantallas chicas */
   }
 
+  /* Las 3 tarjetas pasan a estar una encima de la otra en móvil */
   .quick-actions {
     grid-template-columns: 1fr;
   }
 }
 
-/* Quick action cards como links */
+/* Las tarjetas de acceso rápido están dentro de un enlace, esto evita el subrayado */
 .qa-card-link {
   text-decoration: none;
   color: inherit;
   display: block;
 }
 
+/* Al pasar el mouse por una tarjeta, cambia el borde y la sombra */
 .qa-card-link:hover .qa-card {
   border-color: var(--sf-blue);
   box-shadow: 0 8px 24px rgba(0, 106, 248, 0.12);
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 
-/* Avatar link en topbar */
+/* El enlace del avatar no debe tener subrayado */
 .avatar-mini {
   text-decoration: none;
+}
+
+/* ===================================
+   BOTÓN DE CONFIGURACIÓN (TUERQUITA)
+   Aparece en el topbar de todas las páginas internas
+=================================== */
+.nav-settings-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #f0f4ff;           /* Fondo azul muy suave */
+  border: 1px solid var(--sf-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  text-decoration: none;
+  flex-shrink: 0;                /* Que no se encoja si el topbar tiene poco espacio */
+  transition: background 0.2s, border-color 0.2s;
+}
+
+/* Hover: fondo más azul y borde azul fuerte */
+.nav-settings-btn:hover {
+  background: #dde7ff;
+  border-color: var(--sf-blue-strong);
+}
+
+/* Cuando estamos en la página de configuración, el botón se ve sólido azul */
+.nav-settings-btn--active {
+  background: var(--sf-blue-strong);
+  border-color: var(--sf-blue-strong);
 }
