@@ -1,97 +1,159 @@
-# ⚡ SparkFi – Plataforma educativa de finanzas personales
+# SparkFi — Plataforma Educativa de Finanzas Personales
 
-SparkFi es una interfaz web diseñada como prototipo educativo para ayudar a los usuarios a mejorar su conocimiento financiero mediante cursos, retos, gamificación y seguimiento visual de su progreso.
-
-Este proyecto simula una experiencia moderna y profesional utilizando únicamente **HTML, CSS y SVG**.
+SparkFi es un prototipo de aplicación web orientada a la educación financiera personal. Ofrece una experiencia interactiva con cursos, retos, gamificación y seguimiento visual del progreso, construida íntegramente con tecnologías web fundamentales sin dependencias externas.
 
 ---
 
-## 🚀 Tecnologías utilizadas
+## Tabla de contenidos
 
-- **HTML5**
-- **CSS3**
-- **SVG vectoriales personalizados**
-- **Google Fonts – Inter**
-- **Diseño 100% responsive**
-
----
-
-## 🎨 Paleta de colores SparkFi
-
-| Uso | Color |
-|------|---------|
-| Verde principal | `#22D74F` |
-| Verde suave | `#00D369` |
-| Azul primario | `#006AF8` |
-| Azul fuerte | `#0A3DFE` |
-| Amarillo | `#FFD838` |
-| Fondo general | `#F7F9FF` |
-| Superficie | `#FFFFFF` |
-| Bordes | `#E4E7F2` |
-| Texto principal | `#181F34` |
-| Texto secundario | `#3C4A5F` |
+- [Vista previa](#vista-previa)
+- [Características](#características)
+- [Tecnologías](#tecnologías)
+- [Estructura del proyecto](#estructura-del-proyecto)
+- [Instalación y uso](#instalación-y-uso)
+- [Credenciales de prueba](#credenciales-de-prueba)
+- [Navegación](#navegación)
+- [Diseño visual](#diseño-visual)
 
 ---
 
-## 🔤 Tipografía
+## Vista previa
 
-**Inter - Google Fonts**
+| Login | Home | Cursos |
+|-------|------|--------|
+| ![Login](src/images/mockups/01-login.png) | ![Home](src/images/mockups/03-home.png) | ![Cursos](src/images/mockups/04-courses.png) |
 
-
----
-
-## 🔢 Convención de nombres (por qué uso 01-, 02-, 03-)
-
-Para este proyecto utilicé nombres de archivo con prefijos numéricos de dos dígitos:
-
-01-login.html
-02-create-account.html
-03-home.html
-
-
-Esta convención se usa para:
-
-- Mantener **un orden lógico** en proyectos con múltiples vistas.  
-- Evitar conflictos al ordenarse alfabéticamente (ej. 1, 10, 2).  
-- Facilitar el desarrollo y la navegación interna del proyecto.  
-
-Aunque en proyectos empresariales grandes no se suele numerar vistas, en prototipos y proyectos educativos es una convención válida que no afecta la calidad del código.
+| Retos | Comunidad | Perfil |
+|-------|-----------|--------|
+| ![Retos](src/images/mockups/05-challenges.png) | ![Comunidad](src/images/mockups/06-community.png) | ![Perfil](src/images/mockups/07-profile.png) |
 
 ---
 
-## ⚙ Instalación y uso
+## Características
 
-1. Clonar el repositorio:
+- **Autenticación simulada** — login y registro con validación en el lado del cliente
+- **Dashboard principal** — resumen del progreso, cursos activos y estadísticas financieras
+- **Cursos interactivos** — módulos de educación financiera organizados por tema y nivel
+- **Retos financieros** — sistema de desafíos con seguimiento de avance y puntuación
+- **Comunidad** — sección social para interacción entre usuarios
+- **Perfil de usuario** — historial de actividad, logros y estadísticas personales
+- **Configuración** — preferencias de cuenta y personalización
+- **Diseño responsive** — adaptado para móvil, tablet y escritorio
+
+---
+
+## Tecnologías
+
+| Tecnología | Uso |
+|------------|-----|
+| HTML5 | Estructura semántica de las vistas |
+| CSS3 | Estilos, layout y responsividad |
+| JavaScript (Vanilla) | Interactividad y lógica del cliente |
+| SVG | Iconografía vectorial personalizada |
+| Google Fonts (Inter) | Tipografía del sistema |
+
+> No requiere instalación de dependencias ni herramientas de construcción (build tools).
+
+---
+
+## Estructura del proyecto
+
+```
+sparkFi/
+├── index.html                  # Punto de entrada → redirige a login
+├── src/
+│   ├── html/
+│   │   ├── 01-login.html
+│   │   ├── 02-create-account.html
+│   │   ├── 03-home.html
+│   │   ├── 04-courses.html
+│   │   ├── 05-challenges.html
+│   │   ├── 06-community.html
+│   │   ├── 07-profile.html
+│   │   └── 08-settings.html
+│   ├── css/
+│   │   ├── index.css           # Estilos globales compartidos
+│   │   ├── 01-login.css
+│   │   ├── 02-create-account.css
+│   │   └── ...                 # Un archivo por vista
+│   ├── js/
+│   │   ├── 01-login.js
+│   │   ├── 02-create-account.js
+│   │   └── ...                 # Un archivo por vista
+│   └── images/
+│       └── mockups/            # Capturas de diseño (PNG)
+```
+
+**Convención de nombres:** los archivos usan prefijos de dos dígitos (`01-`, `02-`, ...) para mantener un orden lógico y evitar conflictos de ordenamiento alfabético en proyectos con múltiples vistas.
+
+---
+
+## Instalación y uso
+
+**Requisitos previos:** [VS Code](https://code.visualstudio.com/) con la extensión [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer).
 
 ```bash
+# 1. Clonar el repositorio
 git clone https://github.com/usuario/sparkfi.git
 
+# 2. Entrar al directorio
+cd sparkfi
+```
 
-Abrir el proyecto en VS Code.
+Luego, dentro de VS Code:
 
-Usar Live Server:
+1. Abrir la carpeta del proyecto
+2. Hacer clic derecho sobre `index.html`
+3. Seleccionar **"Open with Live Server"**
 
-Right click → "Open with Live Server"
+El navegador abrirá automáticamente la pantalla de login.
 
+---
 
-Navegar entre las vistas:
+## Credenciales de prueba
 
-/src/html/01-login.html
+Para explorar la aplicación sin necesidad de registrarse, se pueden usar las siguientes credenciales:
 
-🧭 Navegación general
+| Campo | Valor |
+|-------|-------|
+| Correo | `admin@sparkfi.com` |
+| Contraseña | `sparkfi123` |
 
-01 Login
+---
 
-02 Registro
+## Navegación
 
-03 Home (Dashboard)
+| # | Vista | Ruta |
+|---|-------|------|
+| 01 | Login | `src/html/01-login.html` |
+| 02 | Registro | `src/html/02-create-account.html` |
+| 03 | Home / Dashboard | `src/html/03-home.html` |
+| 04 | Cursos | `src/html/04-courses.html` |
+| 05 | Retos | `src/html/05-challenges.html` |
+| 06 | Comunidad | `src/html/06-community.html` |
+| 07 | Perfil | `src/html/07-profile.html` |
+| 08 | Configuración | `src/html/08-settings.html` |
 
-04 Cursos
+---
 
-05 Retos
+## Diseño visual
 
-06 Comunidad
+### Paleta de colores
 
-07 Perfil
+| Variable | Hex | Uso |
+|----------|-----|-----|
+| Verde principal | `#22D74F` | Acciones primarias, éxito |
+| Verde suave | `#00D369` | Acentos secundarios |
+| Azul primario | `#006AF8` | Botones, enlaces |
+| Azul fuerte | `#0A3DFE` | Énfasis y hover |
+| Amarillo | `#FFD838` | Alertas, logros |
+| Fondo general | `#F7F9FF` | Background de la app |
+| Superficie | `#FFFFFF` | Tarjetas y modales |
+| Bordes | `#E4E7F2` | Separadores y outlines |
+| Texto principal | `#181F34` | Títulos y cuerpo |
+| Texto secundario | `#3C4A5F` | Subtítulos y etiquetas |
 
-08 Configuración
+### Tipografía
+
+**Inter** — Google Fonts  
+Usada en todos los pesos desde `Regular 400` hasta `Bold 700` según jerarquía visual.
