@@ -1,21 +1,15 @@
-// Datos de sesión simulados — cuando exista un backend vendrán de la API
 const USUARIO_SESION = {
   nombre: "Juan Pérez",
   email: "juan.perez@example.com",
   password: "sparkfi123",
 };
 
-// Estado de preferencias del usuario (en producción se guardaría en el servidor)
 const preferencias = {
   notificacionEmail: true,
   notificacionPush: true,
   perfilPublico: false,
   mostrarActividad: true,
 };
-
-// ─────────────────────────────────────────
-// Funciones de validación
-// ─────────────────────────────────────────
 
 function validarFormatoEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -26,30 +20,30 @@ function validarLongitudPassword(password) {
   return password.length >= 6;
 }
 
-// ─────────────────────────────────────────
-// Función genérica para mensajes de éxito
-// Igual al patrón usado en login y registro
-// ─────────────────────────────────────────
-
 function mostrarMensaje(area, texto, tipo) {
+  const classByType = {
+    exito: "settings-form__message--success",
+    error: "settings-form__message--error",
+  };
+
   area.innerHTML = "";
   const div = document.createElement("div");
-  div.className = "mensaje mensaje--" + tipo;
+  div.className = "settings-form__message " + classByType[tipo];
   div.textContent = texto;
   area.appendChild(div);
 }
 
-// Muestra lista de errores con el mismo formato que 02-create-account.js
 function mostrarErrores(area, errores) {
   area.innerHTML = "";
 
   const titulo = document.createElement("p");
-  titulo.className = "resultado-titulo--error";
+  titulo.className =
+    "settings-form__feedback-title settings-form__feedback-title--error";
   titulo.textContent = "Por favor corrige los siguientes errores:";
   area.appendChild(titulo);
 
   const lista = document.createElement("ul");
-  lista.className = "lista-errores";
+  lista.className = "settings-form__feedback-list";
 
   for (let i = 0; i < errores.length; i++) {
     const item = document.createElement("li");
@@ -59,10 +53,6 @@ function mostrarErrores(area, errores) {
 
   area.appendChild(lista);
 }
-
-// ─────────────────────────────────────────
-// Sección 1 — Editar perfil
-// ─────────────────────────────────────────
 
 function validarPerfil(nombre, email) {
   const errores = [];
@@ -83,7 +73,6 @@ function validarPerfil(nombre, email) {
 function manejarGuardarPerfil() {
   const inputNombre = document.getElementById("edit-nombre");
   const inputEmail = document.getElementById("edit-email");
-  // El área de resultado se crea dinámicamente en la inicialización
   const resultadoArea = document.getElementById("resultado-perfil");
 
   const nombre = inputNombre.value.trim();
@@ -96,7 +85,6 @@ function manejarGuardarPerfil() {
     return;
   }
 
-  // Actualiza el estado simulado de sesión con los nuevos datos
   USUARIO_SESION.nombre = nombre;
   USUARIO_SESION.email = email;
 
@@ -107,10 +95,6 @@ function manejarCambioFoto() {
   const resultadoArea = document.getElementById("resultado-perfil");
   mostrarMensaje(resultadoArea, "Cambio de foto disponible próximamente.", "error");
 }
-
-// ─────────────────────────────────────────
-// Sección 2 — Cambiar contraseña
-// ─────────────────────────────────────────
 
 function validarCambioPassword(actual, nueva, confirmar) {
   const errores = [];
@@ -127,7 +111,6 @@ function validarCambioPassword(actual, nueva, confirmar) {
     errores.push("Debes confirmar la nueva contraseña.");
   }
 
-  // Verifica que la contraseña actual coincida con la del sistema
   if (actual && actual !== USUARIO_SESION.password) {
     errores.push("La contraseña actual no es correcta.");
   }
@@ -162,18 +145,11 @@ function manejarCambioPassword() {
     return;
   }
 
-  // Actualiza la contraseña en el estado de sesión simulado
   USUARIO_SESION.password = nueva;
 
   limpiarCamposPassword();
   mostrarMensaje(resultadoArea, "¡Contraseña actualizada exitosamente!", "exito");
 }
-
-// ─────────────────────────────────────────
-// Sección 3 y 4 — Notificaciones y Privacidad
-// Los switches ya funcionan visualmente con CSS puro;
-// aquí solo registramos el cambio de estado en preferencias
-// ─────────────────────────────────────────
 
 function registrarToggle(checkbox, clave) {
   checkbox.addEventListener("change", function () {
@@ -181,40 +157,28 @@ function registrarToggle(checkbox, clave) {
   });
 }
 
-// ─────────────────────────────────────────
-// Inicialización — espera a que el DOM esté listo
-// ─────────────────────────────────────────
-
 document.addEventListener("DOMContentLoaded", function () {
-
-  // ── Perfil: crear el área de resultado y enlazar botones ──
-
-  // El HTML no incluye un div de resultado en la sección de perfil,
-  // así que lo creamos dinámicamente y lo insertamos antes del botón guardar
-  const seccionPerfil = document.querySelector(".edit-profile-section");
-  const btnGuardarPerfil = seccionPerfil.querySelector(".btn-guardar");
+  const seccionPerfil = document.querySelector(".settings-section--profile");
+  const btnGuardarPerfil = seccionPerfil.querySelector(".settings-form__submit--profile");
 
   const resultadoPerfil = document.createElement("div");
   resultadoPerfil.id = "resultado-perfil";
+  resultadoPerfil.className = "settings-form__feedback";
   seccionPerfil.insertBefore(resultadoPerfil, btnGuardarPerfil);
 
   btnGuardarPerfil.addEventListener("click", manejarGuardarPerfil);
 
-  const btnCambiarFoto = document.querySelector(".btn-change-photo");
+  const btnCambiarFoto = document.querySelector(".settings-section__change-photo-button");
   if (btnCambiarFoto) {
     btnCambiarFoto.addEventListener("click", manejarCambioFoto);
   }
-
-  // ── Contraseña ──
 
   const btnGuardarPassword = document.getElementById("btn-guardar-password");
   if (btnGuardarPassword) {
     btnGuardarPassword.addEventListener("click", manejarCambioPassword);
   }
 
-  // ── Notificaciones ──
-
-  const seccionNotif = document.querySelector(".notifications-section");
+  const seccionNotif = document.querySelector(".settings-section--notifications");
   if (seccionNotif) {
     const clavesNotif = ["notificacionEmail", "notificacionPush"];
     const checkboxesNotif = seccionNotif.querySelectorAll("input[type='checkbox']");
@@ -224,9 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // ── Privacidad y seguridad ──
-
-  const seccionPrivacidad = document.querySelector(".privacy-section");
+  const seccionPrivacidad = document.querySelector(".settings-section--privacy");
   if (seccionPrivacidad) {
     const clavesPrivacidad = ["perfilPublico", "mostrarActividad"];
     const checkboxesPrivacidad = seccionPrivacidad.querySelectorAll("input[type='checkbox']");

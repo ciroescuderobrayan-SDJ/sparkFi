@@ -1,92 +1,105 @@
-<!DOCTYPE html>
-<!-- Declaración obligatoria de HTML5, siempre va primero -->
+<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Sin esto las tildes y la ñ no se muestran bien -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Hace que la página se adapte al tamaño de la pantalla del celular -->
     <title>Crear cuenta - SparkFi</title>
-
-    <!-- Fuente Inter de Google, la uso en toda la app para que todo se vea uniforme -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Favicon con el rayo de SparkFi usando SVG en línea, así no necesito un archivo extra -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
-
-    <!-- Estilos específicos de esta página -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+    />
     <link rel="stylesheet" href="/src/css/02-create-account.css" />
   </head>
 
   <body>
-    <!-- Contenedor principal de toda la página de registro -->
-    <div class="register-container">
+    <div class="register-page">
+      <div class="register-card">
+        <header class="register-card__header">
+          <div class="register-card__brand">
+            <span class="register-card__brand-icon">⚡</span>
+            <span class="register-card__brand-text">SparkFi</span>
+          </div>
 
-      <!-- Cabecera con logo y botón para ir al login por si el usuario ya tiene cuenta -->
-      <header class="header">
-        <div class="logo">
-          <!-- Logo de SparkFi: el rayo en un círculo verde más el nombre -->
-          <span class="logo-icon">⚡</span>
-          <span class="logo-text">SparkFi</span>
-        </div>
+          <a href="01-login.html" class="register-card__login-link">Iniciar sesión</a>
+        </header>
 
-        <!-- Botón para volver al login, lo puse como enlace estilizado -->
-        <a href="01-login.html" class="btn-login">Iniciar sesión</a>
-      </header>
+        <main class="register-card__content">
+          <h1 class="register-card__title">Crear una cuenta</h1>
 
-      <!-- Contenido principal de la página -->
-      <main class="content">
-        <h1 class="title">Crear una cuenta</h1>
+          <form class="register-form">
+            <label class="register-form__label" for="nombre">Nombre completo</label>
+            <input
+              id="nombre"
+              type="text"
+              class="register-form__input"
+              placeholder="Juan Pérez"
+              required
+              autocomplete="name"
+            />
 
-        <!-- Formulario de registro con todos los campos necesarios -->
-        <!-- Cada input tiene su label conectado por el atributo "for" e "id" -->
-        <form class="register-form">
+            <label class="register-form__label" for="email-registro">Correo</label>
+            <input
+              id="email-registro"
+              type="email"
+              class="register-form__input"
+              placeholder="juan@example.com"
+              required
+              autocomplete="email"
+            />
 
-          <!-- Campo de nombre completo -->
-          <!-- required hace que el navegador no deje enviar el form si está vacío -->
-          <!-- autocomplete="name" sugiere el nombre guardado en el navegador -->
-          <label class="label" for="nombre">Nombre completo</label>
-          <input id="nombre" type="text" class="input" placeholder="Juan Pérez" required autocomplete="name" />
+            <label class="register-form__label" for="password-registro">Contraseña</label>
+            <input
+              id="password-registro"
+              type="password"
+              class="register-form__input"
+              placeholder="•••••••"
+              required
+              autocomplete="new-password"
+            />
 
-          <!-- Campo de correo, el type="email" valida automáticamente que tenga @ y punto -->
-          <label class="label" for="email-registro">Correo</label>
-          <input id="email-registro" type="email" class="input" placeholder="juan@example.com" required autocomplete="email" />
+            <label class="register-form__label" for="confirmar-password">
+              Confirmar contraseña
+            </label>
+            <input
+              id="confirmar-password"
+              type="password"
+              class="register-form__input"
+              placeholder="•••••••"
+              required
+              autocomplete="new-password"
+            />
+            <small class="register-form__hint">
+              Debe coincidir con la contraseña anterior
+            </small>
 
-          <!-- Campo de contraseña, con new-password el navegador ofrece generar una contraseña segura -->
-          <label class="label" for="password-registro">Contraseña</label>
-          <input id="password-registro" type="password" class="input" placeholder="•••••••" required autocomplete="new-password" />
+            <label class="register-form__terms">
+              <input id="terminos" type="checkbox" class="register-form__checkbox" />
+              <span>
+                Acepto los
+                <a href="#" class="register-form__terms-link">términos y condiciones</a>
+              </span>
+            </label>
 
-          <!-- Campo para confirmar que escribió bien la contraseña -->
-          <label class="label" for="confirmar-password">Confirmar contraseña</label>
-          <input id="confirmar-password" type="password" class="input" placeholder="•••••••" required autocomplete="new-password" />
-          <!-- Texto de ayuda pequeño para que el usuario sepa que debe coincidir -->
-          <small class="input-hint">Debe coincidir con la contraseña anterior</small>
+            <div
+              id="resultado-registro"
+              class="register-form__feedback"
+              aria-live="polite"
+            ></div>
 
-          <!-- Checkbox de términos y condiciones, es obligatorio aceptarlos para registrarse -->
-          <!-- El label envuelve al checkbox para que al hacer click en el texto también marque -->
-          <label class="terms">
-            <input id="terminos" type="checkbox" />
-            <span>
-              Acepto los <a href="#" class="link">términos y condiciones</a>
-            </span>
-          </label>
-
-          <!-- Aquí el JS muestra si el registro fue exitoso o si hubo algún error -->
-          <!-- Con CSS lo oculto cuando está vacío para que no genere espacio raro en la página -->
-          <div id="resultado-registro"></div>
-
-          <!-- Botón de envío del formulario, el JS valida todo antes de registrar -->
-          <button id="btn-registro" type="button" class="btn-submit">Registrarme</button>
-        </form>
-      </main>
+            <button id="btn-registro" type="button" class="register-form__submit">
+              Registrarme
+            </button>
+          </form>
+        </main>
+      </div>
     </div>
 
-    <!-- Script al final del body para que no bloquee la carga del HTML -->
     <script src="/src/js/02-create-account.js"></script>
   </body>
 </html>

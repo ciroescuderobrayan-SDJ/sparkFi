@@ -16,38 +16,35 @@
   </head>
 
   <body>
-    <div class="pagina-inicio">
-      <!-- El nav -->
-      <header class="encabezado-principal">
-        <div class="marca">
-          <span class="marca-simbolo">⚡</span>
-          <span class="marca-nombre">SparkFi</span>
+    <div class="home-page">
+      <header class="home-header">
+        <div class="home-header__brand">
+          <span class="home-header__brand-icon">⚡</span>
+          <span class="home-header__brand-text">SparkFi</span>
         </div>
 
-        <nav class="navegacion-principal">
-          <a href="./03-home.html" class="enlace-navegacion activo">Inicio</a>
-          <a href="./04-courses.html" class="enlace-navegacion">Cursos</a>
-          <a href="./05-challenges.html" class="enlace-navegacion">Retos</a>
-          <a href="./06-community.html" class="enlace-navegacion">Comunidad</a>
-          <a href="./07-profile.html" class="enlace-navegacion">Perfil</a>
+        <nav class="home-header__nav">
+          <a href="./03-home.html" class="home-header__nav-link home-header__nav-link--active">Inicio</a>
+          <a href="./04-courses.html" class="home-header__nav-link">Cursos</a>
+          <a href="./05-challenges.html" class="home-header__nav-link">Retos</a>
+          <a href="./06-community.html" class="home-header__nav-link">Comunidad</a>
+          <a href="./07-profile.html" class="home-header__nav-link">Perfil</a>
         </nav>
 
-        <div class="avatar-usuario">
-          <span class="avatar-usuario-circulo">👤</span>
+        <div class="home-header__user-avatar">
+          <span class="home-header__user-avatar-icon">👤</span>
         </div>
       </header>
 
-      <!-- contenido principal -->
-      <main class="contenido-inicio">
-        <section class="seccion-bienvenida">
-          <h1 class="titulo-bienvenida">
-            Bienvenido, Juan <span class="saludo">👋</span>
+      <main class="home-content">
+        <section class="home-hero">
+          <h1 class="home-hero__title">
+            Bienvenido, Juan <span class="home-hero__wave">👋</span>
           </h1>
 
-          <!-- La gráfica -->
-          <div class="panel-grafica">
+          <div class="home-hero__chart-panel">
             <svg
-              class="grafica-lineal"
+              class="home-hero__chart"
               viewBox="0 0 600 260"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -85,24 +82,23 @@
           </div>
         </section>
 
-        <!-- las targetas de acceso inferiores -->
-        <section class="rejilla-accesos">
-          <a href="./04-courses.html" class="tarjeta-acceso">
-            <div class="icono-acceso">📘</div>
-            <h2 class="titulo-acceso">Mis cursos activos</h2>
-            <p class="subtitulo-acceso">Haciendo</p>
+        <section class="home-quick-access">
+          <a href="./04-courses.html" class="home-quick-access__card">
+            <div class="home-quick-access__icon">📘</div>
+            <h2 class="home-quick-access__title">Mis cursos activos</h2>
+            <p class="home-quick-access__subtitle">Haciendo</p>
           </a>
 
-          <a href="./05-challenges.html" class="tarjeta-acceso">
-            <div class="icono-acceso">🎯</div>
-            <h2 class="titulo-acceso">Retos financieros</h2>
-            <p class="subtitulo-acceso">En progreso</p>
+          <a href="./05-challenges.html" class="home-quick-access__card">
+            <div class="home-quick-access__icon">🎯</div>
+            <h2 class="home-quick-access__title">Retos financieros</h2>
+            <p class="home-quick-access__subtitle">En progreso</p>
           </a>
 
-          <a href="./07-profile.html" class="tarjeta-acceso">
-            <div class="icono-acceso">💰</div>
-            <h2 class="titulo-acceso">Mi ahorro mensual</h2>
-            <p class="subtitulo-acceso">COP 350,000</p>
+          <a href="./07-profile.html" class="home-quick-access__card">
+            <div class="home-quick-access__icon">💰</div>
+            <h2 class="home-quick-access__title">Mi ahorro mensual</h2>
+            <p class="home-quick-access__subtitle">COP 350,000</p>
           </a>
         </section>
       </main>

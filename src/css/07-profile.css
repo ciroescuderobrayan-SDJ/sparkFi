@@ -1,29 +1,17 @@
-/* ===================================
-   VARIABLES DE COLOR SPARKFI
-   Las mismas de siempre — las defino una vez aquí y las uso en todo el CSS
-   con var(--nombre) para no tener que recordar los códigos hex cada vez
-=================================== */
 :root {
-  --sf-green: #22d74f;       /* Verde de logros y botones principales */
-  --sf-green-soft: #00d369;  /* Verde más suave para hover */
-
-  --sf-blue: #006af8;        /* Azul de links */
-  --sf-blue-strong: #0a3dfe; /* Azul fuerte para énfasis */
-  --sf-yellow: #ffd838;      /* Amarillo para medallas de logros */
-
-  --sf-bg: #f7f9ff;          /* Fondo general de la app */
-  --sf-surface: #ffffff;     /* Blanco de tarjetas */
-  --sf-border: #e4e7f2;      /* Borde gris muy suave */
-
-  --sf-text-main: #181f34;   /* Texto oscuro principal */
-  --sf-text-muted: #3c4a5f;  /* Texto secundario */
-  --sf-text-soft: #5a626e;   /* Texto de ayuda */
+  --sf-green: #22d74f;
+  --sf-green-soft: #00d369;
+  --sf-blue: #006af8;
+  --sf-blue-strong: #0a3dfe;
+  --sf-yellow: #ffd838;
+  --sf-bg: #f7f9ff;
+  --sf-surface: #ffffff;
+  --sf-border: #e4e7f2;
+  --sf-text-main: #181f34;
+  --sf-text-muted: #3c4a5f;
+  --sf-text-soft: #5a626e;
 }
 
-/* ===================================
-   RESET GENERAL
-   Quito los márgenes y paddings del navegador para empezar limpio
-=================================== */
 * {
   margin: 0;
   padding: 0;
@@ -31,366 +19,282 @@
 }
 
 body {
+  padding-bottom: 60px;
   background: var(--sf-bg);
-  font-family: "Inter", sans-serif;
   color: var(--sf-text-main);
-  padding-bottom: 60px; /* Espacio abajo para que el contenido no quede pegado al borde */
+  font-family: "Inter", sans-serif;
 }
 
-/* ===================================
-   TOPBAR DE NAVEGACIÓN
-   En el perfil el topbar es una barra sólida con borde abajo
-   en lugar de la barra flotante de otras páginas — fue una decisión de diseño
-   para darle un look más "formal" a la sección de perfil
-=================================== */
-.topbar {
-  background: var(--sf-surface);
-  border-bottom: 1px solid var(--sf-border); /* Borde inferior en vez de sombra flotante */
+.profile-header {
   height: 70px;
-
+  padding: 0 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: 0 40px;
+  background: var(--sf-surface);
+  border-bottom: 1px solid var(--sf-border);
 }
 
-/* Logo: círculo verde + nombre */
-.logo {
+.profile-header__brand {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.logo-icon {
+.profile-header__brand-icon {
   width: 32px;
   height: 32px;
-  background: var(--sf-green);
-  color: white;
-  font-size: 18px;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: var(--sf-green);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 18px;
 }
 
-.logo-text {
+.profile-header__brand-text {
   font-size: 20px;
   font-weight: 700;
 }
 
-/* Links del nav en fila horizontal */
-.nav {
+.profile-header__nav {
   display: flex;
   gap: 26px;
 }
 
-/* Sin subrayado, color suave por defecto */
-.nav-link {
-  text-decoration: none;
-  font-weight: 500;
+.profile-header__nav-link {
   color: var(--sf-text-soft);
+  text-decoration: none;
   font-size: 15px;
+  font-weight: 500;
 }
 
-/* El link de la página actual se pone azul */
-.nav-link.active {
+.profile-header__nav-link--active {
   color: var(--sf-blue);
 }
 
-/* La foto de perfil en miniatura en el topbar */
-.profile-mini img {
+.profile-header__avatar-link {
+  display: block;
+  text-decoration: none;
+}
+
+.profile-header__avatar-image {
   width: 40px;
   height: 40px;
   border-radius: 50%;
 }
 
-/* ===================================
-   LAYOUT PRINCIPAL DE PERFIL (DESKTOP)
-   Grid de dos columnas: la sidebar del perfil a la izquierda
-   y los logros/estadísticas a la derecha
-   Grid es perfecto para esto porque puedo controlar ambas columnas exactamente
-=================================== */
-.profile-layout {
-  display: grid;
-  grid-template-columns: 280px 1fr; /* La sidebar tiene ancho fijo, el resto ocupa lo demás */
-  gap: 40px;
-
-  padding: 40px;
-  max-width: 1200px;
-  margin: auto; /* Centrado horizontal */
+.profile-header__settings-link {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: #f0f4ff;
+  border: 1px solid var(--sf-border);
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 17px;
+  transition: background 0.2s, border-color 0.2s;
 }
 
-/* ===================================
-   TARJETA DE PERFIL (SIDEBAR IZQUIERDA)
-   La tarjeta blanca con la foto, nombre, email y estadísticas del usuario
-=================================== */
-.profile-card {
+.profile-header__settings-link:hover {
+  background: #dde7ff;
+  border-color: var(--sf-blue-strong);
+}
+
+.profile-page {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 40px;
+}
+
+.profile-sidebar {
+  padding: 30px;
+  text-align: center;
   background: var(--sf-surface);
   border: 1px solid var(--sf-border);
   border-radius: 20px;
-  padding: 30px;
-  text-align: center; /* Todo centrado porque es información de perfil */
 }
 
-/* El círculo que contiene la foto de perfil */
-.avatar-circle {
+.profile-sidebar__avatar {
   width: 160px;
   height: 160px;
+  margin: auto;
+  overflow: hidden;
   border-radius: 50%;
-  overflow: hidden; /* La foto no se sale del círculo */
-  margin: auto;     /* Centrado */
 }
 
-/* La foto ocupa todo el círculo sin distorsionarse */
-.avatar-circle img {
+.profile-sidebar__avatar-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* La imagen cubre todo el espacio sin deformarse */
+  object-fit: cover;
 }
 
-/* Nombre del usuario debajo de la foto */
-.profile-name {
+.profile-sidebar__name {
   margin-top: 15px;
   font-size: 26px;
   font-weight: 700;
 }
 
-/* Email en gris para que sea secundario frente al nombre */
-.profile-email {
+.profile-sidebar__email {
+  margin-bottom: 10px;
   color: var(--sf-text-muted);
   font-size: 14px;
-  margin-bottom: 10px;
 }
 
-/* Etiqueta del nivel del usuario — píldora azul suave */
-.level-pill {
+.profile-sidebar__level-badge {
   display: inline-block;
-  background: #eef2ff;
-  color: var(--sf-blue-strong);
-  padding: 6px 14px;
-  border-radius: 999px; /* Siempre completamente redondeado */
-  font-weight: 600;
-  font-size: 13px;
   margin-top: 5px;
+  padding: 6px 14px;
+  background: #eef2ff;
+  border-radius: 999px;
+  color: var(--sf-blue-strong);
+  font-size: 13px;
+  font-weight: 600;
 }
 
-/* ===================================
-   BOTONES DE ACCIÓN DEL PERFIL
-   Fila con el botón de editar y el ícono de configuración
-   Los puse debajo del nivel para que el usuario los encuentre fácilmente
-=================================== */
-.profile-actions {
+.profile-sidebar__actions {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centrados como todo lo de la sidebar */
+  justify-content: center;
   gap: 10px;
   margin-top: 14px;
 }
 
-/* Botón azul de "Editar perfil" */
-.btn-edit-profile {
+.profile-sidebar__edit-link {
   padding: 8px 18px;
-  border-radius: 999px;
   background: var(--sf-blue-strong);
-  color: #ffffff;
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
   font-size: 13px;
   font-weight: 600;
-  text-decoration: none; /* Es un enlace estilizado como botón */
 }
 
-.btn-edit-profile:hover {
-  background: var(--sf-blue); /* Azul más suave en hover */
+.profile-sidebar__edit-link:hover {
+  background: var(--sf-blue);
 }
 
-/* Ícono de tuerquita para ir directo a settings desde el perfil */
-.btn-settings-icon {
+.profile-sidebar__settings-shortcut {
   font-size: 20px;
+  line-height: 1;
   text-decoration: none;
-  line-height: 1; /* Sin esto el emoji queda mal alineado verticalmente */
 }
 
-/* ===================================
-   CAJA DE RESUMEN (ESTADÍSTICAS)
-   Tres números separados por líneas verticales: cursos, retos, logros
-   Los separo con border-right para crear los divisores visuales
-=================================== */
-.summary {
+.profile-sidebar__stats {
   display: flex;
   justify-content: space-between;
   margin-top: 22px;
   padding: 16px;
-  background: var(--sf-bg); /* Fondo ligeramente gris para diferenciarla de la tarjeta */
+  background: var(--sf-bg);
   border: 1px solid var(--sf-border);
   border-radius: 14px;
 }
 
-/* Cada celda de estadística ocupa el mismo espacio */
-.summary-item {
-  text-align: center;
+.profile-sidebar__stat-item {
   flex: 1;
+  text-align: center;
 }
 
-/* Divido cada celda con una línea vertical excepto la última */
-.summary-item:not(:last-child) {
+.profile-sidebar__stat-item:not(:last-child) {
   border-right: 1px solid var(--sf-border);
 }
 
-/* El número grande en azul para que destaque */
-.summary-number {
+.profile-sidebar__stat-value {
+  color: var(--sf-blue-strong);
   font-size: 18px;
   font-weight: 700;
-  color: var(--sf-blue-strong);
 }
 
-/* La etiqueta pequeña debajo del número */
-.summary-label {
+.profile-sidebar__stat-label {
   color: var(--sf-text-soft);
   font-size: 12px;
 }
 
-/* ===================================
-   SECCIÓN DE LOGROS (PANEL DERECHO)
-   Grid de tarjetas de logros en la parte derecha del layout
-=================================== */
-.achievements-section {
-  background: var(--sf-surface);
-  border-radius: 20px;
-  border: 1px solid var(--sf-border);
-  padding: 30px;
+.profile-sidebar__logout-link {
+  display: inline-block;
+  margin-top: 30px;
+  background: none;
+  border: none;
+  color: var(--sf-blue);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
 }
 
-.section-title {
+.profile-achievements {
+  padding: 30px;
+  background: var(--sf-surface);
+  border: 1px solid var(--sf-border);
+  border-radius: 20px;
+}
+
+.profile-achievements__title {
+  margin-bottom: 20px;
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 20px;
 }
 
-/* Grid de 3 columnas para las tarjetas de logros */
-.achievements-grid {
+.profile-achievements__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
 }
 
-/* Tarjeta individual de logro */
-.achievement-card {
+.profile-achievements__card {
+  padding: 20px;
   background: var(--sf-bg);
   border: 1px solid var(--sf-border);
   border-radius: 18px;
-  padding: 20px;
   text-align: center;
 }
 
-/* Círculo con el emoji del logro */
-.achievement-icon {
+.profile-achievements__icon {
   width: 60px;
   height: 60px;
-  border-radius: 50%;
-  font-size: 24px;
+  margin: 0 auto 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: auto;
-  color: white;
-  margin-bottom: 10px;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24px;
 }
 
-/* Tres colores distintos para las medallas según el tipo de logro */
-.achievement-icon.blue {
-  background: var(--sf-blue);   /* Azul para logros de cursos */
+.profile-achievements__icon--blue {
+  background: var(--sf-blue);
 }
 
-.achievement-icon.green {
-  background: var(--sf-green);  /* Verde para logros de ahorro */
+.profile-achievements__icon--green {
+  background: var(--sf-green);
 }
 
-.achievement-icon.yellow {
-  background: var(--sf-yellow); /* Amarillo para logros de retos */
+.profile-achievements__icon--yellow {
+  background: var(--sf-yellow);
 }
 
-/* Nombre del logro debajo del ícono */
-.achievement-text {
-  font-weight: 600;
-  font-size: 14px;
+.profile-achievements__text {
   color: var(--sf-text-main);
-}
-
-/* ===================================
-   BOTÓN DE CERRAR SESIÓN
-   Lo puse discreto — sin borde, solo texto azul — para que
-   no distraiga de las estadísticas y logros del perfil
-=================================== */
-.logout-btn {
-  margin-top: 30px;
-  color: var(--sf-blue);
-  background: none;
-  border: none;
   font-size: 14px;
-  cursor: pointer;
   font-weight: 600;
 }
 
-/* Como el botón de logout también puede ser un enlace, lo estilo igual */
-a.logout-btn {
-  display: inline-block;
-  text-decoration: none;
-}
-
-/* ===================================
-   LINK "VER TODOS LOS LOGROS"
-   Link pequeño alineado a la derecha para ir a la página de retos
-   Lo puse en la esquina para que no compita con las tarjetas de logros
-=================================== */
-.ver-todos-link {
+.profile-achievements__link {
   display: block;
   margin-top: 20px;
+  color: var(--sf-blue-strong);
   text-align: right;
+  text-decoration: none;
   font-size: 13px;
   font-weight: 600;
-  color: var(--sf-blue-strong);
-  text-decoration: none;
 }
 
-.ver-todos-link:hover {
-  text-decoration: underline; /* Subrayo solo en hover, no siempre */
-}
-
-/* ===================================
-   LINK DE LA FOTO DE PERFIL MINIATURA
-   La foto del topbar es un enlace pero no debe tener decoración de link
-=================================== */
-a.profile-mini {
-  display: block;
-  text-decoration: none;
-}
-
-/* ===================================
-   BOTÓN TUERQUITA DE CONFIGURACIÓN
-   El mismo en todas las páginas para mantener consistencia
-=================================== */
-.nav-settings-btn {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: #f0f4ff;           /* Fondo azul suave */
-  border: 1px solid var(--sf-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 17px;
-  text-decoration: none;
-  flex-shrink: 0;                /* Que no se encoja si el topbar tiene poco espacio */
-  transition: background 0.2s, border-color 0.2s;
-}
-
-.nav-settings-btn:hover {
-  background: #dde7ff;
-  border-color: var(--sf-blue-strong);
-}
-
-/* Cuando estamos en settings el botón se ve azul sólido */
-.nav-settings-btn--active {
-  background: var(--sf-blue-strong);
-  border-color: var(--sf-blue-strong);
+.profile-achievements__link:hover {
+  text-decoration: underline;
 }

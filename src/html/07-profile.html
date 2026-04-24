@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<!-- Tipo de documento HTML5 -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Para que los acentos y la ñ se vean correctamente -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Hace la página adaptable a diferentes tamaños de pantalla -->
     <title>Perfil - SparkFi</title>
 
-    <!-- Tipografía Inter de Google Fonts, la misma en todas las páginas -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,129 +12,95 @@
       rel="stylesheet"
     />
 
-    <!-- Favicon del rayo en la pestaña del navegador -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
-
-    <!-- Estilos específicos de la página de perfil -->
     <link rel="stylesheet" href="/src/css/07-profile.css" />
   </head>
 
   <body>
-    <!-- Barra superior de navegación, en perfil no tiene el .page wrapper porque el topbar es diferente aquí -->
-    <header class="topbar">
-      <div class="logo">
-        <div class="logo-icon">⚡</div>
-        <span class="logo-text">SparkFi</span>
+    <header class="profile-header">
+      <div class="profile-header__brand">
+        <div class="profile-header__brand-icon">⚡</div>
+        <span class="profile-header__brand-text">SparkFi</span>
       </div>
 
-      <!-- "Perfil" tiene la clase active porque estamos en esa sección -->
-      <nav class="nav">
-        <a href="03-home.html" class="nav-link">Inicio</a>
-        <a href="04-courses.html" class="nav-link">Cursos</a>
-        <a href="05-challenges.html" class="nav-link">Retos</a>
-        <a href="06-community.html" class="nav-link">Comunidad</a>
-        <a href="07-profile.html" class="nav-link active">Perfil</a>
+      <nav class="profile-header__nav">
+        <a href="03-home.html" class="profile-header__nav-link">Inicio</a>
+        <a href="04-courses.html" class="profile-header__nav-link">Cursos</a>
+        <a href="05-challenges.html" class="profile-header__nav-link">Retos</a>
+        <a href="06-community.html" class="profile-header__nav-link">Comunidad</a>
+        <a href="07-profile.html" class="profile-header__nav-link profile-header__nav-link--active">Perfil</a>
       </nav>
 
-      <!-- Botón de configuración, presente en todas las páginas -->
-      <a href="08-settings.html" class="nav-settings-btn" title="Configuración">⚙️</a>
+      <a href="08-settings.html" class="profile-header__settings-link" title="Configuración">⚙️</a>
 
-      <!-- Foto de perfil pequeña en el topbar, al hacer click te mantiene en perfil -->
-      <a href="07-profile.html" class="profile-mini">
-        <img src="https://i.pravatar.cc/50" alt="perfil" />
+      <a href="07-profile.html" class="profile-header__avatar-link">
+        <img src="https://i.pravatar.cc/50" alt="perfil" class="profile-header__avatar-image" />
       </a>
     </header>
 
-    <!-- Layout del perfil: dos columnas (sidebar izquierda + logros derecha) -->
-    <!-- El grid de dos columnas está definido en el CSS -->
-    <main class="profile-layout">
-
-      <!-- Columna izquierda: tarjeta de perfil con datos del usuario -->
-      <aside class="profile-card">
-
-        <!-- Foto de perfil grande circular -->
-        <!-- Usé una imagen de Pexels como placeholder, luego se cambiará con JS -->
-        <div class="avatar-circle">
+    <main class="profile-page">
+      <aside class="profile-sidebar">
+        <div class="profile-sidebar__avatar">
           <img
             src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
             alt="Foto de perfil"
+            class="profile-sidebar__avatar-image"
           />
         </div>
 
-        <!-- Nombre y correo del usuario -->
-        <h1 class="profile-name">Juan Pérez</h1>
-        <p class="profile-email">juan.perez@example.com</p>
+        <h1 class="profile-sidebar__name">Juan Pérez</h1>
+        <p class="profile-sidebar__email">juan.perez@example.com</p>
+        <span class="profile-sidebar__level-badge">Nivel 3</span>
 
-        <!-- Pastilla que muestra el nivel actual del usuario en la app -->
-        <span class="level-pill">Nivel 3</span>
-
-        <!-- Botones de acción: editar perfil y acceso directo a configuración -->
-        <div class="profile-actions">
-          <!-- Botón azul que lleva a la sección de editar perfil en configuración -->
-          <a href="08-settings.html" class="btn-edit-profile">Editar perfil</a>
-          <!-- Ícono de tuerquita como acceso rápido a configuración -->
-          <a href="08-settings.html" class="btn-settings-icon" title="Configuración">⚙️</a>
+        <div class="profile-sidebar__actions">
+          <a href="08-settings.html" class="profile-sidebar__edit-link">Editar perfil</a>
+          <a href="08-settings.html" class="profile-sidebar__settings-shortcut" title="Configuración">⚙️</a>
         </div>
 
-        <!-- Resumen numérico de los logros del usuario -->
-        <!-- Tres columnas separadas por bordes verticales en el CSS -->
-        <section class="summary">
-          <div class="summary-item">
-            <span class="summary-number">4</span>
-            <span class="summary-label">Cursos<br />completados</span>
+        <section class="profile-sidebar__stats">
+          <div class="profile-sidebar__stat-item">
+            <span class="profile-sidebar__stat-value">4</span>
+            <span class="profile-sidebar__stat-label">Cursos<br />completados</span>
           </div>
 
-          <div class="summary-item">
-            <!-- Este número antes tenía un símbolo raro ⦿, lo corregí a un número real -->
-            <span class="summary-number">5</span>
-            <span class="summary-label">Retos<br />ganados</span>
+          <div class="profile-sidebar__stat-item">
+            <span class="profile-sidebar__stat-value">5</span>
+            <span class="profile-sidebar__stat-label">Retos<br />ganados</span>
           </div>
 
-          <div class="summary-item">
-            <!-- El ahorro acumulado en pesos colombianos -->
-            <span class="summary-number">$900,000</span>
-            <span class="summary-label">Ahorro<br />acumulado</span>
+          <div class="profile-sidebar__stat-item">
+            <span class="profile-sidebar__stat-value">$900,000</span>
+            <span class="profile-sidebar__stat-label">Ahorro<br />acumulado</span>
           </div>
         </section>
 
-        <!-- Botón para cerrar sesión, lleva de vuelta al login -->
-        <a href="01-login.html" class="logout-btn">Cerrar sesión</a>
+        <a href="01-login.html" class="profile-sidebar__logout-link">Cerrar sesión</a>
       </aside>
 
-      <!-- Columna derecha: sección de logros/medallas obtenidas -->
-      <section class="achievements-section">
-        <h2 class="section-title">Mis logros</h2>
+      <section class="profile-achievements">
+        <h2 class="profile-achievements__title">Mis logros</h2>
 
-        <!-- Grid de tarjetas de logros, 3 columnas en el CSS -->
-        <div class="achievements-grid">
-
-          <!-- Logro 1: medalla azul con estrella -->
-          <article class="achievement-card">
-            <!-- El color del ícono está definido por la clase: blue, green o yellow -->
-            <div class="achievement-icon blue">★</div>
-            <p class="achievement-text">Sobre la marcha</p>
+        <div class="profile-achievements__grid">
+          <article class="profile-achievements__card">
+            <div class="profile-achievements__icon profile-achievements__icon--blue">★</div>
+            <p class="profile-achievements__text">Sobre la marcha</p>
           </article>
 
-          <!-- Logro 2: medalla verde con check -->
-          <article class="achievement-card">
-            <div class="achievement-icon green">✓</div>
-            <p class="achievement-text">Gran ahorrador</p>
+          <article class="profile-achievements__card">
+            <div class="profile-achievements__icon profile-achievements__icon--green">✓</div>
+            <p class="profile-achievements__text">Gran ahorrador</p>
           </article>
 
-          <!-- Logro 3: medalla amarilla con trofeo -->
-          <article class="achievement-card">
-            <div class="achievement-icon yellow">🏆</div>
-            <p class="achievement-text">Primer lugar</p>
+          <article class="profile-achievements__card">
+            <div class="profile-achievements__icon profile-achievements__icon--yellow">🏆</div>
+            <p class="profile-achievements__text">Primer lugar</p>
           </article>
         </div>
 
-        <!-- Link para ver el historial completo de logros -->
-        <!-- Está alineado a la derecha en el CSS para verse más profesional -->
-        <a href="#" class="ver-todos-link">Ver todos los logros →</a>
+        <a href="#" class="profile-achievements__link">Ver todos los logros →</a>
       </section>
     </main>
 
-    <!-- JS del perfil al final del body -->
     <script src="/src/js/07-profile.js"></script>
   </body>
 </html>
