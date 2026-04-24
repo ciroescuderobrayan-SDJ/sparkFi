@@ -1,3 +1,5 @@
+// El regex actúa como un molde: verifica que el correo tenga
+// la estructura algo@algo.algo antes de aceptarlo como válido.
 function validarFormatoEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
@@ -14,11 +16,12 @@ function validarPasswordsIguales(password, confirmar) {
 function validarFormularioRegistro(nombre, email, password, confirmar, terminos) {
   const errores = [];
 
-  // Antes de validar formatos, me aseguro de que ningún campo esté vacío
+  // Agrupamos los campos en un array para revisarlos con un ciclo
+  // en lugar de repetir el mismo if cuatro veces
   const camposTexto = [
-    { valor: nombre, mensaje: "El nombre completo es obligatorio." },
-    { valor: email, mensaje: "El correo electrónico es obligatorio." },
-    { valor: password, mensaje: "La contraseña es obligatoria." },
+    { valor: nombre,    mensaje: "El nombre completo es obligatorio." },
+    { valor: email,     mensaje: "El correo electrónico es obligatorio." },
+    { valor: password,  mensaje: "La contraseña es obligatoria." },
     { valor: confirmar, mensaje: "Debes confirmar tu contraseña." },
   ];
 
@@ -28,6 +31,8 @@ function validarFormularioRegistro(nombre, email, password, confirmar, terminos)
     }
   }
 
+  // Solo validamos formato si el campo tiene algo, para no mostrar
+  // dos errores distintos por el mismo campo vacío
   if (email.trim() && !validarFormatoEmail(email)) {
     errores.push("El correo no tiene un formato válido (ejemplo@correo.com).");
   }
@@ -48,10 +53,11 @@ function validarFormularioRegistro(nombre, email, password, confirmar, terminos)
 }
 
 function manejarRegistro() {
-  const nombre = document.getElementById("nombre").value;
-  const email = document.getElementById("email-registro").value;
-  const password = document.getElementById("password-registro").value;
+  const nombre    = document.getElementById("nombre").value;
+  const email     = document.getElementById("email-registro").value;
+  const password  = document.getElementById("password-registro").value;
   const confirmar = document.getElementById("confirmar-password").value;
+  // .checked devuelve true/false según si el checkbox está marcado o no
   const terminos = document.getElementById("terminos").checked;
   const resultadoArea = document.getElementById("resultado-registro");
 
@@ -102,12 +108,14 @@ function manejarRegistro() {
     divExito.appendChild(listaInfo);
     resultadoArea.appendChild(divExito);
 
+    // 2000 ms para que el usuario lea la confirmación antes de redirigir
     setTimeout(function () {
       window.location.href = "01-login.html";
     }, 2000);
   }
 }
 
+// DOMContentLoaded garantiza que el botón ya existe en la página antes de buscarlo
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-registro").addEventListener("click", manejarRegistro);
 });

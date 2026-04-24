@@ -1,4 +1,5 @@
-// Credenciales de prueba — cuando exista un backend esto se reemplaza por una llamada a la API
+// Credenciales fijas porque todavía no hay backend.
+// Cuando exista, esto se reemplaza por una llamada a la API.
 const CREDENCIALES_SISTEMA = {
   email: "admin@sparkfi.com",
   password: "sparkfi123",
@@ -31,6 +32,7 @@ function deshabilitarFormulario() {
 }
 
 function manejarLogin() {
+  // .trim() evita que un espacio en blanco cuente como dato válido
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const resultadoArea = document.getElementById("resultado-login");
@@ -40,45 +42,45 @@ function manejarLogin() {
     return;
   }
 
-  // Cada clic cuenta como un intento; cuando se agotan, el formulario queda bloqueado
-  while (intentosRealizados < MAX_INTENTOS) {
-    intentosRealizados++;
-
-    if (validarCredenciales(email, password)) {
-      mostrarMensaje(resultadoArea, "¡Bienvenido al sistema! Redirigiendo...", "exito");
-      deshabilitarFormulario();
-      setTimeout(function () {
-        window.location.href = "03-home.html";
-      }, 1500);
-      return;
-    }
-
-    if (intentosRealizados < MAX_INTENTOS) {
-      mostrarMensaje(
-        resultadoArea,
-        "Datos incorrectos. Intento " + intentosRealizados + " de " + MAX_INTENTOS + ".",
-        "error"
-      );
-    } else {
-      mostrarMensaje(
-        resultadoArea,
-        "Usuario bloqueado. Ha superado el número de intentos.",
-        "bloqueado"
-      );
-      deshabilitarFormulario();
-    }
+  if (intentosRealizados >= MAX_INTENTOS) {
+    mostrarMensaje(
+      resultadoArea,
+      "Usuario bloqueado. Ha superado el número de intentos.",
+      "bloqueado"
+    );
+    deshabilitarFormulario();
     return;
   }
 
-  // Si el usuario presiona el botón después de haberse bloqueado, se vuelve a mostrar el mensaje
-  mostrarMensaje(
-    resultadoArea,
-    "Usuario bloqueado. Ha superado el número de intentos.",
-    "bloqueado"
-  );
-  deshabilitarFormulario();
+  intentosRealizados++;
+
+  if (validarCredenciales(email, password)) {
+    mostrarMensaje(resultadoArea, "¡Bienvenido al sistema! Redirigiendo...", "exito");
+    deshabilitarFormulario();
+    // 1500 ms para que el usuario alcance a leer el mensaje antes de redirigir
+    setTimeout(function () {
+      window.location.href = "03-home.html";
+    }, 1500);
+    return;
+  }
+
+  if (intentosRealizados < MAX_INTENTOS) {
+    mostrarMensaje(
+      resultadoArea,
+      "Datos incorrectos. Intento " + intentosRealizados + " de " + MAX_INTENTOS + ".",
+      "error"
+    );
+  } else {
+    mostrarMensaje(
+      resultadoArea,
+      "Usuario bloqueado. Ha superado el número de intentos.",
+      "bloqueado"
+    );
+    deshabilitarFormulario();
+  }
 }
 
+// DOMContentLoaded garantiza que el botón ya existe en la página antes de buscarlo
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-login").addEventListener("click", manejarLogin);
 });
