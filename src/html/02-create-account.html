@@ -12,87 +12,106 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>"
     />
     <link rel="stylesheet" href="/src/css/02-create-account.css" />
   </head>
 
   <body>
-    <div class="register-page">
-      <div class="register-card">
-        <header class="register-card__header">
-          <div class="register-card__brand">
-            <span class="register-card__brand-icon">⚡</span>
-            <span class="register-card__brand-text">SparkFi</span>
+    <div class="pagina-crear-cuenta">
+      <div class="tarjeta-crear-cuenta">
+        <header class="encabezado-tarjeta-crear-cuenta">
+          <div class="marca-tarjeta-crear-cuenta">
+            <span class="icono-marca-crear-cuenta">&#9889;</span>
+            <span class="texto-marca-crear-cuenta">SparkFi</span>
           </div>
 
-          <a href="01-login.html" class="register-card__login-link">Iniciar sesión</a>
+          <a href="01-login.html" class="enlace-iniciar-sesion"
+            >Iniciar sesi&oacute;n</a
+          >
         </header>
 
-        <main class="register-card__content">
-          <h1 class="register-card__title">Crear una cuenta</h1>
+        <main class="contenido-tarjeta-crear-cuenta">
+          <h1 class="titulo-crear-cuenta">Crear una cuenta</h1>
 
-          <form class="register-form">
-            <label class="register-form__label" for="nombre">Nombre completo</label>
+          <form class="formulario-crear-cuenta">
+            <label
+              class="etiqueta-formulario-crear-cuenta"
+              for="nombre-completo"
+              >Nombre completo</label
+            >
             <input
-              id="nombre"
+              id="nombre-completo"
               type="text"
-              class="register-form__input"
-              placeholder="Juan Pérez"
+              class="campo-formulario-crear-cuenta campo-nombre-completo"
+              placeholder="Juan P&eacute;rez"
               required
               autocomplete="name"
             />
 
-            <label class="register-form__label" for="email-registro">Correo</label>
+            <label class="etiqueta-formulario-crear-cuenta" for="correo"
+              >Correo</label
+            >
             <input
-              id="email-registro"
+              id="correo"
               type="email"
-              class="register-form__input"
+              class="campo-formulario-crear-cuenta campo-correo"
               placeholder="juan@example.com"
               required
               autocomplete="email"
             />
 
-            <label class="register-form__label" for="password-registro">Contraseña</label>
+            <label class="etiqueta-formulario-crear-cuenta" for="contrasena"
+              >Contrase&ntilde;a</label
+            >
             <input
-              id="password-registro"
+              id="contrasena"
               type="password"
-              class="register-form__input"
-              placeholder="•••••••"
+              class="campo-formulario-crear-cuenta campo-contrasena"
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
               required
               autocomplete="new-password"
             />
 
-            <label class="register-form__label" for="confirmar-password">
-              Confirmar contraseña
+            <label
+              class="etiqueta-formulario-crear-cuenta"
+              for="confirmar-contrasena"
+            >
+              Confirmar contrase&ntilde;a
             </label>
             <input
-              id="confirmar-password"
+              id="confirmar-contrasena"
               type="password"
-              class="register-form__input"
-              placeholder="•••••••"
+              class="campo-formulario-crear-cuenta campo-confirmar-contrasena"
+              placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
               required
               autocomplete="new-password"
             />
-            <small class="register-form__hint">
-              Debe coincidir con la contraseña anterior
+            <small class="pista-formulario-crear-cuenta">
+              Debe coincidir con la contrase&ntilde;a anterior
             </small>
 
-            <label class="register-form__terms">
-              <input id="terminos" type="checkbox" class="register-form__checkbox" />
+            <label class="terminos-formulario-crear-cuenta">
+              <input id="terminos" type="checkbox" class="casilla-terminos" />
               <span>
                 Acepto los
-                <a href="#" class="register-form__terms-link">términos y condiciones</a>
+                <a href="#" class="enlace-terminos"
+                  >t&eacute;rminos y condiciones</a
+                >
               </span>
             </label>
 
             <div
-              id="resultado-registro"
-              class="register-form__feedback"
+              id="resultado-crear-cuenta"
+              class="resultado-formulario-crear-cuenta"
               aria-live="polite"
             ></div>
 
-            <button id="btn-registro" type="button" class="register-form__submit">
+            <button
+              id="boton-crear-cuenta"
+              type="button"
+              class="boton-crear-cuenta"
+            >
               Registrarme
             </button>
           </form>

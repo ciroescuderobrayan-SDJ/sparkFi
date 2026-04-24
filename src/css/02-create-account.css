@@ -24,13 +24,13 @@ body {
   padding: 40px;
 }
 
-.register-page {
+.pagina-crear-cuenta {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.register-card {
+.tarjeta-crear-cuenta {
   width: min(1200px, 92vw);
   padding: 48px 56px;
   background: var(--sf-surface);
@@ -39,20 +39,20 @@ body {
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
 }
 
-.register-card__header {
+.encabezado-tarjeta-crear-cuenta {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 46px;
 }
 
-.register-card__brand {
+.marca-tarjeta-crear-cuenta {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.register-card__brand-icon {
+.icono-marca-crear-cuenta {
   width: 30px;
   height: 30px;
   display: flex;
@@ -63,12 +63,12 @@ body {
   color: #fff;
 }
 
-.register-card__brand-text {
+.texto-marca-crear-cuenta {
   font-size: 22px;
   font-weight: 700;
 }
 
-.register-card__login-link {
+.enlace-iniciar-sesion {
   padding: 10px 20px;
   background: var(--sf-blue);
   border-radius: 10px;
@@ -78,26 +78,26 @@ body {
   font-weight: 500;
 }
 
-.register-card__title {
+.titulo-crear-cuenta {
   margin-bottom: 40px;
   color: var(--sf-text-main);
   font-size: 40px;
   font-weight: 700;
 }
 
-.register-form {
+.formulario-crear-cuenta {
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
 
-.register-form__label {
+.etiqueta-formulario-crear-cuenta {
   color: var(--sf-text-main);
   font-size: 15px;
   font-weight: 500;
 }
 
-.register-form__input {
+.campo-formulario-crear-cuenta {
   width: 100%;
   padding: 14px 18px;
   border: 1px solid var(--sf-border);
@@ -106,19 +106,19 @@ body {
   outline: none;
 }
 
-.register-form__input:focus {
+.campo-formulario-crear-cuenta:focus {
   border-color: var(--sf-blue);
   box-shadow: 0 0 0 2px rgba(0, 106, 248, 0.18);
 }
 
-.register-form__hint {
+.pista-formulario-crear-cuenta {
   display: block;
   margin-top: -14px;
   color: var(--sf-text-soft);
   font-size: 12px;
 }
 
-.register-form__terms {
+.terminos-formulario-crear-cuenta {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -126,39 +126,39 @@ body {
   font-size: 15px;
 }
 
-.register-form__checkbox {
+.casilla-terminos {
   width: 18px;
   height: 18px;
 }
 
-.register-form__terms-link {
+.enlace-terminos {
   color: var(--sf-green);
 }
 
-.register-form__feedback {
+.resultado-formulario-crear-cuenta {
   margin-bottom: 4px;
 }
 
-.register-form__feedback:empty {
+.resultado-formulario-crear-cuenta:empty {
   display: none;
 }
 
-.register-form__feedback-title {
+.titulo-mensaje-crear-cuenta {
   margin: 0 0 6px;
   font-size: 14px;
   font-weight: 600;
 }
 
-.register-form__feedback-title--error {
+.titulo-mensaje-error {
   color: #7f1d1d;
 }
 
-.register-form__feedback-title--success {
+.titulo-mensaje-exito {
   margin: 0 0 8px;
   color: #14532d;
 }
 
-.register-form__feedback-list {
+.lista-errores-crear-cuenta {
   margin: 0;
   padding: 12px 12px 12px 28px;
   list-style: disc;
@@ -169,25 +169,25 @@ body {
   font-size: 14px;
 }
 
-.register-form__feedback-list li {
+.lista-errores-crear-cuenta li {
   margin-bottom: 4px;
 }
 
-.register-form__feedback-list li:last-child {
+.lista-errores-crear-cuenta li:last-child {
   margin-bottom: 0;
 }
 
-.register-form__feedback-message {
+.mensaje-crear-cuenta {
   padding: 12px 16px;
   border-radius: 12px;
 }
 
-.register-form__feedback-message--success {
+.mensaje-exito-crear-cuenta {
   border: 1px solid #22d74f;
   background-color: #d4f7e0;
 }
 
-.register-form__user-info {
+.datos-usuario-crear-cuenta {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -195,15 +195,15 @@ body {
   font-size: 14px;
 }
 
-.register-form__user-info li {
+.datos-usuario-crear-cuenta li {
   margin-bottom: 4px;
 }
 
-.register-form__user-info li:last-child {
+.datos-usuario-crear-cuenta li:last-child {
   margin-bottom: 0;
 }
 
-.register-form__submit {
+.boton-crear-cuenta {
   margin-top: 10px;
   padding: 16px;
   border: none;
@@ -216,16 +216,16 @@ body {
   transition: 0.2s;
 }
 
-.register-form__submit:hover {
+.boton-crear-cuenta:hover {
   background: var(--sf-green-soft);
 }
 
 @media (max-width: 768px) {
-  .register-card {
+  .tarjeta-crear-cuenta {
     padding: 32px 24px;
   }
 
-  .register-card__title {
+  .titulo-crear-cuenta {
     font-size: 32px;
   }
 }

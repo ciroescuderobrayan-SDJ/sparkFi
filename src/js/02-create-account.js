@@ -1,24 +1,30 @@
-function validarFormatoEmail(email) {
+function validarFormatoCorreo(correo) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return regex.test(email);
+  return regex.test(correo);
 }
 
-function validarLongitudPassword(password) {
-  return password.length >= 6;
+function validarLongitudContrasena(contrasena) {
+  return contrasena.length >= 6;
 }
 
-function validarPasswordsIguales(password, confirmar) {
-  return password === confirmar;
+function validarContrasenasIguales(contrasena, confirmarContrasena) {
+  return contrasena === confirmarContrasena;
 }
 
-function validarFormularioRegistro(nombre, email, password, confirmar, terminos) {
+function validarFormularioCrearCuenta(
+  nombreCompleto,
+  correo,
+  contrasena,
+  confirmarContrasena,
+  terminos,
+) {
   const errores = [];
 
   const camposTexto = [
-    { valor: nombre, mensaje: "El nombre completo es obligatorio." },
-    { valor: email, mensaje: "El correo electrónico es obligatorio." },
-    { valor: password, mensaje: "La contraseña es obligatoria." },
-    { valor: confirmar, mensaje: "Debes confirmar tu contraseña." },
+    { valor: nombreCompleto, mensaje: "El nombre completo es obligatorio." },
+    { valor: correo, mensaje: "El correo electronico es obligatorio." },
+    { valor: contrasena, mensaje: "La contrasena es obligatoria." },
+    { valor: confirmarContrasena, mensaje: "Debes confirmar tu contrasena." },
   ];
 
   for (let i = 0; i < camposTexto.length; i++) {
@@ -27,56 +33,61 @@ function validarFormularioRegistro(nombre, email, password, confirmar, terminos)
     }
   }
 
-  if (email.trim() && !validarFormatoEmail(email)) {
-    errores.push("El correo no tiene un formato válido (ejemplo@correo.com).");
+  if (correo.trim() && !validarFormatoCorreo(correo)) {
+    errores.push("El correo no tiene un formato valido (ejemplo@correo.com).");
   }
 
-  if (password.trim() && !validarLongitudPassword(password)) {
-    errores.push("La contraseña debe tener al menos 6 caracteres.");
+  if (contrasena.trim() && !validarLongitudContrasena(contrasena)) {
+    errores.push("La contrasena debe tener al menos 6 caracteres.");
   }
 
   if (
-    password.trim() &&
-    confirmar.trim() &&
-    !validarPasswordsIguales(password, confirmar)
+    contrasena.trim() &&
+    confirmarContrasena.trim() &&
+    !validarContrasenasIguales(contrasena, confirmarContrasena)
   ) {
-    errores.push("Las contraseñas no coinciden.");
+    errores.push("Las contrasenas no coinciden.");
   }
 
   if (!terminos) {
-    errores.push("Debes aceptar los términos y condiciones.");
+    errores.push("Debes aceptar los terminos y condiciones.");
   }
 
   return errores;
 }
 
-function manejarRegistro() {
-  const nombre = document.getElementById("nombre").value;
-  const email = document.getElementById("email-registro").value;
-  const password = document.getElementById("password-registro").value;
-  const confirmar = document.getElementById("confirmar-password").value;
-  const terminos = document.getElementById("terminos").checked;
-  const resultadoArea = document.getElementById("resultado-registro");
+function manejarCrearCuenta() {
+  const campoNombre = document.getElementById("nombre-completo");
+  const campoCorreo = document.getElementById("correo");
+  const campoContrasena = document.getElementById("contrasena");
+  const campoConfirmarContrasena = document.getElementById("confirmar-contrasena");
+  const campoTerminos = document.getElementById("terminos");
+  const mensajeResultado = document.getElementById("resultado-crear-cuenta");
 
-  const errores = validarFormularioRegistro(
-    nombre,
-    email,
-    password,
-    confirmar,
+  const nombreCompleto = campoNombre.value;
+  const correo = campoCorreo.value;
+  const contrasena = campoContrasena.value;
+  const confirmarContrasena = campoConfirmarContrasena.value;
+  const terminos = campoTerminos.checked;
+
+  const errores = validarFormularioCrearCuenta(
+    nombreCompleto,
+    correo,
+    contrasena,
+    confirmarContrasena,
     terminos,
   );
 
-  resultadoArea.innerHTML = "";
+  mensajeResultado.innerHTML = "";
 
   if (errores.length > 0) {
     const titulo = document.createElement("p");
-    titulo.className =
-      "register-form__feedback-title register-form__feedback-title--error";
+    titulo.className = "titulo-mensaje-crear-cuenta titulo-mensaje-error";
     titulo.textContent = "Por favor corrige los siguientes errores:";
-    resultadoArea.appendChild(titulo);
+    mensajeResultado.appendChild(titulo);
 
     const lista = document.createElement("ul");
-    lista.className = "register-form__feedback-list";
+    lista.className = "lista-errores-crear-cuenta";
 
     for (let i = 0; i < errores.length; i++) {
       const item = document.createElement("li");
@@ -84,25 +95,23 @@ function manejarRegistro() {
       lista.appendChild(item);
     }
 
-    resultadoArea.appendChild(lista);
+    mensajeResultado.appendChild(lista);
   } else {
     const divExito = document.createElement("div");
-    divExito.className =
-      "register-form__feedback-message register-form__feedback-message--success";
+    divExito.className = "mensaje-crear-cuenta mensaje-exito-crear-cuenta";
 
     const tituloExito = document.createElement("p");
-    tituloExito.className =
-      "register-form__feedback-title register-form__feedback-title--success";
+    tituloExito.className = "titulo-mensaje-crear-cuenta titulo-mensaje-exito";
     tituloExito.textContent =
-      "¡Cuenta creada exitosamente! Redirigiendo al login...";
+      "Cuenta creada exitosamente. Redirigiendo al login...";
     divExito.appendChild(tituloExito);
 
     const listaInfo = document.createElement("ul");
-    listaInfo.className = "register-form__user-info";
+    listaInfo.className = "datos-usuario-crear-cuenta";
 
     const datosUsuario = [
-      { etiqueta: "Nombre", valor: nombre },
-      { etiqueta: "Correo", valor: email },
+      { etiqueta: "Nombre", valor: nombreCompleto },
+      { etiqueta: "Correo", valor: correo },
     ];
 
     for (let j = 0; j < datosUsuario.length; j++) {
@@ -113,7 +122,7 @@ function manejarRegistro() {
     }
 
     divExito.appendChild(listaInfo);
-    resultadoArea.appendChild(divExito);
+    mensajeResultado.appendChild(divExito);
 
     setTimeout(function () {
       window.location.href = "01-login.html";
@@ -122,5 +131,6 @@ function manejarRegistro() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("btn-registro").addEventListener("click", manejarRegistro);
+  const botonCrearCuenta = document.getElementById("boton-crear-cuenta");
+  botonCrearCuenta.addEventListener("click", manejarCrearCuenta);
 });
