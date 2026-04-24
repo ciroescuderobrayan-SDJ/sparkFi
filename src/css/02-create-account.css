@@ -1,20 +1,29 @@
+/* ── Variables globales ──────────────────────────────────────────────────────
+   Paleta de colores y valores reutilizables de SparkFi.
+   Cambiar cualquiera de estos afecta toda la pantalla de registro.        */
 :root {
-  --sf-green: #22d74f;
-  --sf-green-soft: #00d369;
-  --sf-blue: #006af8;
-  --sf-bg: #f7f9ff;
-  --sf-surface: #ffffff;
-  --sf-border: #e4e7f2;
-  --sf-text-main: #181f34;
-  --sf-text-soft: #5a626e;
+  --sf-green: #22d74f;        /* verde principal para botones y acciones */
+  --sf-green-soft: #00d369;   /* variante un poco más suave para el hover */
+  --sf-blue: #006af8;         /* azul para el botón de iniciar sesión */
+  --sf-bg: #f7f9ff;           /* fondo de la página, ligeramente azulado */
+  --sf-surface: #ffffff;      /* fondo blanco de la tarjeta */
+  --sf-border: #e4e7f2;       /* color del borde de inputs y tarjeta */
+  --sf-text-main: #181f34;    /* texto oscuro principal */
+  --sf-text-soft: #5a626e;    /* texto secundario, pistas y etiquetas suaves */
 }
 
+/* ── Reset básico ────────────────────────────────────────────────────────────
+   Elimina márgenes y padding que los navegadores ponen por defecto,
+   y asegura que padding y border queden dentro del ancho del elemento.    */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* ── Cuerpo de la página ─────────────────────────────────────────────────────
+   Centra todo horizontalmente con flexbox y aplica el fondo global.
+   El padding de 40px evita que la tarjeta toque los bordes en pantallas pequeñas. */
 body {
   font-family: "Inter", sans-serif;
   background: var(--sf-bg);
@@ -24,12 +33,16 @@ body {
   padding: 40px;
 }
 
+/* Wrapper intermedio que mantiene la tarjeta centrada en su eje horizontal */
 .pagina-crear-cuenta {
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
+/* ── Tarjeta principal ───────────────────────────────────────────────────────
+   Contenedor blanco con bordes redondeados y sombra suave.
+   min() limita el ancho para que no se expanda demasiado en pantallas anchas. */
 .tarjeta-crear-cuenta {
   width: min(1200px, 92vw);
   padding: 48px 56px;
@@ -39,6 +52,8 @@ body {
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
 }
 
+/* ── Encabezado de la tarjeta ────────────────────────────────────────────────
+   Logo a la izquierda y botón de login a la derecha, separados con space-between. */
 .encabezado-tarjeta-crear-cuenta {
   display: flex;
   align-items: center;
@@ -46,12 +61,14 @@ body {
   margin-bottom: 46px;
 }
 
+/* Agrupa el ícono de rayo con el nombre "SparkFi" en una sola línea */
 .marca-tarjeta-crear-cuenta {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+/* Círculo verde que contiene el ícono de rayo (⚡) */
 .icono-marca-crear-cuenta {
   width: 30px;
   height: 30px;
@@ -63,11 +80,13 @@ body {
   color: #fff;
 }
 
+/* Nombre de la marca en negrita junto al ícono */
 .texto-marca-crear-cuenta {
   font-size: 22px;
   font-weight: 700;
 }
 
+/* Botón azul de "Iniciar sesión" en la esquina superior derecha */
 .enlace-iniciar-sesion {
   padding: 10px 20px;
   background: var(--sf-blue);
@@ -78,6 +97,7 @@ body {
   font-weight: 500;
 }
 
+/* Título "Crear una cuenta" con bastante espacio inferior antes del formulario */
 .titulo-crear-cuenta {
   margin-bottom: 40px;
   color: var(--sf-text-main);
@@ -85,18 +105,23 @@ body {
   font-weight: 700;
 }
 
+/* ── Formulario ──────────────────────────────────────────────────────────────
+   Columna vertical con espacio uniforme entre cada elemento (label + input). */
 .formulario-crear-cuenta {
   display: flex;
   flex-direction: column;
   gap: 22px;
 }
 
+/* Etiquetas de cada campo: texto oscuro y peso medio para que sean legibles */
 .etiqueta-formulario-crear-cuenta {
   color: var(--sf-text-main);
   font-size: 15px;
   font-weight: 500;
 }
 
+/* ── Inputs de texto ─────────────────────────────────────────────────────────
+   Estilo base compartido por todos los campos: nombre, correo y contraseñas. */
 .campo-formulario-crear-cuenta {
   width: 100%;
   padding: 14px 18px;
@@ -106,11 +131,14 @@ body {
   outline: none;
 }
 
+/* Resalta el campo activo con un borde azul y un halo sutil */
 .campo-formulario-crear-cuenta:focus {
   border-color: var(--sf-blue);
   box-shadow: 0 0 0 2px rgba(0, 106, 248, 0.18);
 }
 
+/* Texto de pista pequeño debajo del campo de confirmar contraseña;
+   el margen negativo lo acerca visualmente al input que le corresponde. */
 .pista-formulario-crear-cuenta {
   display: block;
   margin-top: -14px;
@@ -118,6 +146,8 @@ body {
   font-size: 12px;
 }
 
+/* ── Checkbox de términos ────────────────────────────────────────────────────
+   Alinea la casilla y el texto en la misma línea con espacio entre ellos. */
 .terminos-formulario-crear-cuenta {
   display: flex;
   align-items: center;
@@ -126,15 +156,20 @@ body {
   font-size: 15px;
 }
 
+/* Tamaño de la casilla un poco más grande que el defecto para facilitar el clic */
 .casilla-terminos {
   width: 18px;
   height: 18px;
 }
 
+/* Enlace de términos y condiciones en verde para que destaque del texto normal */
 .enlace-terminos {
   color: var(--sf-green);
 }
 
+/* ── Zona de resultado ───────────────────────────────────────────────────────
+   Contenedor donde el JS inserta errores o el mensaje de éxito.
+   Cuando está vacío se oculta completamente para no ocupar espacio. */
 .resultado-formulario-crear-cuenta {
   margin-bottom: 4px;
 }
@@ -143,21 +178,25 @@ body {
   display: none;
 }
 
+/* Título del bloque de error o éxito, con peso fuerte para que llame la atención */
 .titulo-mensaje-crear-cuenta {
   margin: 0 0 6px;
   font-size: 14px;
   font-weight: 600;
 }
 
+/* Color rojo oscuro para el título cuando hay errores */
 .titulo-mensaje-error {
   color: #7f1d1d;
 }
 
+/* Color verde oscuro para el título cuando el registro fue exitoso */
 .titulo-mensaje-exito {
   margin: 0 0 8px;
   color: #14532d;
 }
 
+/* Lista de errores con fondo rojizo y borde para que resalten claramente */
 .lista-errores-crear-cuenta {
   margin: 0;
   padding: 12px 12px 12px 28px;
@@ -169,6 +208,7 @@ body {
   font-size: 14px;
 }
 
+/* Separación entre cada error, excepto el último */
 .lista-errores-crear-cuenta li {
   margin-bottom: 4px;
 }
@@ -177,16 +217,19 @@ body {
   margin-bottom: 0;
 }
 
+/* Caja genérica para mensajes (usada tanto para error como para éxito) */
 .mensaje-crear-cuenta {
   padding: 12px 16px;
   border-radius: 12px;
 }
 
+/* Variante verde cuando el registro fue exitoso */
 .mensaje-exito-crear-cuenta {
   border: 1px solid #22d74f;
   background-color: #d4f7e0;
 }
 
+/* Lista con los datos del usuario recién registrado (nombre y correo) */
 .datos-usuario-crear-cuenta {
   margin: 0;
   padding: 0;
@@ -203,6 +246,8 @@ body {
   margin-bottom: 0;
 }
 
+/* ── Botón de registro ───────────────────────────────────────────────────────
+   Verde llamativo y ancho completo; la transición hace el hover más suave. */
 .boton-crear-cuenta {
   margin-top: 10px;
   padding: 16px;
@@ -216,10 +261,14 @@ body {
   transition: 0.2s;
 }
 
+/* Al pasar el cursor cambia a la variante más suave del verde */
 .boton-crear-cuenta:hover {
   background: var(--sf-green-soft);
 }
 
+/* ── Responsive ──────────────────────────────────────────────────────────────
+   En móvil se reduce el padding de la tarjeta y el tamaño del título
+   para que todo encaje bien en pantallas angostas.                        */
 @media (max-width: 768px) {
   .tarjeta-crear-cuenta {
     padding: 32px 24px;
