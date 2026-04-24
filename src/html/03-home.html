@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<!-- Tipo de documento HTML5, obligatorio en todas las páginas -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Para que los caracteres especiales del español funcionen correctamente -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Sin esto la página en celular se ve diminuta, esto la hace responsive -->
     <title>Inicio - SparkFi</title>
 
-    <!-- Fuente Inter desde Google Fonts, cargada con preconnect para que sea más rápida -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,98 +12,60 @@
       rel="stylesheet"
     />
 
-    <!-- Favicon: el rayo ⚡ en SVG inline, aparece en la pestaña del navegador -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
-
-    <!-- Estilos de esta pantalla de inicio -->
     <link rel="stylesheet" href="/src/css/03-home.css" />
   </head>
 
   <body>
-    <!-- Contenedor que da el padding general a toda la página -->
-    <div class="page">
-
-      <!-- Barra de navegación superior flotante con sombra -->
-      <header class="topbar">
-
-        <!-- Logo de SparkFi: ícono de rayo + nombre de la app -->
-        <div class="logo">
-          <span class="logo-icon">⚡</span>
-          <span class="logo-text">SparkFi</span>
+    <div class="pagina-inicio">
+      <!-- El nav -->
+      <header class="encabezado-principal">
+        <div class="marca">
+          <span class="marca-simbolo">⚡</span>
+          <span class="marca-nombre">SparkFi</span>
         </div>
 
-        <!-- Navegación principal entre las secciones de la app -->
-        <!-- La clase "active" resalta el link de la página actual -->
-        <nav class="nav">
-          <a href="03-home.html" class="nav-link active">Inicio</a>
-          <a href="04-courses.html" class="nav-link">Cursos</a>
-          <a href="05-challenges.html" class="nav-link">Retos</a>
-          <a href="06-community.html" class="nav-link">Comunidad</a>
-          <a href="07-profile.html" class="nav-link">Perfil</a>
+        <nav class="navegacion-principal">
+          <a href="./03-home.html" class="enlace-navegacion activo">Inicio</a>
+          <a href="./04-courses.html" class="enlace-navegacion">Cursos</a>
+          <a href="./05-challenges.html" class="enlace-navegacion">Retos</a>
+          <a href="./06-community.html" class="enlace-navegacion">Comunidad</a>
+          <a href="./07-profile.html" class="enlace-navegacion">Perfil</a>
         </nav>
 
-        <!-- Botón de tuerquita para ir a configuración, el title muestra un tooltip al hover -->
-        <a href="08-settings.html" class="nav-settings-btn" title="Configuración">⚙️</a>
-
-        <!-- Avatar del usuario que lleva al perfil al hacer click -->
-        <a href="07-profile.html" class="avatar-mini">
-          <span class="avatar-circle">👤</span>
-        </a>
+        <div class="avatar-usuario">
+          <span class="avatar-usuario-circulo">👤</span>
+        </div>
       </header>
 
-      <!-- Contenido principal de la pantalla de inicio -->
-      <main class="dashboard">
-
-        <!-- Sección de bienvenida con el gráfico de ahorro -->
-        <section class="hero">
-          <h1 class="hero-title">
-            <!-- El nombre "Juan" sería dinámico cuando conectemos el backend -->
-            Bienvenido, Juan <span class="wave">👋</span>
+      <!-- contenido principal -->
+      <main class="contenido-inicio">
+        <section class="seccion-bienvenida">
+          <h1 class="titulo-bienvenida">
+            Bienvenido, Juan <span class="saludo">👋</span>
           </h1>
 
-          <!-- Tarjeta que contiene el gráfico SVG de ahorro mensual -->
-          <div class="chart-card">
-            <!--
-              Este gráfico lo hice manualmente con SVG, fue bastante difícil al principio.
-              El viewBox define el sistema de coordenadas interno del gráfico.
-              role="img" y aria-label ayudan a lectores de pantalla (accesibilidad).
-            -->
+          <!-- La gráfica -->
+          <div class="panel-grafica">
             <svg
-              class="chart-svg"
-              viewBox="0 0 600 280"
+              class="grafica-lineal"
+              viewBox="0 0 600 260"
               xmlns="http://www.w3.org/2000/svg"
-              role="img"
-              aria-label="Gráfico de ahorro acumulado mensual"
             >
-              <!-- Título para lectores de pantalla y SEO -->
-              <title>Ahorro acumulado mensual (COP)</title>
+              <rect x="0" y="0" width="600" height="260" rx="26" fill="#eef3ff" />
 
-              <!-- Fondo redondeado del gráfico con color azul muy suave -->
-              <rect x="0" y="0" width="600" height="280" rx="26" fill="#eef3ff" />
-
-              <!-- Leyenda del gráfico: un punto azul + texto explicativo -->
-              <circle cx="330" cy="22" r="5" fill="#0a3dfe" />
-              <text x="340" y="27" font-size="11" fill="#3c4a5f" font-family="Inter, system-ui" font-weight="600">Ahorro acumulado (COP)</text>
-
-              <!-- Líneas horizontales de guía (cuadrícula) -->
               <line x1="70" y1="70" x2="550" y2="70" stroke="#d4ddff" stroke-width="1" />
               <line x1="70" y1="120" x2="550" y2="120" stroke="#d4ddff" stroke-width="1" />
               <line x1="70" y1="170" x2="550" y2="170" stroke="#d4ddff" stroke-width="1" />
 
-              <!-- Etiquetas del eje Y con valores de ahorro (escala uniforme de 150K) -->
-              <text x="14" y="175" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 200K</text>
-              <text x="14" y="125" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 350K</text>
-              <text x="14" y="75" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 500K</text>
+              <text x="30" y="175" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 200</text>
+              <text x="30" y="125" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 250</text>
+              <text x="30" y="75" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 500</text>
 
-              <!-- Área rellena debajo de la línea del gráfico (efecto de sombreado) -->
-              <!-- Z al final del path cierra la forma para que se rellene bien -->
               <path
                 d="M 80 180 L 180 140 L 260 160 L 340 150 L 460 110 L 540 70 L 540 200 L 80 200 Z"
                 fill="rgba(0,106,248,0.10)"
               />
 
-              <!-- Línea principal del gráfico con los datos de ahorro por mes -->
-              <!-- stroke-linecap="round" hace las puntas redondeadas, queda más bonito -->
               <path
                 d="M 80 180 L 180 140 L 260 160 L 340 150 L 460 110 L 540 70"
                 fill="none"
@@ -117,67 +75,39 @@
                 stroke-linejoin="round"
               />
 
-              <!-- Flechita al final de la línea para indicar que el ahorro va en aumento -->
               <path d="M 540 70 L 530 76" stroke="#0a3dfe" stroke-width="4" stroke-linecap="round" />
               <path d="M 540 70 L 534 60" stroke="#0a3dfe" stroke-width="4" stroke-linecap="round" />
 
-              <!-- Puntos azules en cada mes para resaltar los datos del gráfico -->
-              <circle cx="80"  cy="180" r="5" fill="#0a3dfe" />
-              <circle cx="180" cy="140" r="5" fill="#0a3dfe" />
-              <circle cx="260" cy="160" r="5" fill="#0a3dfe" />
-              <circle cx="340" cy="150" r="5" fill="#0a3dfe" />
-              <circle cx="460" cy="110" r="5" fill="#0a3dfe" />
-              <circle cx="540" cy="70"  r="5" fill="#0a3dfe" />
-
-              <!-- Etiquetas del eje X con los meses del año -->
-              <!-- text-anchor="middle" centra el texto sobre cada punto -->
-              <text x="72"  y="262" font-size="10" fill="#5a626e" font-family="Inter, system-ui" text-anchor="middle">Ene</text>
-              <text x="180" y="262" font-size="10" fill="#5a626e" font-family="Inter, system-ui" text-anchor="middle">Feb</text>
-              <text x="260" y="262" font-size="10" fill="#5a626e" font-family="Inter, system-ui" text-anchor="middle">Mar</text>
-              <text x="340" y="262" font-size="10" fill="#5a626e" font-family="Inter, system-ui" text-anchor="middle">Abr</text>
-              <text x="460" y="262" font-size="10" fill="#5a626e" font-family="Inter, system-ui" text-anchor="middle">May</text>
-              <text x="540" y="262" font-size="10" fill="#5a626e" font-family="Inter, system-ui" text-anchor="middle">Jun</text>
+              <circle cx="180" cy="140" r="6" fill="#0a3dfe" />
+              <circle cx="260" cy="160" r="6" fill="#0a3dfe" />
+              <circle cx="460" cy="110" r="6" fill="#0a3dfe" />
             </svg>
           </div>
         </section>
 
-        <!-- Sección de accesos rápidos a las funciones principales -->
-        <!-- Usé un grid de 3 columnas en el CSS para que queden alineadas -->
-        <section class="quick-actions">
-
-          <!-- Tarjeta de acceso rápido a Cursos -->
-          <!-- El enlace envuelve toda la tarjeta para que sea clickeable completa -->
-          <a href="04-courses.html" class="qa-card-link">
-            <article class="qa-card">
-              <div class="qa-icon">📘</div>
-              <h2 class="qa-title">Mis cursos activos</h2>
-              <p class="qa-subtitle">3 en progreso</p>
-            </article>
+        <!-- las targetas de acceso inferiores -->
+        <section class="rejilla-accesos">
+          <a href="./04-courses.html" class="tarjeta-acceso">
+            <div class="icono-acceso">📘</div>
+            <h2 class="titulo-acceso">Mis cursos activos</h2>
+            <p class="subtitulo-acceso">Haciendo</p>
           </a>
 
-          <!-- Tarjeta de acceso rápido a Retos financieros -->
-          <a href="05-challenges.html" class="qa-card-link">
-            <article class="qa-card">
-              <div class="qa-icon">🎯</div>
-              <h2 class="qa-title">Retos financieros</h2>
-              <p class="qa-subtitle">En progreso</p>
-            </article>
+          <a href="./05-challenges.html" class="tarjeta-acceso">
+            <div class="icono-acceso">🎯</div>
+            <h2 class="titulo-acceso">Retos financieros</h2>
+            <p class="subtitulo-acceso">En progreso</p>
           </a>
 
-          <!-- Tarjeta de ahorro mensual, también lleva a Retos donde se ve el progreso -->
-          <a href="05-challenges.html" class="qa-card-link">
-            <article class="qa-card">
-              <div class="qa-icon">💰</div>
-              <h2 class="qa-title">Mi ahorro mensual</h2>
-              <!-- Este valor sería dinámico con JS cuando conectemos la base de datos -->
-              <p class="qa-subtitle">COP 350,000</p>
-            </article>
+          <a href="./07-profile.html" class="tarjeta-acceso">
+            <div class="icono-acceso">💰</div>
+            <h2 class="titulo-acceso">Mi ahorro mensual</h2>
+            <p class="subtitulo-acceso">COP 350,000</p>
           </a>
         </section>
       </main>
     </div>
 
-    <!-- JS al final para no bloquear la carga de la página -->
     <script src="/src/js/03-home.js"></script>
   </body>
 </html>
