@@ -1,3 +1,7 @@
+/* ===================================
+   PALETA DE COLORES
+   Variables de SparkFi reutilizadas en toda la pantalla de inicio
+=================================== */
 :root {
   --sf-green: #22d74f;
   --sf-blue: #006af8;
@@ -9,6 +13,9 @@
   --sf-text-soft: #5a626e;
 }
 
+/* ===================================
+   RESET BÁSICO
+=================================== */
 * {
   margin: 0;
   padding: 0;
@@ -20,11 +27,16 @@ body {
   background: var(--sf-bg);
 }
 
+/* Contenedor general que ocupa al menos toda la pantalla */
 .home-page {
   min-height: 100vh;
   padding: 32px;
 }
 
+/* ===================================
+   HEADER DE NAVEGACIÓN
+   Barra flotante con sombra y bordes redondeados; igual en todas las páginas internas
+=================================== */
 .home-header {
   max-width: 1200px;
   margin: 0 auto 32px;
@@ -38,6 +50,7 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
 }
 
+/* Logo: círculo verde con el rayo + nombre de la app */
 .home-header__brand {
   display: flex;
   align-items: center;
@@ -60,6 +73,7 @@ body {
   font-weight: 700;
 }
 
+/* Links de navegación en fila horizontal */
 .home-header__nav {
   display: flex;
   gap: 24px;
@@ -73,6 +87,7 @@ body {
   font-weight: 500;
 }
 
+/* El link activo y el hover usan azul fuerte; box-shadow simula una línea subrayada */
 .home-header__nav-link:hover,
 .home-header__nav-link--active {
   color: var(--sf-blue-strong);
@@ -82,6 +97,7 @@ body {
   box-shadow: 0 2px 0 0 var(--sf-blue-strong);
 }
 
+/* Círculo oscuro del avatar; el JS le añade cursor y navegación al perfil */
 .home-header__user-avatar-icon {
   width: 36px;
   height: 36px;
@@ -93,11 +109,16 @@ body {
   color: #fff;
 }
 
+/* Efecto hover en el avatar: sube levemente y se oscurece un poco */
 .home-header__user-avatar:hover .home-header__user-avatar-icon {
   transform: translateY(-2px) scale(1.05);
   background: #0f172a;
 }
 
+/* ===================================
+   ÁREA PRINCIPAL DE CONTENIDO
+   Tarjeta blanca que contiene el gráfico de ahorro y los accesos rápidos
+=================================== */
 .home-content {
   max-width: 1200px;
   margin: 0 auto;
@@ -108,6 +129,7 @@ body {
   box-shadow: 0 18px 40px rgba(15, 23, 42, 0.05);
 }
 
+/* Título de bienvenida; el JS actualiza el saludo según la hora del día */
 .home-hero__title {
   margin-bottom: 28px;
   font-size: 40px;
@@ -118,6 +140,7 @@ body {
   font-size: 34px;
 }
 
+/* Contenedor del gráfico SVG de ahorro */
 .home-hero__chart-panel {
   margin-bottom: 32px;
   overflow: hidden;
@@ -132,12 +155,17 @@ body {
   display: block;
 }
 
+/* ===================================
+   ACCESOS RÁPIDOS
+   Tres tarjetas en grilla que llevan a cursos, retos y ahorro
+=================================== */
 .home-quick-access {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
+/* Cada tarjeta es un enlace que actúa como bloque completo */
 .home-quick-access__card {
   display: block;
   padding: 22px 18px;
@@ -156,6 +184,7 @@ body {
   box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
 }
 
+/* Cuadrado redondeado con fondo azul suave que contiene el emoji del acceso rápido */
 .home-quick-access__icon {
   width: 48px;
   height: 48px;
@@ -180,6 +209,10 @@ body {
   font-size: 13px;
 }
 
+/* ===================================
+   RESPONSIVE
+   En móvil la grilla pasa a una sola columna y se reduce el padding
+=================================== */
 @media (max-width: 900px) {
   .home-page {
     padding: 16px;

@@ -1,3 +1,7 @@
+/* ===================================
+   PALETA DE COLORES
+   Variables de SparkFi reutilizadas en toda la pantalla de perfil
+=================================== */
 :root {
   --sf-green: #22d74f;
   --sf-green-soft: #00d369;
@@ -12,12 +16,17 @@
   --sf-text-soft: #5a626e;
 }
 
+/* ===================================
+   RESET BÁSICO
+   Quita márgenes y paddings del navegador para partir de cero
+=================================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Espacio inferior para que el contenido no quede pegado al borde en móvil */
 body {
   padding-bottom: 60px;
   background: var(--sf-bg);
@@ -25,6 +34,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* ===================================
+   HEADER DE NAVEGACIÓN
+   Barra fija en la parte superior con borde inferior;
+   diferente al topbar flotante del resto de páginas
+=================================== */
 .profile-header {
   height: 70px;
   padding: 0 40px;
@@ -35,6 +49,7 @@ body {
   border-bottom: 1px solid var(--sf-border);
 }
 
+/* Logo: círculo verde con el rayo + nombre de la app */
 .profile-header__brand {
   display: flex;
   align-items: center;
@@ -58,6 +73,7 @@ body {
   font-weight: 700;
 }
 
+/* Links de navegación en fila horizontal */
 .profile-header__nav {
   display: flex;
   gap: 26px;
@@ -70,10 +86,12 @@ body {
   font-weight: 500;
 }
 
+/* El link activo se resalta en azul sin línea debajo (diferente al estilo de otras páginas) */
 .profile-header__nav-link--active {
   color: var(--sf-blue);
 }
 
+/* Avatar del header que lleva de vuelta a la página de perfil */
 .profile-header__avatar-link {
   display: block;
   text-decoration: none;
@@ -85,6 +103,8 @@ body {
   border-radius: 50%;
 }
 
+/* Botón de configuración (tuerquita): círculo azul suave -->
+   flex-shrink: 0 para que no se comprima si el header tiene poco espacio */
 .profile-header__settings-link {
   width: 36px;
   height: 36px;
@@ -105,6 +125,10 @@ body {
   border-color: var(--sf-blue-strong);
 }
 
+/* ===================================
+   LAYOUT PRINCIPAL
+   Dos columnas: sidebar fija a la izquierda y logros a la derecha
+=================================== */
 .profile-page {
   max-width: 1200px;
   margin: auto;
@@ -114,6 +138,10 @@ body {
   gap: 40px;
 }
 
+/* ===================================
+   SIDEBAR DEL PERFIL
+   Tarjeta blanca con la foto, datos, estadísticas y botón de logout
+=================================== */
 .profile-sidebar {
   padding: 30px;
   text-align: center;
@@ -122,6 +150,7 @@ body {
   border-radius: 20px;
 }
 
+/* Contenedor circular para la foto de perfil con overflow: hidden para recortarla */
 .profile-sidebar__avatar {
   width: 160px;
   height: 160px;
@@ -148,6 +177,7 @@ body {
   font-size: 14px;
 }
 
+/* Insignia de nivel con fondo azul suave y texto en azul fuerte */
 .profile-sidebar__level-badge {
   display: inline-block;
   margin-top: 5px;
@@ -159,6 +189,7 @@ body {
   font-weight: 600;
 }
 
+/* Fila con el botón de editar y el acceso rápido a configuración */
 .profile-sidebar__actions {
   display: flex;
   align-items: center;
@@ -187,6 +218,10 @@ body {
   text-decoration: none;
 }
 
+/* ===================================
+   ESTADÍSTICAS DEL USUARIO
+   Tres columnas separadas por bordes internos
+=================================== */
 .profile-sidebar__stats {
   display: flex;
   justify-content: space-between;
@@ -202,10 +237,12 @@ body {
   text-align: center;
 }
 
+/* Línea divisoria entre cada estadística, excepto la última */
 .profile-sidebar__stat-item:not(:last-child) {
   border-right: 1px solid var(--sf-border);
 }
 
+/* El valor numérico en azul fuerte para que destaque */
 .profile-sidebar__stat-value {
   color: var(--sf-blue-strong);
   font-size: 18px;
@@ -217,6 +254,7 @@ body {
   font-size: 12px;
 }
 
+/* Enlace de cierre de sesión discreto al final del sidebar */
 .profile-sidebar__logout-link {
   display: inline-block;
   margin-top: 30px;
@@ -228,6 +266,10 @@ body {
   font-weight: 600;
 }
 
+/* ===================================
+   SECCIÓN DE LOGROS
+   Tarjeta derecha con la grilla de insignias del usuario
+=================================== */
 .profile-achievements {
   padding: 30px;
   background: var(--sf-surface);
@@ -241,6 +283,7 @@ body {
   font-weight: 700;
 }
 
+/* Tres columnas iguales para las tarjetas de logros */
 .profile-achievements__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -255,6 +298,7 @@ body {
   text-align: center;
 }
 
+/* Círculo de color que contiene el ícono o símbolo del logro */
 .profile-achievements__icon {
   width: 60px;
   height: 60px;
@@ -267,6 +311,7 @@ body {
   font-size: 24px;
 }
 
+/* Variantes de color para cada tipo de logro */
 .profile-achievements__icon--blue {
   background: var(--sf-blue);
 }
@@ -285,6 +330,7 @@ body {
   font-weight: 600;
 }
 
+/* Enlace para ver todos los logros, alineado a la derecha del panel */
 .profile-achievements__link {
   display: block;
   margin-top: 20px;

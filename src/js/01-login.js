@@ -1,5 +1,4 @@
-// Credenciales fijas porque todavía no hay backend.
-// Cuando exista, esto se reemplaza por una llamada a la API.
+// Sin backend: credenciales fijas hasta que exista una API real
 const CREDENCIALES_SISTEMA = {
   email: "admin@sparkfi.com",
   password: "sparkfi123",
@@ -15,6 +14,7 @@ function validarCredenciales(email, password) {
   );
 }
 
+// Crea y muestra un div de mensaje dentro del área de resultado
 function mostrarMensaje(area, texto, tipo) {
   area.innerHTML = "";
   const div = document.createElement("div");
@@ -23,6 +23,7 @@ function mostrarMensaje(area, texto, tipo) {
   area.appendChild(div);
 }
 
+// Deshabilita el formulario completamente tras agotar los intentos
 function deshabilitarFormulario() {
   document.getElementById("email").disabled = true;
   document.getElementById("password").disabled = true;
@@ -32,7 +33,7 @@ function deshabilitarFormulario() {
 }
 
 function manejarLogin() {
-  // .trim() evita que un espacio en blanco cuente como dato válido
+  // trim() evita que un espacio en blanco cuente como credencial válida
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const resultadoArea = document.getElementById("resultado-login");
@@ -80,7 +81,7 @@ function manejarLogin() {
   }
 }
 
-// DOMContentLoaded garantiza que el botón ya existe en la página antes de buscarlo
+// DOMContentLoaded garantiza que el botón ya existe en el DOM antes de buscarlo
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-login").addEventListener("click", manejarLogin);
 });

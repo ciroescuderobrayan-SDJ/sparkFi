@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio - SparkFi</title>
 
+    <!-- Fuente Inter con preconnect para acelerar la carga -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,12 +18,14 @@
 
   <body>
     <div class="home-page">
+      <!-- Barra de navegación superior flotante; compartida con todas las páginas internas -->
       <header class="home-header">
         <div class="home-header__brand">
           <span class="home-header__brand-icon">⚡</span>
           <span class="home-header__brand-text">SparkFi</span>
         </div>
 
+        <!-- "Inicio" marcado como activo porque es la página actual -->
         <nav class="home-header__nav">
           <a href="./03-home.html" class="home-header__nav-link home-header__nav-link--active">Inicio</a>
           <a href="./04-courses.html" class="home-header__nav-link">Cursos</a>
@@ -31,6 +34,7 @@
           <a href="./07-profile.html" class="home-header__nav-link">Perfil</a>
         </nav>
 
+        <!-- El JS lo hace clickeable para navegar al perfil del usuario -->
         <div class="home-header__user-avatar">
           <span class="home-header__user-avatar-icon">👤</span>
         </div>
@@ -38,10 +42,12 @@
 
       <main class="home-content">
         <section class="home-hero">
+          <!-- El JS reemplaza "Bienvenido" por el saludo correcto según la hora del día -->
           <h1 class="home-hero__title">
             Bienvenido, Juan <span class="home-hero__wave">👋</span>
           </h1>
 
+          <!-- Gráfico de línea del ahorro dibujado en SVG puro, sin ninguna librería externa -->
           <div class="home-hero__chart-panel">
             <svg
               class="home-hero__chart"
@@ -50,19 +56,23 @@
             >
               <rect x="0" y="0" width="600" height="260" rx="26" fill="#eef3ff" />
 
+              <!-- Líneas horizontales de guía del gráfico -->
               <line x1="70" y1="70" x2="550" y2="70" stroke="#d4ddff" stroke-width="1" />
               <line x1="70" y1="120" x2="550" y2="120" stroke="#d4ddff" stroke-width="1" />
               <line x1="70" y1="170" x2="550" y2="170" stroke="#d4ddff" stroke-width="1" />
 
+              <!-- Etiquetas del eje Y con los valores en COP -->
               <text x="30" y="175" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 200</text>
               <text x="30" y="125" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 250</text>
               <text x="30" y="75" font-size="10" fill="#5a626e" font-family="Inter, system-ui">COP 500</text>
 
+              <!-- Área sombreada azul debajo de la línea de ahorro -->
               <path
                 d="M 80 180 L 180 140 L 260 160 L 340 150 L 460 110 L 540 70 L 540 200 L 80 200 Z"
                 fill="rgba(0,106,248,0.10)"
               />
 
+              <!-- Línea principal del gráfico -->
               <path
                 d="M 80 180 L 180 140 L 260 160 L 340 150 L 460 110 L 540 70"
                 fill="none"
@@ -72,9 +82,11 @@
                 stroke-linejoin="round"
               />
 
+              <!-- Flecha al final de la línea para indicar tendencia ascendente -->
               <path d="M 540 70 L 530 76" stroke="#0a3dfe" stroke-width="4" stroke-linecap="round" />
               <path d="M 540 70 L 534 60" stroke="#0a3dfe" stroke-width="4" stroke-linecap="round" />
 
+              <!-- Puntos destacados sobre los datos del gráfico -->
               <circle cx="180" cy="140" r="6" fill="#0a3dfe" />
               <circle cx="260" cy="160" r="6" fill="#0a3dfe" />
               <circle cx="460" cy="110" r="6" fill="#0a3dfe" />
@@ -82,6 +94,7 @@
           </div>
         </section>
 
+        <!-- Tres accesos rápidos a las secciones principales de la app -->
         <section class="home-quick-access">
           <a href="./04-courses.html" class="home-quick-access__card">
             <div class="home-quick-access__icon">📘</div>

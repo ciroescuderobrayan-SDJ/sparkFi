@@ -1,3 +1,7 @@
+/* ===================================
+   PALETA DE COLORES
+   Variables de SparkFi compartidas con el resto de la app
+=================================== */
 :root {
   --sf-green: #22d74f;
   --sf-green-soft: #00d369;
@@ -11,6 +15,9 @@
   --sf-text-soft: #5a626e;
 }
 
+/* ===================================
+   RESET BÁSICO
+=================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,6 +30,10 @@ body {
   color: var(--sf-text-main);
 }
 
+/* ===================================
+   HEADER DE NAVEGACIÓN
+   Igual al del perfil: barra con borde inferior, no flotante
+=================================== */
 .settings-header {
   height: 70px;
   padding: 0 40px;
@@ -33,6 +44,7 @@ body {
   border-bottom: 1px solid var(--sf-border);
 }
 
+/* Logo: círculo verde con el rayo + nombre de la app */
 .settings-header__brand {
   display: flex;
   align-items: center;
@@ -56,6 +68,7 @@ body {
   font-weight: 700;
 }
 
+/* Links de nav en fila; el activo se resalta en azul */
 .settings-header__nav {
   display: flex;
   gap: 26px;
@@ -72,6 +85,7 @@ body {
   color: var(--sf-blue);
 }
 
+/* Avatar clickeable que lleva al perfil */
 .settings-header__avatar-link {
   display: block;
   text-decoration: none;
@@ -84,6 +98,7 @@ body {
   object-fit: cover;
 }
 
+/* Botón de la tuerquita: círculo azul suave que se rellena cuando la página está activa */
 .settings-header__settings-link {
   width: 36px;
   height: 36px;
@@ -104,17 +119,23 @@ body {
   border-color: var(--sf-blue-strong);
 }
 
+/* Estado activo: fondo azul sólido para indicar que estamos en esta página */
 .settings-header__settings-link--active {
   background: var(--sf-blue-strong);
   border-color: var(--sf-blue-strong);
 }
 
+/* ===================================
+   LAYOUT DE LA PÁGINA
+   calc(100% - 80px) da los mismos márgenes laterales que el padding del header
+=================================== */
 .settings-page {
   width: calc(100% - 80px);
   max-width: 1200px;
   margin: 40px auto;
 }
 
+/* Panel blanco central con todas las secciones de configuración */
 .settings-panel {
   padding: 32px 40px 40px;
   background-color: var(--sf-surface);
@@ -129,6 +150,10 @@ body {
   font-weight: 700;
 }
 
+/* ===================================
+   SECCIONES DE CONFIGURACIÓN
+   Cada sección agrupa opciones relacionadas y tiene espacio inferior
+=================================== */
 .settings-section {
   margin-bottom: 28px;
 }
@@ -140,22 +165,26 @@ body {
   font-weight: 600;
 }
 
+/* Título en tono más suave para las secciones de privacidad (menor jerarquía visual) */
 .settings-section__title--muted {
   color: var(--sf-text-muted);
 }
 
+/* La sección de perfil tiene borde inferior para separarla del cambio de contraseña */
 .settings-section--profile {
   padding-bottom: 24px;
   margin-bottom: 28px;
   border-bottom: 1px solid var(--sf-border);
 }
 
+/* Las secciones de privacidad y logout tienen borde superior como separador visual */
 .settings-section--privacy,
 .settings-section--logout {
   padding-top: 14px;
   border-top: 1px solid var(--sf-border);
 }
 
+/* Fila que muestra la foto de perfil actual junto al botón para cambiarla */
 .settings-section__avatar-row {
   display: flex;
   align-items: center;
@@ -187,6 +216,12 @@ body {
   color: var(--sf-blue);
 }
 
+/* ===================================
+   FORMULARIO DE CONFIGURACIÓN
+   Etiquetas y campos de texto compartidos por todas las secciones
+=================================== */
+
+/* display: block para que la etiqueta esté encima del campo, no al lado */
 .settings-form__label {
   display: block;
   margin-bottom: 6px;
@@ -210,12 +245,17 @@ body {
   color: var(--sf-text-soft);
 }
 
+/* Focus con borde verde y halo para que el campo activo sea claramente visible */
 .settings-form__input:focus {
   outline: none;
   border-color: var(--sf-green);
   box-shadow: 0 0 0 2px rgba(34, 215, 79, 0.2);
 }
 
+/* ===================================
+   ZONA DE RESULTADO DEL JS
+   El JS inyecta aquí mensajes de éxito o error; se oculta cuando está vacía
+=================================== */
 .settings-form__feedback {
   margin-top: 12px;
 }
@@ -224,6 +264,7 @@ body {
   display: none;
 }
 
+/* Caja genérica de mensaje con variantes de color para éxito y error */
 .settings-form__message {
   padding: 12px 16px;
   border-radius: 12px;
@@ -253,6 +294,7 @@ body {
   color: #7f1d1d;
 }
 
+/* Lista de errores con fondo rojizo para que resalte claramente */
 .settings-form__feedback-list {
   margin: 0;
   padding: 12px 12px 12px 28px;
@@ -272,6 +314,7 @@ body {
   margin-bottom: 0;
 }
 
+/* Botón principal de guardar; verde y redondeado, consistente con el resto de la app */
 .settings-form__submit {
   display: inline-block;
   margin-top: 12px;
@@ -289,6 +332,13 @@ body {
   background: var(--sf-green-soft);
 }
 
+/* ===================================
+   TOGGLE SWITCH (INTERRUPTOR)
+   Hecho en CSS puro con un input checkbox oculto que controla el estado;
+   el ::before es la bolita blanca que se desliza al activar
+=================================== */
+
+/* Fila que alinea la etiqueta a la izquierda y el toggle a la derecha */
 .settings-toggle {
   display: flex;
   align-items: center;
@@ -298,6 +348,7 @@ body {
   font-size: 0.95rem;
 }
 
+/* Contenedor del toggle: define el tamaño total del interruptor */
 .settings-toggle__switch {
   position: relative;
   display: inline-block;
@@ -305,12 +356,14 @@ body {
   height: 24px;
 }
 
+/* El input está visualmente oculto pero sigue siendo el que maneja el estado checked */
 .settings-toggle__switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
+/* El "riel" del toggle: fondo gris por defecto */
 .settings-toggle__slider {
   position: absolute;
   inset: 0;
@@ -320,6 +373,7 @@ body {
   transition: 0.3s;
 }
 
+/* La bolita blanca que se desliza de lado a lado */
 .settings-toggle__slider::before {
   content: "";
   position: absolute;
@@ -332,14 +386,20 @@ body {
   transition: 0.3s;
 }
 
+/* Cuando el checkbox está marcado, el riel se pone verde */
 .settings-toggle__switch input:checked + .settings-toggle__slider {
   background-color: var(--sf-green);
 }
 
+/* Y la bolita se desplaza hacia la derecha */
 .settings-toggle__switch input:checked + .settings-toggle__slider::before {
   transform: translateX(20px);
 }
 
+/* ===================================
+   BOTÓN DE CERRAR SESIÓN
+   Outline azul suave, menos prominente que el botón de guardar
+=================================== */
 .settings-panel__logout-link {
   display: inline-block;
   padding: 10px 22px;
@@ -356,6 +416,10 @@ body {
   background: #f0f4ff;
 }
 
+/* ===================================
+   RESPONSIVE
+   En móvil se reduce el margen lateral y el padding del panel
+=================================== */
 @media (max-width: 768px) {
   .settings-page {
     width: auto;

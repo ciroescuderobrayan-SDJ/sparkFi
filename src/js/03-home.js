@@ -1,6 +1,7 @@
-// Sin backend: el nombre viene hardcodeado hasta que exista sesión real.
+// Sin backend: el nombre viene hardcodeado hasta que exista sesión real
 const USUARIO = { nombre: "Juan" };
 
+// Devuelve el saludo apropiado según la hora del día
 function obtenerSaludo() {
   const hora = new Date().getHours();
   if (hora >= 5 && hora < 12) return "Buenos días";
@@ -8,6 +9,7 @@ function obtenerSaludo() {
   return "Buenas noches";
 }
 
+// Reemplaza "Bienvenido" en el título por el saludo dinámico
 function actualizarSaludo() {
   const titulo = document.querySelector(".home-hero__title");
   if (!titulo) return;
@@ -18,6 +20,7 @@ function actualizarSaludo() {
     ' <span class="home-hero__wave">👋</span>';
 }
 
+// Las tarjetas aparecen escalonadas con un pequeño retraso entre cada una
 function animarTarjetas() {
   const tarjetas = document.querySelectorAll(".home-quick-access__card");
   tarjetas.forEach(function (tarjeta, i) {
@@ -31,6 +34,7 @@ function animarTarjetas() {
   });
 }
 
+// Hace que el avatar del header lleve al perfil al hacer clic
 function navegarAlPerfil() {
   const avatar = document.querySelector(".home-header__user-avatar");
   if (!avatar) return;

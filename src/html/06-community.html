@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<!-- DOCTYPE de HTML5, siempre al inicio del archivo -->
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <!-- Para que funcionen bien los caracteres del español -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Responsive: para que no se vea aplastado en celular -->
     <title>Comunidad - SparkFi</title>
 
-    <!-- Fuente Inter con peso 800 incluido para los títulos grandes -->
+    <!-- Inter con peso 800 incluido para los títulos grandes de esta sección -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,25 +13,22 @@
       rel="stylesheet"
     />
 
-    <!-- Favicon con el ícono de SparkFi -->
+    <!-- Favicon con el ícono de SparkFi generado como SVG inline -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
 
-    <!-- CSS de la pantalla de comunidad -->
     <link rel="stylesheet" href="/src/css/06-community.css" />
   </head>
 
   <body>
-    <!-- Contenedor principal con el padding de la página -->
     <div class="page">
 
-      <!-- Topbar de navegación consistente con el resto de la app -->
+      <!-- Topbar con "Comunidad" marcado como activo; el avatar usa estilo de píldora en esta página -->
       <header class="topbar">
         <div class="logo">
           <span class="logo-icon">⚡</span>
           <span class="logo-text">SparkFi</span>
         </div>
 
-        <!-- "Comunidad" tiene active porque es la página actual -->
         <nav class="nav">
           <a href="03-home.html" class="nav-link">Inicio</a>
           <a href="04-courses.html" class="nav-link">Cursos</a>
@@ -43,11 +37,9 @@
           <a href="07-profile.html" class="nav-link">Perfil</a>
         </nav>
 
-        <!-- Tuerquita de configuración -->
         <a href="08-settings.html" class="nav-settings-btn" title="Configuración">⚙️</a>
 
-        <!-- En esta página el avatar tiene un estilo de "píldora" con nombre, diferente a las otras -->
-        <!-- Lo hice así para probar otra forma de mostrar al usuario activo -->
+        <!-- Píldora azul con nombre en lugar del círculo oscuro, para darle un toque más social -->
         <a href="07-profile.html" class="user-pill">
           <div class="user-pill-icon">
             <span>👤</span>
@@ -56,49 +48,38 @@
         </a>
       </header>
 
-      <!-- Tarjeta principal que contiene el feed de la comunidad -->
+      <!-- Tarjeta principal con el feed de publicaciones de la comunidad -->
       <main class="community-card">
 
-        <!-- Encabezado con título y botón para crear nueva publicación -->
-        <!-- Usé flexbox en el CSS para que queden alineados en los extremos -->
+        <!-- Título y botón de nueva publicación alineados en extremos opuestos con space-between -->
         <div class="community-header">
           <h1 class="community-title">Comunidad</h1>
-          <!-- Botón para publicar, por ahora no tiene funcionalidad de JS -->
           <button class="btn-new-post">+ Nueva publicación</button>
         </div>
 
-        <!-- Lista de publicaciones de la comunidad -->
         <!-- Cada post es un article porque semánticamente es contenido independiente -->
         <section class="post-list">
 
-          <!-- POST 1: Pregunta sobre fondo de emergencia -->
+          <!-- POST 1: pregunta de Marta sobre fondo de emergencia -->
           <article class="post-card">
-            <!-- Parte superior: avatar + contenido + link "ver respuestas" -->
             <div class="post-top">
               <div class="post-main">
 
-                <!-- Avatar de Marta dibujado con SVG, evita depender de imágenes externas -->
-                <!-- aria-hidden="true" porque el nombre ya está en post-author -->
+                <!-- Avatar de Marta dibujado con SVG; evita depender de imágenes externas -->
+                <!-- aria-hidden porque el nombre del autor ya aparece en post-author -->
                 <div class="avatar avatar-1">
                   <svg viewBox="0 0 80 80" aria-hidden="true">
-                    <!-- Fondo del avatar -->
                     <circle cx="40" cy="40" r="36" fill="#f3f4ff" />
-                    <!-- Cabello azul oscuro -->
                     <path d="M20 34c0-12 8-20 20-20s20 8 20 20v6H20z" fill="#2563eb" />
-                    <!-- Cara con piel color durazno -->
                     <circle cx="40" cy="38" r="14" fill="#fed7aa" />
-                    <!-- Cuello -->
                     <rect x="34" y="48" width="12" height="8" rx="3" fill="#fdba74" />
-                    <!-- Cuerpo con camisa naranja -->
                     <path d="M26 60c4-4 8-6 14-6s10 2 14 6v6H26z" fill="#f97316" />
                   </svg>
                 </div>
 
-                <!-- Contenido del post: título, cuerpo y metadatos -->
                 <div class="post-content">
                   <h2 class="post-title">¿Como crear un fondo de emergencia?</h2>
                   <p class="post-body">¿Cuánto dinero se recomienda ahorrar para imprevistos?</p>
-                  <!-- Metadatos del post: quién publicó y hace cuánto -->
                   <div class="post-meta">
                     <span class="post-author">Marta</span>
                     <span class="post-dot">•</span>
@@ -107,15 +88,12 @@
                 </div>
               </div>
 
-              <!-- Link para ver las respuestas a este post -->
               <a href="#" class="post-link">Ver respuestas</a>
             </div>
 
-            <!-- Parte inferior: botones de reacción y comentario -->
+            <!-- Botones de reacción y comentario; el JS añade la funcionalidad de comentar -->
             <div class="post-bottom">
-              <!-- Botón de like con contador -->
               <button class="react-btn">👍 <span>12</span></button>
-              <!-- Botón de comentar con contador de comentarios -->
               <button class="comment-btn">
                 <span class="comment-icon">💬</span>
                 <span>Comentar</span>
@@ -124,12 +102,12 @@
             </div>
           </article>
 
-          <!-- POST 2: Logro de pagar deudas -->
+          <!-- POST 2: logro de Egoo pagando todas sus deudas -->
           <article class="post-card">
             <div class="post-top">
               <div class="post-main">
 
-                <!-- Avatar de Egoo con cabello oscuro y camisa azul -->
+                <!-- Avatar de Egoo: cabello oscuro con detalle azul para diferenciarlo del avatar 1 -->
                 <div class="avatar avatar-2">
                   <svg viewBox="0 0 80 80" aria-hidden="true">
                     <circle cx="40" cy="40" r="36" fill="#e0f2fe" />
@@ -137,7 +115,6 @@
                     <circle cx="40" cy="38" r="13" fill="#fed7aa" />
                     <rect x="35" y="48" width="10" height="8" rx="3" fill="#fdba74" />
                     <path d="M26 60c4-4 7-6 14-6s10 2 14 6v6H26z" fill="#3b82f6" />
-                    <!-- Detalle extra en el cabello para diferenciarlo del avatar 1 -->
                     <path d="M25 32c3-5 9-8 15-8s12 3 15 8H25z" fill="#60a5fa" />
                   </svg>
                 </div>
@@ -155,7 +132,6 @@
                   </div>
                 </div>
               </div>
-              <!-- Ver respuestas también en este post para ser consistentes -->
               <a href="#" class="post-link">Ver respuestas</a>
             </div>
 
@@ -170,19 +146,18 @@
             </div>
           </article>
 
-          <!-- POST 3: Pregunta sobre inversiones en bolsa -->
+          <!-- POST 3: pregunta de Luis sobre inversiones en bolsa -->
           <article class="post-card">
             <div class="post-top">
               <div class="post-main">
 
-                <!-- Avatar de Luis con cabello negro y camisa verde -->
+                <!-- Avatar de Luis: camisa verde para diferenciarlo de los otros dos -->
                 <div class="avatar avatar-3">
                   <svg viewBox="0 0 80 80" aria-hidden="true">
                     <circle cx="40" cy="40" r="36" fill="#e5f3ff" />
                     <path d="M22 34c0-11 8-18 18-18s18 7 18 18v5H22z" fill="#111827" />
                     <circle cx="40" cy="38" r="13" fill="#fed7aa" />
                     <rect x="35" y="48" width="10" height="8" rx="3" fill="#fdba74" />
-                    <!-- Camisa verde para diferenciarlo de los otros avatares -->
                     <path d="M26 60c4-4 7-6 14-6s10 2 14 6v6H26z" fill="#22c55e" />
                   </svg>
                 </div>
@@ -218,7 +193,6 @@
       </main>
     </div>
 
-    <!-- JS de comunidad al final del body -->
     <script src="/src/js/06-community.js"></script>
   </body>
 </html>

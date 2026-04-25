@@ -1,5 +1,5 @@
-// Cursos y sus datos
-
+// Datos de todos los cursos disponibles en la plataforma.
+// Cuando exista backend, este arreglo se reemplazará por una llamada a la API.
 const cursos = [
   {
     id: "ahorro-intro",
@@ -143,8 +143,7 @@ const cursos = [
   },
 ];
 
-// Selección de elementos del html
-
+// Referencias a los elementos del DOM que se actualizan dinámicamente
 const barraLateral = document.querySelector(".barra-lateral-cursos");
 const inputBusqueda = document.querySelector(".campo-busqueda-cursos");
 const contenedorLecciones = document.querySelector(".lista-cursos");
@@ -154,12 +153,12 @@ const porcentajeLeccion = document.querySelector(".porcentaje-leccion");
 const listaLeccion = document.querySelector(".lista-leccion");
 const barraLeccion = document.querySelector(".relleno-progreso-leccion");
 
+// Estado de la UI: qué tema está activo, qué texto se busca y qué curso está seleccionado
 let temaActivo = "Ahorro";
 let textoBusqueda = "";
 let cursoActivoId = null;
 
-
-// Filtro de los cursos
+// Filtra los cursos que coinciden con el texto de búsqueda (sin importar mayúsculas)
 function obtenerCursosActivos() {
   return cursos.filter((curso) => curso.tema === temaActivo);
 }
@@ -174,7 +173,7 @@ function obtenerCursosFiltrados() {
   });
 }
 
-// Escucha lo que el usuario escribe para filtrar la lista
+// Escucha lo que el usuario escribe para filtrar la lista en tiempo real
 if (inputBusqueda) {
   inputBusqueda.addEventListener("input", (e) => {
     textoBusqueda = e.target.value.trim();
@@ -183,13 +182,14 @@ if (inputBusqueda) {
 
 }
 
-  // para seleccionar el nuevo curso
+// Quita la clase "activo" de todos los botones y la pone solo en el seleccionado
 function activarBotonSeleccionado(botonSeleccionado) {
   const botones = document.querySelectorAll(".boton-tema-curso");
   botones.forEach((boton) => boton.classList.remove("activo"));
   botonSeleccionado.classList.add("activo");
 }
 
+// Reconstruye la lista de cursos en el sidebar según los filtros activos
 function renderizarCursos() {
   if (!barraLateral) {
     return;
@@ -199,19 +199,17 @@ function renderizarCursos() {
   const botonesActuales = barraLateral.querySelectorAll(".boton-tema-curso");
   botonesActuales.forEach((boton) => boton.remove());
 
-  // si no hay cursos encontrados
+  // Si no hay resultados, muestra el mensaje de "no encontrados"
   mensajeVacio.hidden = cursosActivos.length > 0;
   if (cursosActivos.length === 0) return;
 
-  
-  // el curso visible según el input
+  // Si el curso activo ya no está en los resultados, selecciona el primero visible
   const cursoSigueVisible = cursosActivos.find(c => c.id === cursoActivoId);
   if (cursosActivos.length > 0 && !cursoSigueVisible) {
     cursoActivoId = cursosActivos[0].id;
   }
 
-
-  // renderizado de los cursos buscados
+  // DocumentFragment para hacer un solo reflow al insertar todos los botones
   const fragmento = document.createDocumentFragment();
   cursosActivos.forEach((curso) => {
     const boton = document.createElement("button");
@@ -233,15 +231,16 @@ function renderizarCursos() {
 
   barraLateral.appendChild(fragmento);
 
+  // Actualiza el contenido derecho con el curso activo tras reconstruir la lista
   const cursoActivo = cursosActivos.find((curso) => curso.id === cursoActivoId);
   renderizarLeccionesCurso(cursoActivo);
   renderizarDetalleCurso(cursoActivo);
 }
 
+// Pintado inicial al cargar la página
 renderizarCursos();
 
-// se pinta el contenido
-
+// Genera las tarjetas de lecciones del curso seleccionado en el área de la derecha
 function renderizarLeccionesCurso(curso) {
   if (!contenedorLecciones || !curso) {
     return;
@@ -250,6 +249,7 @@ function renderizarLeccionesCurso(curso) {
   contenedorLecciones.innerHTML = curso.lecciones
     .map((leccion, index) => {
       const numero = index + 1;
+      // La primera lección tiene el botón principal "Estudiar"; las demás, "Ver lección"
       const textoBoton = numero === 1 ? "Estudiar" : "Ver lección";
       const claseBoton = numero === 1 ? "boton-curso" : "boton-curso boton-curso-secundario";
 
@@ -270,6 +270,7 @@ function renderizarLeccionesCurso(curso) {
     .join("");
 }
 
+// Actualiza la barra de progreso y el detalle de la primera lección del curso activo
 function renderizarDetalleCurso(curso) {
   if (!curso) return;
 
@@ -294,8 +295,7 @@ function renderizarDetalleCurso(curso) {
   }
 }
 
-
-// el completar el curso automático w
+// Marca el curso activo como 100% completado y actualiza la vista
 function completarCursoActivo() {
   const cursoActivo = cursos.find((curso) => curso.id === cursoActivoId);
   if (!cursoActivo) {

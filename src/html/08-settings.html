@@ -12,17 +12,20 @@
       rel="stylesheet"
     />
 
+    <!-- Favicon con el rayo de SparkFi generado como SVG inline -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
     <link rel="stylesheet" href="/src/css/08-settings.css" />
   </head>
 
   <body>
+    <!-- Header con borde inferior, igual al de perfil; la tuerquita tiene --active para verse rellena -->
     <header class="settings-header">
       <div class="settings-header__brand">
         <span class="settings-header__brand-icon">⚡</span>
         <span class="settings-header__brand-text">SparkFi</span>
       </div>
 
+      <!-- "Perfil" queda activo en la nav porque configuración es una subsección del perfil -->
       <nav class="settings-header__nav">
         <a href="03-home.html" class="settings-header__nav-link">Inicio</a>
         <a href="04-courses.html" class="settings-header__nav-link">Cursos</a>
@@ -31,6 +34,7 @@
         <a href="07-profile.html" class="settings-header__nav-link settings-header__nav-link--active">Perfil</a>
       </nav>
 
+      <!-- La tuerquita tiene --active para verse sólida y señalar que esta es la página actual -->
       <a href="08-settings.html" class="settings-header__settings-link settings-header__settings-link--active" title="Configuración">⚙️</a>
 
       <a href="07-profile.html" class="settings-header__avatar-link">
@@ -39,12 +43,15 @@
     </header>
 
     <div class="settings-page">
+      <!-- Panel central de configuración; separado en secciones por categoría -->
       <main class="settings-panel">
         <h2 class="settings-panel__title">Configuración</h2>
 
+        <!-- Sección 1: edición de nombre y correo del perfil -->
         <section class="settings-section settings-section--profile">
           <h3 class="settings-section__title">Editar perfil</h3>
 
+          <!-- Foto de perfil actual con botón para cambiarla -->
           <div class="settings-section__avatar-row">
             <img
               src="https://i.pravatar.cc/80"
@@ -77,6 +84,7 @@
           <button type="button" class="settings-form__submit settings-form__submit--profile">Guardar perfil</button>
         </section>
 
+        <!-- Sección 2: cambio de contraseña con validación en el JS -->
         <section class="settings-section settings-section--password">
           <h3 class="settings-section__title">Cambiar contraseña</h3>
           <form id="form-password" class="settings-form settings-form--password">
@@ -107,6 +115,7 @@
               autocomplete="new-password"
             />
 
+            <!-- El JS inyecta aquí el resultado de la validación; el CSS lo oculta cuando está vacío -->
             <div id="resultado-settings" class="settings-form__feedback"></div>
 
             <button
@@ -119,11 +128,13 @@
           </form>
         </section>
 
+        <!-- Sección 3: toggles para activar o desactivar tipos de notificación -->
         <section class="settings-section settings-section--notifications">
           <h3 class="settings-section__title">Notificaciones</h3>
 
           <div class="settings-toggle">
             <span class="settings-toggle__label">Correo electrónico</span>
+            <!-- Toggle switch hecho en CSS puro: el input oculto controla el estado -->
             <label class="settings-toggle__switch">
               <input type="checkbox" checked />
               <span class="settings-toggle__slider"></span>
@@ -139,6 +150,7 @@
           </div>
         </section>
 
+        <!-- Sección 4: opciones de privacidad del perfil -->
         <section class="settings-section settings-section--privacy">
           <h3 class="settings-section__title settings-section__title--muted">Privacidad y seguridad</h3>
 
@@ -159,6 +171,7 @@
           </div>
         </section>
 
+        <!-- Sección 5: cierre de sesión al final del panel -->
         <section class="settings-section settings-section--logout">
           <a href="01-login.html" class="settings-panel__logout-link">Cerrar sesión</a>
         </section>

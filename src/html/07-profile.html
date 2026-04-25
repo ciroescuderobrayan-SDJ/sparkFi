@@ -12,17 +12,20 @@
       rel="stylesheet"
     />
 
+    <!-- Favicon con el rayo de SparkFi generado como SVG inline -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
     <link rel="stylesheet" href="/src/css/07-profile.css" />
   </head>
 
   <body>
+    <!-- Header de la página; usa borde inferior en lugar de la topbar flotante de otras páginas -->
     <header class="profile-header">
       <div class="profile-header__brand">
         <div class="profile-header__brand-icon">⚡</div>
         <span class="profile-header__brand-text">SparkFi</span>
       </div>
 
+      <!-- "Perfil" marcado como activo porque es la página actual -->
       <nav class="profile-header__nav">
         <a href="03-home.html" class="profile-header__nav-link">Inicio</a>
         <a href="04-courses.html" class="profile-header__nav-link">Cursos</a>
@@ -33,12 +36,16 @@
 
       <a href="08-settings.html" class="profile-header__settings-link" title="Configuración">⚙️</a>
 
+      <!-- Avatar del header que lleva de vuelta a esta misma página -->
       <a href="07-profile.html" class="profile-header__avatar-link">
         <img src="https://i.pravatar.cc/50" alt="perfil" class="profile-header__avatar-image" />
       </a>
     </header>
 
+    <!-- Layout de dos columnas: sidebar con info del usuario y sección de logros a la derecha -->
     <main class="profile-page">
+
+      <!-- Sidebar izquierda: foto, datos, estadísticas y cerrar sesión -->
       <aside class="profile-sidebar">
         <div class="profile-sidebar__avatar">
           <img
@@ -50,6 +57,7 @@
 
         <h1 class="profile-sidebar__name">Juan Pérez</h1>
         <p class="profile-sidebar__email">juan.perez@example.com</p>
+        <!-- Insignia que muestra el nivel de progreso del usuario en la plataforma -->
         <span class="profile-sidebar__level-badge">Nivel 3</span>
 
         <div class="profile-sidebar__actions">
@@ -57,6 +65,7 @@
           <a href="08-settings.html" class="profile-sidebar__settings-shortcut" title="Configuración">⚙️</a>
         </div>
 
+        <!-- Resumen numérico del desempeño del usuario; el JS los anima al cargar la página -->
         <section class="profile-sidebar__stats">
           <div class="profile-sidebar__stat-item">
             <span class="profile-sidebar__stat-value">4</span>
@@ -74,12 +83,15 @@
           </div>
         </section>
 
+        <!-- El JS muestra un confirm() antes de redirigir para evitar cierres accidentales -->
         <a href="01-login.html" class="profile-sidebar__logout-link">Cerrar sesión</a>
       </aside>
 
+      <!-- Sección derecha con los logros/insignias del usuario -->
       <section class="profile-achievements">
         <h2 class="profile-achievements__title">Mis logros</h2>
 
+        <!-- El JS anima la aparición de estas tarjetas con un fade-in escalonado -->
         <div class="profile-achievements__grid">
           <article class="profile-achievements__card">
             <div class="profile-achievements__icon profile-achievements__icon--blue">★</div>
@@ -97,6 +109,7 @@
           </article>
         </div>
 
+        <!-- El JS intercepta este clic para mostrar un mensaje de "próximamente" -->
         <a href="#" class="profile-achievements__link">Ver todos los logros →</a>
       </section>
     </main>

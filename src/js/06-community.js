@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Buscamos el primer post de Marta
+    // Solo el primer post tiene la funcionalidad de comentar por ahora
     const primerPost = document.querySelector('.post-card');
     const btnComentar = document.querySelector('.comment-btn');
     const contadorTexto = document.querySelector('.comment-count');
     let totalComentarios = 0;
 
     if (primerPost) {
-        // CREAMOS EL CONTENEDOR DE COMENTARIOS DESDE JS (Para no tocar HTML)
+        // El área de comentarios se crea desde JS para no tocar el HTML
         const areaComentarios = document.createElement('div');
         areaComentarios.style.cssText = "display: none; margin-top: 15px; padding: 15px; background: #f8faff; border-radius: 15px; border: 1px solid #e4e7f2;";
-        
-        // Creamos la lista donde caerán los mensajes
+
+        // Lista donde aparecerán los comentarios publicados
         const listaMensajes = document.createElement('div');
-        
-        // Creamos el input y el botón
+
+        // Fila con el input de texto y el botón de publicar
         const cajaInput = document.createElement('div');
         cajaInput.style.cssText = "display: flex; gap: 10px; margin-top: 10px;";
         cajaInput.innerHTML = `
@@ -25,28 +25,28 @@ document.addEventListener('DOMContentLoaded', () => {
         areaComentarios.appendChild(cajaInput);
         primerPost.appendChild(areaComentarios);
 
-        // Funcionalidad de abrir/cerrar
+        // Alterna la visibilidad del área de comentarios al hacer clic en "Comentar"
         if (btnComentar) {
             btnComentar.addEventListener('click', () => {
                 areaComentarios.style.display = (areaComentarios.style.display === 'none') ? 'block' : 'none';
             });
         }
 
-        // Funcionalidad de publicar
         const botonPublicar = cajaInput.querySelector('button');
         const inputTexto = cajaInput.querySelector('input');
 
+        // Publica el comentario: lo agrega a la lista y actualiza el contador
         botonPublicar.addEventListener('click', () => {
             if (inputTexto.value.trim() !== "") {
                 const nuevoComentario = document.createElement('div');
                 nuevoComentario.style.cssText = "background: white; padding: 10px; border-radius: 10px; margin-bottom: 8px; border: 1px solid #eee; font-size: 14px;";
                 nuevoComentario.innerHTML = `<strong>Juan:</strong> ${inputTexto.value}`;
-                
+
                 listaMensajes.appendChild(nuevoComentario);
-                
+
                 totalComentarios++;
                 if (contadorTexto) contadorTexto.innerText = totalComentarios;
-                inputTexto.value = ""; // Limpiar
+                inputTexto.value = "";
             }
         });
     }

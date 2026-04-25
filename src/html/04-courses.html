@@ -17,7 +17,7 @@
 
   <body>
     <div class="pagina-cursos">
-      <!-- El nav -->
+      <!-- Barra de navegación superior con "Cursos" marcado como activo -->
       <header class="encabezado-principal">
         <div class="marca">
           <span class="marca-simbolo">⚡</span>
@@ -39,13 +39,14 @@
         </div>
       </header>
 
-      <!-- contenido central -->
+      <!-- Layout de dos columnas: sidebar con la lista de cursos y área de contenido a la derecha -->
       <main class="contenedor-cursos">
-        <!-- lista de cursos -->
+
+        <!-- Sidebar izquierda: lista de cursos con buscador; el JS la puebla dinámicamente -->
         <aside class="barra-lateral-cursos">
           <h2 class="titulo-barra-cursos">Cursos</h2>
 
-
+          <!-- El JS escucha este input para filtrar la lista de cursos en tiempo real -->
           <input
             type="text"
             class="campo-busqueda-cursos"
@@ -53,8 +54,10 @@
             aria-label="Buscar curso"
           />
 
+          <!-- El JS muestra u oculta este mensaje según si la búsqueda tiene resultados -->
           <p id="mensaje-vacio-cursos" class="texto-progreso-curso" hidden>No se encontraron cursos.</p>
 
+          <!-- El JS reemplaza estos botones con los datos del arreglo de cursos -->
           <button class="boton-tema-curso activo">Introducción al ahorro</button>
           <button class="boton-tema-curso">Introducción a la inversión</button>
           <button class="boton-tema-curso">Introducción al presupuesto</button>
@@ -69,22 +72,21 @@
           <button class="boton-tema-curso">Perfil de riesgo e inversión</button>
         </aside>
 
-        <!-- contenido de la derecha -->
+        <!-- Área derecha: lecciones del curso seleccionado y vista de detalle -->
         <section class="contenido-cursos">
 
-          
           <header class="encabezado-cursos">
             <h1 class="titulo-cursos">Vista de lección</h1>
           </header>
 
-          <!-- las lecciones -->
+          <!-- El JS llena esta sección con las tarjetas de lecciones del curso activo -->
           <section class="lista-cursos"></section>
-          
-          
+
+          <!-- Detalle de la lección activa: progreso, descripción y botón para completar -->
           <section class="seccion-leccion">
             <h2 class="titulo-leccion">Vista de lección</h2>
 
-            
+            <!-- El ancho del relleno se actualiza desde el JS según el progreso del curso -->
             <div class="barra-progreso-leccion">
               <div class="relleno-progreso-leccion"></div>
             </div>
@@ -97,6 +99,7 @@
                 </ul>
               </div>
 
+              <!-- Placeholder del video; en el futuro se reemplazaría por un reproductor real -->
               <div class="video-leccion">
                 <span class="icono-reproducir">▶</span>
               </div>
@@ -110,6 +113,7 @@
       </main>
     </div>
 
+    <!-- type="module" para que las variables queden en su propio scope y el script se difiera automáticamente -->
     <script type="module" src="../js/04-courses.js"></script>
   </body>
 </html>

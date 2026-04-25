@@ -1,5 +1,6 @@
 /* ===================================
-   Paleta SparkFi
+   PALETA DE COLORES
+   Variables de SparkFi reutilizadas en toda la pantalla de cursos
 =================================== */
 :root {
   --sf-green: #22d74f;
@@ -19,7 +20,7 @@
 }
 
 /* ===================================
-   Reset
+   RESET BÁSICO
 =================================== */
 * {
   margin: 0;
@@ -32,14 +33,14 @@ body {
   background: var(--sf-bg);
 }
 
-/* Contenedor general */
 .pagina-cursos {
   min-height: 100vh;
   padding: 32px;
 }
 
 /* ===================================
-   Topbar
+   HEADER DE NAVEGACIÓN
+   Barra flotante con sombra y bordes redondeados; igual en todas las páginas internas
 =================================== */
 .encabezado-principal {
   background: var(--sf-surface);
@@ -56,6 +57,7 @@ body {
   margin: 0 auto 32px;
 }
 
+/* Logo: círculo verde con el rayo + nombre */
 .marca {
   display: flex;
   align-items: center;
@@ -78,6 +80,7 @@ body {
   font-size: 20px;
 }
 
+/* Links de navegación en fila horizontal */
 .navegacion-principal {
   display: flex;
   gap: 24px;
@@ -94,12 +97,14 @@ body {
   color: var(--sf-blue-strong);
 }
 
+/* El link activo tiene color azul y una línea debajo simulada con box-shadow */
 .enlace-navegacion.activo {
   color: var(--sf-blue-strong);
   box-shadow: 0 2px 0 0 var(--sf-blue-strong);
   padding-bottom: 2px;
 }
 
+/* Círculo oscuro del avatar con efecto hover de elevación */
 .avatar-usuario-circulo {
   width: 38px;
   height: 38px;
@@ -120,7 +125,8 @@ body {
 }
 
 /* ===================================
-   Layout principal
+   LAYOUT PRINCIPAL
+   Tarjeta blanca con dos columnas: sidebar izquierda + contenido derecho
 =================================== */
 .contenedor-cursos {
   max-width: 1200px;
@@ -135,7 +141,8 @@ body {
 }
 
 /* ===================================
-   Sidebar izquierda
+   SIDEBAR IZQUIERDA
+   Lista de cursos con buscador y botones de selección
 =================================== */
 .barra-lateral-cursos {
   width: 220px;
@@ -149,6 +156,7 @@ body {
   margin-bottom: 20px;
 }
 
+/* Campo de búsqueda con fondo levemente azulado para distinguirlo del blanco de la tarjeta */
 .campo-busqueda-cursos {
   width: 100%;
   padding: 11px 14px;
@@ -166,12 +174,14 @@ body {
   color: #8b95a7;
 }
 
+/* Focus: borde azul fuerte con halo para que el campo activo sea fácil de identificar */
 .campo-busqueda-cursos:focus {
   border-color: var(--sf-blue-strong);
   background: #ffffff;
   box-shadow: 0 0 0 3px rgba(10, 61, 254, 0.12);
 }
 
+/* Botones de cada curso en el sidebar; translateX al hover da sensación de profundidad */
 .boton-tema-curso {
   display: block;
   width: 100%;
@@ -194,13 +204,15 @@ body {
   transform: translateX(2px);
 }
 
+/* El curso activo se rellena de azul sólido */
 .boton-tema-curso.activo {
   background: var(--sf-blue-strong);
   color: #ffffff;
 }
 
 /* ===================================
-   Contenido derecho
+   CONTENIDO DERECHO
+   Lista de lecciones del curso seleccionado y vista de detalle
 =================================== */
 .contenido-cursos {
   flex: 1;
@@ -218,7 +230,8 @@ body {
 }
 
 /* ===================================
-   Lista de cursos
+   TARJETAS DE LECCIONES
+   Cada lección aparece como una fila con ícono, nombre y botón
 =================================== */
 .lista-cursos {
   display: flex;
@@ -227,6 +240,7 @@ body {
   margin-bottom: 32px;
 }
 
+/* Hover: la tarjeta se eleva levemente para indicar que es interactiva */
 .tarjeta-curso {
   display: flex;
   align-items: center;
@@ -250,6 +264,7 @@ body {
   gap: 16px;
 }
 
+/* Cuadrado redondeado que contiene el emoji representativo de cada categoría */
 .icono-curso {
   width: 48px;
   height: 48px;
@@ -260,6 +275,7 @@ body {
   font-size: 24px;
 }
 
+/* Colores de fondo según la categoría del curso */
 .icono-ahorro {
   background: #ccfbe1;
   color: #16a34a;
@@ -296,11 +312,13 @@ body {
   color: var(--sf-text-soft);
 }
 
+/* El porcentaje de progreso en azul para que destaque del texto gris */
 .progreso-destacado {
   color: var(--sf-blue-strong);
   font-weight: 600;
 }
 
+/* Barra de progreso del curso en la lista */
 .barra-progreso {
   width: 180px;
   height: 5px;
@@ -315,6 +333,7 @@ body {
   background: var(--sf-blue-strong);
 }
 
+/* Anchos de progreso por curso; se definieron aquí porque son datos estáticos por ahora */
 .progreso-ahorro {
   width: 65%;
 }
@@ -331,7 +350,7 @@ body {
   width: 0%;
 }
 
-/* Botones de la lista */
+/* Botón azul principal para estudiar la primera lección */
 .boton-curso {
   padding: 10px 18px;
   border-radius: 999px;
@@ -349,6 +368,7 @@ body {
   box-shadow: 0 8px 18px rgba(10, 61, 254, 0.22);
 }
 
+/* Botón outline para las lecciones que no son la primera */
 .boton-curso-secundario {
   background: #ffffff;
   border: 1px solid var(--sf-blue-strong);
@@ -356,7 +376,8 @@ body {
 }
 
 /* ===================================
-   Vista de lección
+   VISTA DE DETALLE DE LECCIÓN
+   Sección inferior con la barra de progreso, descripción y botón de completar
 =================================== */
 .seccion-leccion {
   margin-top: 8px;
@@ -368,7 +389,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* barra azul superior */
+/* Barra de progreso delgada en azul que muestra el avance del curso activo */
 .barra-progreso-leccion {
   width: 100%;
   height: 4px;
@@ -384,7 +405,7 @@ body {
   background: var(--sf-blue-strong);
 }
 
-/* tarjeta de lección */
+/* Tarjeta con el contenido de la lección: texto a la izquierda y placeholder del video a la derecha */
 .tarjeta-leccion {
   border-radius: 20px;
   border: 1px solid var(--sf-border);
@@ -433,6 +454,7 @@ body {
   line-height: 1.35;
 }
 
+/* Placeholder gris del video; en el futuro se reemplazaría por un reproductor real */
 .video-leccion {
   width: 180px;
   border-radius: 16px;
@@ -447,7 +469,7 @@ body {
   color: #4b5563;
 }
 
-/* Botón principal */
+/* Botón verde para marcar la lección como completada */
 .boton-completar-leccion {
   padding: 12px 20px;
   border-radius: 999px;
@@ -466,7 +488,9 @@ body {
 }
 
 /* ===================================
-   Responsive
+   RESPONSIVE
+   En tablet el sidebar pasa a ser una fila horizontal;
+   en móvil las tarjetas se apilan verticalmente
 =================================== */
 @media (max-width: 960px) {
   .contenedor-cursos {
@@ -525,7 +549,7 @@ body {
   }
 }
 
-/* Avatar link */
+/* Quita el subrayado y el color azul que el navegador pone a los links de avatar */
 a.avatar-mini, a.user-pill {
   text-decoration: none;
   color: inherit;

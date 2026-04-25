@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Crear cuenta - SparkFi</title>
 
-    <!-- Precarga de Google Fonts para mejorar la velocidad de carga -->
+    <!-- Fuente Inter con preconnect para reducir el tiempo de carga -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
 
-    <!-- Ícono de la pestaña: el rayo es el símbolo de SparkFi -->
+    <!-- Favicon con el rayo de SparkFi generado como SVG inline -->
     <link
       rel="icon"
       href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9889;</text></svg>"
@@ -23,20 +23,18 @@
   </head>
 
   <body>
-    <!-- Contenedor principal que centra la tarjeta en la página -->
     <div class="pagina-crear-cuenta">
 
-      <!-- Tarjeta blanca donde vive todo el formulario de registro -->
       <div class="tarjeta-crear-cuenta">
 
-        <!-- Encabezado: logo de SparkFi a la izquierda, botón de login a la derecha -->
+        <!-- Logo a la izquierda, botón de login a la derecha usando space-between -->
         <header class="encabezado-tarjeta-crear-cuenta">
           <div class="marca-tarjeta-crear-cuenta">
             <span class="icono-marca-crear-cuenta">&#9889;</span>
             <span class="texto-marca-crear-cuenta">SparkFi</span>
           </div>
 
-          <!-- Si el usuario ya tiene cuenta, lo llevamos directo al login -->
+          <!-- Si ya tiene cuenta, lo llevamos directo al login sin que tenga que buscarlo -->
           <a href="01-login.html" class="enlace-iniciar-sesion"
             >Iniciar sesi&oacute;n</a
           >
@@ -45,10 +43,9 @@
         <main class="contenido-tarjeta-crear-cuenta">
           <h1 class="titulo-crear-cuenta">Crear una cuenta</h1>
 
-          <!-- Formulario de registro con todos los campos necesarios para darse de alta -->
           <form class="formulario-crear-cuenta">
 
-            <!-- Campo del nombre real del usuario -->
+            <!-- Nombre real del usuario, no un apodo o alias -->
             <label
               class="etiqueta-formulario-crear-cuenta"
               for="nombre-completo"
@@ -63,7 +60,7 @@
               autocomplete="name"
             />
 
-            <!-- Correo que servirá como identificador de la cuenta -->
+            <!-- Correo que servirá como identificador único de la cuenta -->
             <label class="etiqueta-formulario-crear-cuenta" for="correo"
               >Correo</label
             >
@@ -76,7 +73,6 @@
               autocomplete="email"
             />
 
-            <!-- Contraseña nueva que el usuario quiere usar en la plataforma -->
             <label class="etiqueta-formulario-crear-cuenta" for="contrasena"
               >Contrase&ntilde;a</label
             >
@@ -89,7 +85,7 @@
               autocomplete="new-password"
             />
 
-            <!-- Confirmación para asegurarse de que el usuario no cometió un error al escribir -->
+            <!-- Campo de confirmación para detectar errores tipográficos en la contraseña -->
             <label
               class="etiqueta-formulario-crear-cuenta"
               for="confirmar-contrasena"
@@ -104,12 +100,11 @@
               required
               autocomplete="new-password"
             />
-            <!-- Pista visual debajo del campo para recordarle al usuario que debe coincidir -->
             <small class="pista-formulario-crear-cuenta">
               Debe coincidir con la contrase&ntilde;a anterior
             </small>
 
-            <!-- Checkbox de aceptación: el registro no avanza sin esto -->
+            <!-- El registro no avanza si este checkbox no está marcado -->
             <label class="terminos-formulario-crear-cuenta">
               <input id="terminos" type="checkbox" class="casilla-terminos" />
               <span>
@@ -120,14 +115,13 @@
               </span>
             </label>
 
-            <!-- Zona donde el JS inyecta errores o el mensaje de éxito tras intentar registrarse -->
+            <!-- El JS inyecta aquí los errores de validación o el mensaje de éxito -->
             <div
               id="resultado-crear-cuenta"
               class="resultado-formulario-crear-cuenta"
               aria-live="polite"
             ></div>
 
-            <!-- Botón principal que dispara la validación y el registro -->
             <button
               id="boton-crear-cuenta"
               type="button"
