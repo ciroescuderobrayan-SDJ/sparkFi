@@ -1,0 +1,47 @@
+// Sin backend: el nombre viene hardcodeado hasta que exista sesión real.
+const USUARIO = { nombre: "Juan" };
+
+function obtenerSaludo() {
+  const hora = new Date().getHours();
+  if (hora >= 5 && hora < 12) return "Buenos días";
+  if (hora >= 12 && hora < 18) return "Buenas tardes";
+  return "Buenas noches";
+}
+
+function actualizarSaludo() {
+  const titulo = document.querySelector(".home-hero__title");
+  if (!titulo) return;
+  titulo.innerHTML =
+    obtenerSaludo() +
+    ", " +
+    USUARIO.nombre +
+    ' <span class="home-hero__wave">👋</span>';
+}
+
+function animarTarjetas() {
+  const tarjetas = document.querySelectorAll(".home-quick-access__card");
+  tarjetas.forEach(function (tarjeta, i) {
+    tarjeta.style.opacity = "0";
+    tarjeta.style.transform = "translateY(20px)";
+    tarjeta.style.transition = "opacity 0.4s ease, transform 0.4s ease";
+    setTimeout(function () {
+      tarjeta.style.opacity = "1";
+      tarjeta.style.transform = "translateY(0)";
+    }, 100 + i * 130);
+  });
+}
+
+function navegarAlPerfil() {
+  const avatar = document.querySelector(".home-header__user-avatar");
+  if (!avatar) return;
+  avatar.style.cursor = "pointer";
+  avatar.addEventListener("click", function () {
+    window.location.href = "./07-profile.html";
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  actualizarSaludo();
+  animarTarjetas();
+  navegarAlPerfil();
+});
