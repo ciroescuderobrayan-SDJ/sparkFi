@@ -1,39 +1,58 @@
-// Sin backend: credenciales fijas hasta que exista una API real
-const CREDENCIALES_SISTEMA = {
-  email: "admin@sparkfi.com",
-  password: "sparkfi123",
-};
+const API_USUARIOS =
+  "https://69ff3b6e8c70b15fa3cb2e3d.mockapi.io/api/v1/users";
 
 const MAX_INTENTOS = 3;
 let intentosRealizados = 0;
 
-function validarCredenciales(email, password) {
-  return (
-    email === CREDENCIALES_SISTEMA.email &&
-    password === CREDENCIALES_SISTEMA.password
-  );
-}
-
-// Crea y muestra un div de mensaje dentro del área de resultado
 function mostrarMensaje(area, texto, tipo) {
   area.innerHTML = "";
+
   const div = document.createElement("div");
   div.className = "mensaje mensaje--" + tipo;
   div.textContent = texto;
+
   area.appendChild(div);
 }
 
-// Deshabilita el formulario completamente tras agotar los intentos
 function deshabilitarFormulario() {
   document.getElementById("email").disabled = true;
   document.getElementById("password").disabled = true;
+
   const btn = document.getElementById("btn-login");
   btn.disabled = true;
   btn.textContent = "Bloqueado";
 }
 
-function manejarLogin() {
-  // trim() evita que un espacio en blanco cuente como credencial válida
+function cambiarEstadoBoton(cargando) {
+  const btn = document.getElementById("btn-login");
+
+  if (cargando) {
+    btn.disabled = true;
+    btn.textContent = "Validando...";
+    return;
+  }
+
+  btn.disabled = false;
+  btn.textContent = "Iniciar sesion";
+}
+
+async function obtenerUsuarios() {
+  const respuesta = await fetch(API_USUARIOS);
+
+  if (!respuesta.ok) {
+    throw new Error("No se pudieron consultar los usuarios.");
+  }
+
+  return await respuesta.json();
+}
+
+function buscarUsuario(usuarios, email, password) {
+  return usuarios.find(function (usuario) {
+    return usuario.email === email && usuario.password === password;
+  });
+}
+
+async function manejarLogin() {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
   const resultadoArea = document.getElementById("resultado-login");
@@ -46,42 +65,72 @@ function manejarLogin() {
   if (intentosRealizados >= MAX_INTENTOS) {
     mostrarMensaje(
       resultadoArea,
-      "Usuario bloqueado. Ha superado el número de intentos.",
-      "bloqueado"
+      "Usuario bloqueado. Ha superado el numero de intentos.",
+      "bloqueado",
     );
     deshabilitarFormulario();
     return;
   }
 
-  intentosRealizados++;
+  try {
+    cambiarEstadoBoton(true);
+    mostrarMensaje(resultadoArea, "Validando usuario...", "cargando");
 
-  if (validarCredenciales(email, password)) {
-    mostrarMensaje(resultadoArea, "¡Bienvenido al sistema! Redirigiendo...", "exito");
-    deshabilitarFormulario();
-    // 1500 ms para que el usuario alcance a leer el mensaje antes de redirigir
-    setTimeout(function () {
-      window.location.href = "03-home.html";
-    }, 1500);
-    return;
-  }
+    const usuarios = await obtenerUsuarios();
+    const usuarioEncontrado = buscarUsuario(usuarios, email, password);
 
-  if (intentosRealizados < MAX_INTENTOS) {
+    if (usuarioEncontrado) {
+      sessionStorage.setItem(
+        "usuarioSparkFi",
+        JSON.stringify(usuarioEncontrado),
+      );
+
+      mostrarMensaje(
+        resultadoArea,
+        "Bienvenido al sistema. Redirigiendo...",
+        "exito",
+      );
+
+      setTimeout(function () {
+        window.location.href = "03-home.html";
+      }, 1500);
+
+      return;
+    }
+
+    intentosRealizados++;
+
+    if (intentosRealizados < MAX_INTENTOS) {
+      mostrarMensaje(
+        resultadoArea,
+        "Datos incorrectos. Intento " +
+          intentosRealizados +
+          " de " +
+          MAX_INTENTOS +
+          ".",
+        "error",
+      );
+    } else {
+      mostrarMensaje(
+        resultadoArea,
+        "Usuario bloqueado. Ha superado el numero de intentos.",
+        "bloqueado",
+      );
+      deshabilitarFormulario();
+    }
+  } catch (error) {
     mostrarMensaje(
       resultadoArea,
-      "Datos incorrectos. Intento " + intentosRealizados + " de " + MAX_INTENTOS + ".",
-      "error"
+      "No se pudieron cargar los datos. Intenta mas tarde.",
+      "error",
     );
-  } else {
-    mostrarMensaje(
-      resultadoArea,
-      "Usuario bloqueado. Ha superado el número de intentos.",
-      "bloqueado"
-    );
-    deshabilitarFormulario();
+  } finally {
+    if (intentosRealizados < MAX_INTENTOS) {
+      cambiarEstadoBoton(false);
+    }
   }
 }
 
-// DOMContentLoaded garantiza que el botón ya existe en el DOM antes de buscarlo
 document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("btn-login").addEventListener("click", manejarLogin);
 });

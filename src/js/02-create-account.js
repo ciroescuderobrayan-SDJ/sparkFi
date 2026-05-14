@@ -1,21 +1,19 @@
-// Comprueba que el correo tenga la estructura básica usuario@dominio.ext
+const API_USUARIOS =
+  "https://69ff3b6e8c70b15fa3cb2e3d.mockapi.io/api/v1/users";
+
 function validarFormatoCorreo(correo) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(correo);
 }
 
-// La contraseña debe tener al menos 6 caracteres para ser aceptada
 function validarLongitudContrasena(contrasena) {
   return contrasena.length >= 6;
 }
 
-// Verifica que el campo de confirmación sea idéntico al de la contraseña original
 function validarContrasenasIguales(contrasena, confirmarContrasena) {
   return contrasena === confirmarContrasena;
 }
 
-// Recorre todos los campos del formulario y devuelve un arreglo con los errores encontrados.
-// Si el arreglo viene vacío, el formulario pasó todas las validaciones.
 function validarFormularioCrearCuenta(
   nombreCompleto,
   correo,
@@ -25,7 +23,6 @@ function validarFormularioCrearCuenta(
 ) {
   const errores = [];
 
-  // Primero se verifica que ningún campo de texto esté vacío
   const camposTexto = [
     { valor: nombreCompleto, mensaje: "El nombre completo es obligatorio." },
     { valor: correo, mensaje: "El correo electronico es obligatorio." },
@@ -39,17 +36,14 @@ function validarFormularioCrearCuenta(
     }
   }
 
-  // Solo valida el formato del correo si el usuario escribió algo (evita duplicar el error de "obligatorio")
   if (correo.trim() && !validarFormatoCorreo(correo)) {
     errores.push("El correo no tiene un formato valido (ejemplo@correo.com).");
   }
 
-  // Solo valida la longitud si el campo de contraseña no está vacío
   if (contrasena.trim() && !validarLongitudContrasena(contrasena)) {
     errores.push("La contrasena debe tener al menos 6 caracteres.");
   }
 
-  // Compara las dos contraseñas solo cuando ambas tienen contenido
   if (
     contrasena.trim() &&
     confirmarContrasena.trim() &&
@@ -58,7 +52,6 @@ function validarFormularioCrearCuenta(
     errores.push("Las contrasenas no coinciden.");
   }
 
-  // El usuario debe aceptar los términos para poder registrarse
   if (!terminos) {
     errores.push("Debes aceptar los terminos y condiciones.");
   }
@@ -66,10 +59,128 @@ function validarFormularioCrearCuenta(
   return errores;
 }
 
-// Función principal que se ejecuta al hacer clic en "Registrarme".
-// Lee los valores del formulario, valida, y muestra el resultado en pantalla.
-function manejarCrearCuenta() {
-  // Obtenemos referencias a todos los campos del formulario
+function limpiarResultado(area) {
+  area.innerHTML = "";
+}
+
+function mostrarErrores(area, errores) {
+  limpiarResultado(area);
+
+  const titulo = document.createElement("p");
+  titulo.className = "titulo-mensaje-crear-cuenta titulo-mensaje-error";
+  titulo.textContent = "Por favor corrige los siguientes errores:";
+  area.appendChild(titulo);
+
+  const lista = document.createElement("ul");
+  lista.className = "lista-errores-crear-cuenta";
+
+  for (let i = 0; i < errores.length; i++) {
+    const item = document.createElement("li");
+    item.textContent = errores[i];
+    lista.appendChild(item);
+  }
+
+  area.appendChild(lista);
+}
+
+function mostrarCargando(area) {
+  limpiarResultado(area);
+
+  const mensaje = document.createElement("div");
+  mensaje.className = "mensaje-crear-cuenta mensaje-cargando-crear-cuenta";
+  mensaje.textContent = "Creando cuenta...";
+
+  area.appendChild(mensaje);
+}
+
+function mostrarExito(area, nombreCompleto, correo) {
+  limpiarResultado(area);
+
+  const divExito = document.createElement("div");
+  divExito.className = "mensaje-crear-cuenta mensaje-exito-crear-cuenta";
+
+  const tituloExito = document.createElement("p");
+  tituloExito.className = "titulo-mensaje-crear-cuenta titulo-mensaje-exito";
+  tituloExito.textContent = "Cuenta creada exitosamente. Redirigiendo al login...";
+  divExito.appendChild(tituloExito);
+
+  const listaInfo = document.createElement("ul");
+  listaInfo.className = "datos-usuario-crear-cuenta";
+
+  const datosUsuario = [
+    { etiqueta: "Nombre", valor: nombreCompleto },
+    { etiqueta: "Correo", valor: correo },
+  ];
+
+  for (let i = 0; i < datosUsuario.length; i++) {
+    const itemInfo = document.createElement("li");
+    const etiqueta = document.createElement("strong");
+
+    etiqueta.textContent = datosUsuario[i].etiqueta + ": ";
+    itemInfo.appendChild(etiqueta);
+    itemInfo.appendChild(document.createTextNode(datosUsuario[i].valor));
+    listaInfo.appendChild(itemInfo);
+  }
+
+  divExito.appendChild(listaInfo);
+  area.appendChild(divExito);
+}
+
+function cambiarEstadoBoton(cargando) {
+  const boton = document.getElementById("boton-crear-cuenta");
+
+  if (cargando) {
+    boton.disabled = true;
+    boton.textContent = "Creando cuenta...";
+    return;
+  }
+
+  boton.disabled = false;
+  boton.textContent = "Registrarme";
+}
+
+function mostrarBotonCuentaCreada() {
+  const boton = document.getElementById("boton-crear-cuenta");
+
+  boton.disabled = true;
+  boton.textContent = "Cuenta creada";
+}
+
+async function obtenerUsuarios() {
+  const respuesta = await fetch(API_USUARIOS);
+
+  if (!respuesta.ok) {
+    throw new Error("No se pudieron consultar los usuarios.");
+  }
+
+  return await respuesta.json();
+}
+
+function correoYaExiste(usuarios, correo) {
+  const correoNormalizado = correo.trim().toLowerCase();
+
+  return usuarios.some(function (usuario) {
+    return String(usuario.email).toLowerCase() === correoNormalizado;
+  });
+}
+
+async function crearUsuario(usuario) {
+  const respuesta = await fetch(API_USUARIOS, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(usuario),
+  });
+
+  if (!respuesta.ok) {
+    throw new Error("No se pudo crear el usuario.");
+  }
+
+  return await respuesta.json();
+}
+
+async function manejarCrearCuenta() {
   const campoNombre = document.getElementById("nombre-completo");
   const campoCorreo = document.getElementById("correo");
   const campoContrasena = document.getElementById("contrasena");
@@ -79,9 +190,8 @@ function manejarCrearCuenta() {
   const campoTerminos = document.getElementById("terminos");
   const mensajeResultado = document.getElementById("resultado-crear-cuenta");
 
-  // Extraemos los valores actuales de cada campo
-  const nombreCompleto = campoNombre.value;
-  const correo = campoCorreo.value;
+  const nombreCompleto = campoNombre.value.trim();
+  const correo = campoCorreo.value.trim().toLowerCase();
   const contrasena = campoContrasena.value;
   const confirmarContrasena = campoConfirmarContrasena.value;
   const terminos = campoTerminos.checked;
@@ -94,68 +204,52 @@ function manejarCrearCuenta() {
     terminos,
   );
 
-  // Limpiamos cualquier mensaje anterior antes de mostrar el nuevo resultado
-  mensajeResultado.innerHTML = "";
-
   if (errores.length > 0) {
-    // Hay errores: mostramos un encabezado rojo y luego la lista de problemas
-    const titulo = document.createElement("p");
-    titulo.className = "titulo-mensaje-crear-cuenta titulo-mensaje-error";
-    titulo.textContent = "Por favor corrige los siguientes errores:";
-    mensajeResultado.appendChild(titulo);
+    mostrarErrores(mensajeResultado, errores);
+    return;
+  }
 
-    const lista = document.createElement("ul");
-    lista.className = "lista-errores-crear-cuenta";
+  let cuentaCreada = false;
 
-    for (let i = 0; i < errores.length; i++) {
-      const item = document.createElement("li");
-      item.textContent = errores[i];
-      lista.appendChild(item);
+  try {
+    cambiarEstadoBoton(true);
+    mostrarCargando(mensajeResultado);
+
+    const usuarios = await obtenerUsuarios();
+
+    if (correoYaExiste(usuarios, correo)) {
+      mostrarErrores(mensajeResultado, [
+        "Ya existe una cuenta registrada con este correo.",
+      ]);
+      return;
     }
 
-    mensajeResultado.appendChild(lista);
-  } else {
-    // Todo correcto: mostramos un mensaje de éxito con los datos confirmados
-    const divExito = document.createElement("div");
-    divExito.className = "mensaje-crear-cuenta mensaje-exito-crear-cuenta";
+    await crearUsuario({
+      nombre: nombreCompleto,
+      email: correo,
+      password: contrasena,
+      nivel: 1,
+      ahorro: 0,
+    });
 
-    const tituloExito = document.createElement("p");
-    tituloExito.className = "titulo-mensaje-crear-cuenta titulo-mensaje-exito";
-    tituloExito.textContent =
-      "Cuenta creada exitosamente. Redirigiendo al login...";
-    divExito.appendChild(tituloExito);
+    cuentaCreada = true;
+    mostrarBotonCuentaCreada();
+    mostrarExito(mensajeResultado, nombreCompleto, correo);
 
-    // Mostramos el nombre y correo del usuario recién registrado como confirmación
-    const listaInfo = document.createElement("ul");
-    listaInfo.className = "datos-usuario-crear-cuenta";
-
-    const datosUsuario = [
-      { etiqueta: "Nombre", valor: nombreCompleto },
-      { etiqueta: "Correo", valor: correo },
-    ];
-
-    for (let j = 0; j < datosUsuario.length; j++) {
-      const itemInfo = document.createElement("li");
-      itemInfo.innerHTML =
-        "<strong>" +
-        datosUsuario[j].etiqueta +
-        ":</strong> " +
-        datosUsuario[j].valor;
-      listaInfo.appendChild(itemInfo);
-    }
-
-    divExito.appendChild(listaInfo);
-    mensajeResultado.appendChild(divExito);
-
-    // Tras 2 segundos redirigimos al login para que el usuario inicie sesión con su nueva cuenta
     setTimeout(function () {
       window.location.href = "01-login.html";
     }, 2000);
+  } catch (error) {
+    mostrarErrores(mensajeResultado, [
+      "No se pudieron cargar los datos. Intenta mas tarde.",
+    ]);
+  } finally {
+    if (!cuentaCreada) {
+      cambiarEstadoBoton(false);
+    }
   }
 }
 
-// Esperamos a que el DOM esté completamente cargado antes de enlazar el botón,
-// así evitamos errores por intentar acceder a elementos que aún no existen.
 document.addEventListener("DOMContentLoaded", function () {
   const botonCrearCuenta = document.getElementById("boton-crear-cuenta");
   botonCrearCuenta.addEventListener("click", manejarCrearCuenta);
