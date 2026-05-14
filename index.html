@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="0; url=src/html/01-login.html">
-    <title>SparkFi</title>
-</head>
-<body>
-    <p>Redirigiendo a SparkFi... <a href="src/html/01-login.html">Clic aquí si no redirige</a></p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SparkFi - Proyecto Integrador</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="src/css/index.css" />
+  </head>
+
+  <body>
+    <main class="pagina-inicio">
+      <section class="hero-inicio">
+        <div class="marca-inicio">
+          <span class="marca-icono">⚡</span>
+          <span class="marca-texto">SparkFi</span>
+        </div>
+
+        <h1>Proyecto integrador institucional</h1>
+        <p>
+          Plataforma educativa de finanzas personales construida por el equipo
+          de trabajo. Selecciona un estudiante para ver las pantallas asignadas.
+        </p>
+      </section>
+
+      <section class="seccion-estudiantes">
+        <div class="encabezado-estudiantes">
+          <h2>Integrantes del equipo</h2>
+          <a href="src/html/01-login.html" class="enlace-login">Ir al login</a>
+        </div>
+
+        <div id="resultado-estudiantes" class="grid-estudiantes">
+          <p class="mensaje-estado">Cargando estudiantes...</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/js/index.js"></script>
+  </body>
 </html>

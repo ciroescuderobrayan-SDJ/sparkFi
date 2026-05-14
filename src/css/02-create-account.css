@@ -229,6 +229,15 @@ body {
   background-color: #d4f7e0;
 }
 
+/* Variante azul suave mientras se consulta la API */
+.mensaje-cargando-crear-cuenta {
+  border: 1px solid #bfdbfe;
+  background-color: #eff6ff;
+  color: #0a3dfe;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* Lista con los datos del usuario recién registrado (nombre y correo) */
 .datos-usuario-crear-cuenta {
   margin: 0;
@@ -264,6 +273,11 @@ body {
 /* Al pasar el cursor cambia a la variante más suave del verde */
 .boton-crear-cuenta:hover {
   background: var(--sf-green-soft);
+}
+
+.boton-crear-cuenta:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
 }
 
 /* ── Responsive ──────────────────────────────────────────────────────────────
