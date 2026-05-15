@@ -56,6 +56,9 @@ function animarLogros() {
 }
 
 // Placeholder hasta que exista una página dedicada a todos los logros
+
+
+
 function manejarVerLogros() {
   const enlace = document.querySelector(".profile-achievements__link");
   if (!enlace) return;
@@ -66,8 +69,70 @@ function manejarVerLogros() {
   });
 }
 
+function cargarPerfil() {
+
+  const nombre =
+    document.getElementById("profile-name");
+
+  const email =
+    document.getElementById("profile-email");
+
+  const cursos =
+    document.getElementById("stat-cursos");
+
+  const retos =
+    document.getElementById("stat-retos");
+
+  const ahorro =
+    document.getElementById("stat-ahorro");
+
+
+  nombre.textContent = "Cargando...";
+  email.textContent = "Cargando...";
+
+
+
+  setTimeout(() => {
+
+    const usuario =
+      JSON.parse(
+        localStorage.getItem("usuario")
+      );
+
+
+
+    if (usuario) {
+
+      nombre.textContent =
+        usuario.nombre;
+
+      email.textContent =
+        usuario.email;
+
+    } else {
+
+      nombre.textContent =
+        "Juan Pérez";
+
+      email.textContent =
+        "juan.perez@example.com";
+
+    }
+
+    cursos.textContent = "0";
+
+    retos.textContent = "0";
+
+    ahorro.textContent = "$";
+
+    iniciarContadores();
+
+  }, 1200);
+
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  iniciarContadores();
+  cargarPerfil();
   confirmarCerrarSesion();
   animarLogros();
   manejarVerLogros();
