@@ -1,6 +1,6 @@
 # SparkFi — Plataforma Educativa de Finanzas Personales
 
-SparkFi es un prototipo de aplicación web orientada a la educación financiera personal. Ofrece una experiencia interactiva con cursos, retos, gamificación y seguimiento visual del progreso, construida íntegramente con tecnologías web fundamentales sin dependencias externas.
+SparkFi es un prototipo de aplicación web orientada a la educación financiera personal. Ofrece una experiencia interactiva con cursos, retos, gamificación y seguimiento visual del progreso, construida íntegramente con tecnologías web fundamentales, sin instalación de paquetes ni herramientas de build.
 
 ---
 
@@ -19,18 +19,19 @@ SparkFi es un prototipo de aplicación web orientada a la educación financiera 
 
 ## Vista previa
 
-| Login | Home | Cursos |
-|-------|------|--------|
-| ![Login](src/images/mockups/01-login.png) | ![Home](src/images/mockups/03-home.png) | ![Cursos](src/images/mockups/04-courses.png) |
+| Login | Registro | Home | Cursos |
+|-------|----------|------|--------|
+| ![Login](src/images/mockups/01-login.png) | ![Registro](src/images/mockups/02-create-account.png) | ![Home](src/images/mockups/03-home.png) | ![Cursos](src/images/mockups/04-courses.png) |
 
-| Retos | Comunidad | Perfil |
-|-------|-----------|--------|
-| ![Retos](src/images/mockups/05-challenges.png) | ![Comunidad](src/images/mockups/06-community.png) | ![Perfil](src/images/mockups/07-profile.png) |
+| Retos | Comunidad | Perfil | Configuración |
+|-------|-----------|--------|---------------|
+| ![Retos](src/images/mockups/05-challenges.png) | ![Comunidad](src/images/mockups/06-community.png) | ![Perfil](src/images/mockups/07-profile.png) | ![Configuración](src/images/mockups/08-settings.png) |
 
 ---
 
 ## Características
 
+- **Portada institucional** — página inicial con integrantes del equipo y accesos a las pantallas asignadas
 - **Autenticación simulada** — login y registro con validación en el lado del cliente
 - **Dashboard principal** — resumen del progreso, cursos activos y estadísticas financieras
 - **Cursos interactivos** — módulos de educación financiera organizados por tema y nivel
@@ -49,10 +50,10 @@ SparkFi es un prototipo de aplicación web orientada a la educación financiera 
 | HTML5 | Estructura semántica de las vistas |
 | CSS3 | Estilos, layout y responsividad |
 | JavaScript (Vanilla) | Interactividad y lógica del cliente |
-| SVG | Iconografía vectorial personalizada |
+| SVG inline | Favicon vectorial del logo |
 | Google Fonts (Inter) | Tipografía del sistema |
 
-> No requiere instalación de dependencias ni herramientas de construcción (build tools).
+> No requiere instalación de paquetes ni herramientas de construcción (build tools).
 
 ---
 
@@ -60,7 +61,7 @@ SparkFi es un prototipo de aplicación web orientada a la educación financiera 
 
 ```
 sparkFi/
-├── index.html                  # Punto de entrada → redirige a login
+├── index.html                  # Punto de entrada y portada del proyecto
 ├── src/
 │   ├── html/
 │   │   ├── 01-login.html
@@ -106,7 +107,7 @@ Luego, dentro de VS Code:
 2. Hacer clic derecho sobre `index.html`
 3. Seleccionar **"Open with Live Server"**
 
-El navegador abrirá automáticamente la pantalla de login.
+El navegador abrirá la portada del proyecto. Desde allí se puede revisar la asignación de pantallas por integrante o entrar al login.
 
 ---
 
